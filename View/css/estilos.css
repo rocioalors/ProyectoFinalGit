@@ -1,0 +1,17 @@
+body{
+
+	background: url(../img/fondoadmin.jpg) no-repeat center center fixed;
+    background-size: cover;
+	font-family: 'Nunito Sans', sans-serif;
+}
+
+.titulo{
+	text-align: center;
+}
+
+.form-group{
+    left : 500px;
+     top  : 235px;
+     width: 400px;
+       padding : 5px;
+}
