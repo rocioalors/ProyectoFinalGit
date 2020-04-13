@@ -159,6 +159,34 @@ class  Usuario{
         return $total ;
     }
 
+       public static function getComprobarUsuario($nombre) {
+        $conexion = proyectoBD::connectDB();
+        $seleccion = "SELECT * FROM usuarios WHERE nombre='$nombre'";
+        //echo $seleccion;
+        $consulta = $conexion->query($seleccion);
+        $total=$consulta->rowCount();
+        return $total ;
+      }
+
+      public static function getComprobarDni($dni) {
+        $conexion = proyectoBD::connectDB();
+        $seleccion = "SELECT * FROM usuarios WHERE dni='$dni'";
+        //echo $seleccion;
+        $consulta = $conexion->query($seleccion);
+        $total=$consulta->rowCount();
+        //echo $total;
+        return $total ;
+      }
+
+      public static function getComprobarCorreo($correo) {
+        $conexion = proyectoBD::connectDB();
+        $seleccion = "SELECT * FROM usuarios WHERE correo='$correo'";
+        //echo $seleccion;
+        $consulta = $conexion->query($seleccion);
+        $total=$consulta->rowCount();
+        return $total ;
+      }
+
 }
     
 

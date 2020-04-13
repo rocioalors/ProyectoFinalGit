@@ -1,0 +1,50 @@
+body{
+
+	background: url(../img/3.jpg) no-repeat center center fixed;
+    background-size: cover;
+	font-family: 'Nunito Sans', sans-serif;
+}
+
+.nombre{
+color:#aba104;
+text-align: center;
+font-family:'Pacifico', cursive;
+}
+
+.titulo{
+	text-align: center;
+	color:  #d7d7d7;
+}
+
+.container{
+	margin-top: 30px;
+	background-color: #3b4652;
+    opacity: .85;
+    padding: 0 20px;
+    box-shadow: 0px 0px 3px #848484;
+    border-radius: 3px;
+    width: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+.form-control{
+	color:#aba104;
+}
+.lavel{
+	color:#aba104;
+	font-weight: bold;
+	font-family:'Pacifico', cursive;
+	font-size: 20px;
+}
+.estado-no-disponible-usuario{
+	color: #FF334C;
+	font-weight: bold;
+}
+
+.estado-disponible-usuario{
+	color: #33FF74;
+	font-weight: bold;
+}

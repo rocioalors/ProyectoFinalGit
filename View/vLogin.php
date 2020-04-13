@@ -28,58 +28,12 @@
                 </form>
                     <h5 class="textoregistro"> ¿Eres nuevo? Registrate</h6>
                 <form class="col-12">
-                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-sign-in-alt"></i>  Registro </button>
+                  <a href="../Controller/registroUsuario.php">
+                     <button type="button" class="btn btn-primary"> <i class="fas fa-sign-in-alt"></i>  Registro </button></a>
                 </form>
               
             </div>
         </div>
     </div>
- <!--modal div-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-         <h5 class="modal-title" id="exampleModalCenterTitle">Formulario de registro</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">NOMBRE:</label>
-            <input type="text" class="form-control" id="nombre">
-          </div>
-         <div class="form-group">
-            <label for="recipient-name" class="col-form-label">DNI:</label>
-            <input type="text" class="form-control" id="correo">
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Correo:</label>
-            <input type="email" class="form-control" id="correo">
-          </div>
-           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">DIRECCIÓN:</label>
-            <input type="email" class="form-control" id="direccion">
-          </div>
-           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">TELÉFONO:</label>
-            <input type="email" class="form-control" id="telefono">
-          </div>
-           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">CONTRASEÑA:</label>
-            <input type="password" class="form-control" id="contraseña">
-          </div>
-          
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 </body>
 </html>

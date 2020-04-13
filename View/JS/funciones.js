@@ -14,4 +14,57 @@ return confirm( mensaje );
                 }       
             });
         }
+
+function comprobarUsuario() {
+    $("#loaderIcon").show();
+    jQuery.ajax({
+    url: "../Controller/compruebaRegistro.php",
+    data:'nombre='+$("#nombre").val(),
+    type: "POST",
+    success:function(data){
+        $("#estadousuario").html(data);
+        $("#loaderIcon").hide();
+    },
+    error:function (){}
+    });
+}
+function comprobarEmail() {
+    $("#loaderIconEmail").show();
+    jQuery.ajax({
+    url: "../Controller/compruebaRegistro.php",
+    data:'correo='+$("#correo").val(),
+    type: "POST",
+    success:function(data){
+        $("#estadoemail").html(data);
+        $("#loaderIconEmail").hide();
+    },
+    error:function (){}
+    });
+}
+
+function comprobarDni() {
+    $("#loaderIconDni").show();
+    jQuery.ajax({
+    url: "../Controller/compruebaRegistro.php",
+    data:'dni='+$("#dni").val(),
+    type: "POST",
+    success:function(data){
+        $("#estadoDni").html(data);
+        $("#loaderIconDni").hide();
+    },
+    error:function (){}
+    });
+}
+
+ function ValidarRegistro(nombre,dni,correo,direccion,telefono, contraseña)
+        {
+            $.ajax({
+                url: "../Controller/grabarNuevoUsuarioRegistro.php",
+                type: "POST",
+                data: "nombre="+nombre+"&dni="+dni+"&correo="+correo+"&direccion="+direccion+"&telefono="+telefono+"&contraseña="+contraseña,
+                success: function(resp){
+                $('#noregistro').html(resp)
+                }       
+            });
+        }
 </script>
