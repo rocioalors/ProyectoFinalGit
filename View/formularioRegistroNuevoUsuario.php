@@ -26,7 +26,7 @@
             <p><img src="../View/img/LoaderIcon.gif" id="loaderIcon" style="display:none" /></p>
 
             <label class="lavel" for="usr">DNI:</label>
-            <input type="text" class="form-control" id="dni" name="dni" value="" required onBlur="comprobarDni()">
+            <input type="text" class="form-control" id="dni" name="dni" value="" onBlur="comprobarDni()" required="Por favor introduce el DNI">
             
             <span id="estadoDni"></span> 
   	        <p><img src="../View/img/LoaderIcon.gif" id="loaderIconDni" style="display:none" /></p>
