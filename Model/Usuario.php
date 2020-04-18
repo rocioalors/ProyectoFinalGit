@@ -187,6 +187,21 @@ class  Usuario{
         return $total ;
       }
 
+      public static function getUsurioLinea($dni){
+        $conexion = proyectoBD::connectDB();
+        $seleccion = "SELECT * FROM usuarios WHERE correo='$correo'";
+      }
+
+
+        public static function getUsuarioByDni($dni) {
+        $conexion = proyectoBD::connectDB();
+        $seleccion = "SELECT * FROM usuarios WHERE dni=\"".$dni."\"";
+        $consulta = $conexion->query($seleccion);
+        $registro = $consulta->fetchObject();
+        $usuario = new Usuario($registro->id,$registro->nombre, $registro->dni, $registro->correo, $registro->direccion, $registro->telefono, $registro->contraseña);
+        return $usuario;
+    }
+
 }
     
 

@@ -10,6 +10,9 @@ include '../Model/Usuario.php';
     $totalTres=Usuario::getComprobarUsuario($_REQUEST['nombre']);
 	
 		if($total==0 && $totalDos==0 && $totalTres==0){
+			//Guardo el nombre del usuari en una variable de sesion
+			$usuario=Usuario::getUsuarioByDni($_REQUEST['dni']);
+			$_SESSION['user']=$usuario->getNombre();
 
      		$Aux = new Usuario("",$_POST['nombre'],$_POST['dni'],$_POST['correo'],$_POST['direccion'],$_POST['telefono'],$_POST['contraseña']);
   			$Aux->insert();

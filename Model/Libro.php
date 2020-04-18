@@ -175,14 +175,14 @@ class  Libro{
 		return $libros;
 	}
 
-	/*public static function getAsignaturaById($codigo) {
-		$conexion = EscuelaBD::connectDB();
-		$seleccion = "SELECT codigo, nombre FROM asignaturas WHERE codigo=\"".$codigo."\"";
+	public static function getLibroById($id) {
+		$conexion = proyectoBD::connectDB();
+		$seleccion = "SELECT * FROM libros WHERE id=\"".$id."\"";
 		$consulta = $conexion->query($seleccion);
 		$registro = $consulta->fetchObject();
-		$asignatura = new Asignatura($registro->codigo, $registro->nombre);
-		return $asignatura;
-	}*/
+		$libro = new Libro($registro->id,$registro->imagen, $registro->titulo,$registro->autor,$registro->descripcion,$registro->precio,$registro->cantidadalquiler,$registro->cantidadvender,$registro->genero);
+		return $libro;
+	}
 
 }
     

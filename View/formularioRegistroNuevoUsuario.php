@@ -10,7 +10,7 @@
   
  <div class="container">
 
-     <form class="col-12" method="POST" action="return false" onsubmit="return false">
+     <form class="col-12 col-md-9" method="POST" action="return false" onsubmit="return false">
      
       <h1 class="nombre">The Corner of Dreams</h1>
 

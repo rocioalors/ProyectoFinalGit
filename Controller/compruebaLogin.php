@@ -15,7 +15,9 @@ if(isset($_REQUEST['user']) && isset($_REQUEST['pass'])){
        //header('Location:compruebaLogin.php');
 		$total=Usuario::getComprobar($_SESSION['dni'],$_SESSION['pass']);
 	if($total>0){
-	 echo '<script>location.href = "Admin.php"</script>';
+		$usuario=Usuario::getUsuarioByDni($_SESSION['dni']);
+		$_SESSION['user']=$usuario->getNombre();
+	 echo '<script>location.href = "principalUsuario.php"</script>';
 }else{
 		echo '<span style="font-weight:bold;color: red;">Usuario o contraseña incorrecto</span>';
 }
