@@ -104,14 +104,14 @@
             <p>Porque los libros siempre son buenos compañeros y más en este periodo que estamos viviendo, en The Corner Of Dreams queremos acompañarte, formar parte de tu experiencia lectora.<br>
             Solo preocupate de escoger tu libro y nosotros te los llevamos a casa.
             </p>
-            <a class="btn btn-primary" href="grid-gallery/grid-gallery.html" role="button">Ver Catálogo »</a>
+            <a class="btn btn-primary" href="../Controller/usuarioVerCatalago.php" role="button">Ver Catálogo »</a>
           </div><!-- /.col-lg-4 -->
 
           <div class="col-lg-4">
             <img class="rounded-circle" src="../View/img/contacto.png" alt="Generic placeholder image" width="140" height="140">
             <h2>Contáctanos</h2>
             <p>Estaremos encantados de resolverte cualquier duda. Nos pondremos en contacto lo antes posible</p>
-            <a class="btn btn-primary" href="formulario.html" role="button">Contacta »</a>
+            <a class="btn btn-primary" href="../Controller/usuarioPrestamos.php" role="button">Contacta »</a>
           </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
 

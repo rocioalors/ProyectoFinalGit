@@ -40,7 +40,7 @@
               <!--Gestionar Préstamos -->
               <div class="col-md-6 col-lg-4">
                   <div class="card border-0 transform-on-hover">
-                    <a class="lightbox" href="../img/image3.jpg">
+                    <a class="lightbox" href="../Controller/adminVerPrestamos.php">
                       <img src="../View/img/prestamo.png" alt="Card Image" class="card-img-top" width="150px" height="150px">
                     </a>
                       <div class="card-body">

@@ -184,6 +184,21 @@ class  Libro{
 		return $libro;
 	}
 
+    public static function prestar($id){
+        $conexion=proyectoBD::connectDB();
+        $actualiza="UPDATE libros SET cantidadalquiler=cantidadalquiler-1 WHERE id='$id'";
+        //echo $actualiza;
+        $conexion->exec($actualiza);
+
+    }
+    public static function devolver($titulo){
+        $conexion=proyectoBD::connectDB();
+        $actualiza="UPDATE libros SET cantidadalquiler=cantidadalquiler+1 WHERE titulo='$titulo'";
+        //echo $actualiza;
+        $conexion->exec($actualiza);
+
+    }
+
 }
     
 

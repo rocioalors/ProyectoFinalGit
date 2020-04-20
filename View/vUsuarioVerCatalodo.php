@@ -3,6 +3,7 @@
 <head>
 	<title>Catálogo de Libros</title>
 	<link rel="stylesheet" type="text/css" href="../View/css/estiloPrincipalUsuario.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
 <!--Codigo NAV-->
@@ -31,6 +32,8 @@
  <h3 class="titulo">Deja que tu Imaginación Despierte... Apaga la TV y Enciende un Libro</h3>
  <p class="hastang">#YoMeQuedoEnCasaConTheCornerOfDreams</p>
 
+ <h6 class="titulo">(Entrega gratuita por compras superiores a 19€)</h6>
+
  <br>
 
 <!--Buscador-->
@@ -52,11 +55,20 @@
   				<div class="card-block">
                      <input type="hidden" name="" value="<?=$lista->getId()?>">
     				<h4 class="card-title"><?= $lista->getTitulo()?></h4>
-   					<h6 class="card-title"><?= $lista->getAutor()?></h6>
-    				<h6 class="precio">Género: <?=$lista->getGenero()?></h6>
+            <i class="material-icons" style="font-size:36px;color:red;">favorite</i>
+   					<h6 class="card-title text-center"><?= $lista->getAutor()?></h6>
+    				<h6 class="text-center">Género: <?=$lista->getGenero()?></h6>
     				<h6 class="text-center"><?=$lista->getPrecio()?> €</h6>
-					<a href="#" onclick="" data-toggle="modal" data-target="#exampleModal">Ver Sipnosis</a><br><br>
-					<a href="#" class="btn btn-primary">Préstamo</a>
+            <p class="bg-info text-center text-white" data-toggle="tooltip" title="<?=$lista->getDescripcion()?>">Ver sipnosis</p><br>
+           <?php 
+                if($lista->getCantidadalquiler()>0){
+            ?> 
+					         <a href="../Controller/usuarioPrestamos.php?id=<?=$lista->getId()?>&titulo=<?=$lista->getTitulo()?>"> <button type="button" class="btn btn-secondary">Préstamo</button></a>
+          <?php }else{?>
+                  <p id="noprestamo">(Libro actualmente no disponible para alquilar)</p>
+
+          <?php
+                } ?>
     				<a href="#" class="btn btn-primary">Compra</a>
   				</div>
   		</div>
@@ -68,26 +80,6 @@
  ?>
 </div>	
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="mostrar">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
  <!--Codigo para el buscador-->
  <script>
@@ -98,7 +90,15 @@ $(document).ready(function(){
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
+  });
+</script>
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
 });
 </script>
+                 
+         
+  
 </body>
 </html>

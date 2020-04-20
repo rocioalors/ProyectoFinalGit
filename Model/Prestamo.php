@@ -84,23 +84,23 @@ class  Prestamo{
 
  
 
-	/*public function insert() {
+	public function insert() {
 		$conexion = proyectoBD::connectDB();
 		
-		$insercion = "INSERT INTO usuarios (id,nombre,dni,correo,direccion,telefono,contraseña) VALUES ('$this->id','$this->nombre','$this->dni','$this->correo','$this->direccion','$this->telefono','$this->contraseña')";
+		$insercion = "INSERT INTO prestamos (id,fechaPrestamo,fechaDevolucion,libro,usuario) VALUES ('$this->id','$this->fechaPrestamo','$this->fechaDevolucion','$this->libro','$this->usuario')";
 		//echo $insercion;
 		$conexion->exec($insercion);
-	}*/
+	}
 
 	public function delete() {
 		$conexion = proyectoBD::connectDB();
 	
 		$borrado = "DELETE FROM prestamos WHERE id=\"".$this->id."\"";
-	
+	    //echo $borrado;
 		$conexion->exec($borrado);
 	}
 
-   /* public function update(){
+    /*public function update(){
         $conexion=proyectoBD::connectDB();
         $actualiza="UPDATE usuarios SET nombre=\"".$this->nombre."\",dni=\"".$this->dni."\",correo=\"".$this->correo."\",direccion=\"".$this->direccion."\",telefono=\"".$this->telefono."\",contraseña=\"".$this->contraseña."\"WHERE id=\"".$this->id."\"";
         echo $actualiza;
@@ -124,14 +124,38 @@ class  Prestamo{
 		return $prestamos;
 	}
 
-	/*public static function getAsignaturaById($codigo) {
-		$conexion = EscuelaBD::connectDB();
-		$seleccion = "SELECT codigo, nombre FROM asignaturas WHERE codigo=\"".$codigo."\"";
-		$consulta = $conexion->query($seleccion);
-		$registro = $consulta->fetchObject();
-		$asignatura = new Asignatura($registro->codigo, $registro->nombre);
-		return $asignatura;
-	}*/
+    public static function getFueraPlazo($use) {
+    
+        $conexion = proyectoBD::connectDB();
+        
+        $seleccion = "SELECT * FROM prestamos WHERE usuario='$use' AND fechadevolucion<CURDATE()";
+        
+        $consulta = $conexion->query($seleccion);
+        
+        $prestamos = [];
+        
+        while ($registro = $consulta->fetchObject()) {
+            $prestamos[] = new Prestamo($registro->id, $registro->fechaprestamo,$registro->fechadevolucion,$registro->libro,$registro->usuario);
+        }
+
+        return $prestamos;
+    }
+
+	public static function getPrestamoByUsuario($usuario) {
+		$conexion = proyectoBD::connectDB();
+		$seleccion = "SELECT * FROM prestamos WHERE usuario=\"".$usuario."\"";
+        //echo $seleccion;
+           $consulta = $conexion->query($seleccion);
+        
+        $prestamos = [];
+        
+        while ($registro = $consulta->fetchObject()) {
+            $prestamos[] = new Prestamo($registro->id, $registro->fechaprestamo,$registro->fechadevolucion,$registro->libro,$registro->usuario);
+        }
+
+        return $prestamos;
+		
+	}
 
 }
     
