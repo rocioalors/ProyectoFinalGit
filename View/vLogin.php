@@ -24,6 +24,7 @@
                     <div class="form-group" id="contrasena-group">
                         <input type="password" class="form-control" placeholder="Contraseña" name="pass" id="pass" required/>
                     </div>
+                 
                     <button  class="btn btn-primary" onclick="Validar(document.getElementById('user').value, document.getElementById('pass').value);"><i class="fas fa-sign-in-alt"></i>  Ingresar </button><br>
                 </form>
                     <h5 class="textoregistro"> ¿Eres nuevo? Registrate</h6>

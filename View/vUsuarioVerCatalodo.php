@@ -20,7 +20,7 @@
             <a href="../Controller/usuarioVerCatalago.php" class="nav-item nav-link">Ver Catálogo</a>
             <a href="../Controller/usuarioVerPerfil.php" class="nav-item nav-link">Mi perfil</a>
             <a href="../Controller/usuarioFormularioContacto.php" class="nav-item nav-link">Contacto</a> 
-           <a href="../Controller/verContenidoCesta.php"> CESTA: <?=$_SESSION['cantidad']?>Prod</a>
+           <a href="../Controller/verContenidoCesta.php"> CESTA: <?=$_SESSION['cantidad']?>Prd Total:<?=$_SESSION['total']?>€</a>
         </div>
         <div class="navbar-nav ml-auto">
           <a href="../Controller/usuarioCerrarSesion.php"><button type="button" class="btn btn-warning">Cerrar sesion</button></a>

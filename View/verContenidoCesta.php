@@ -11,7 +11,7 @@
   <body>
     <div class="contenedor">
 <table border = "1"><tr><th colspan="6">
-  <h3>PRODUCTOS EN TU CESTA</h3>
+  <h3>PRODUCTOS EN TU CESTA <?=$_SESSION['user']?></h3>
 </th>
 </tr>
 <tr>
@@ -51,7 +51,7 @@
     </tr>
     <tr>
     <td colspan="3"><a href="../Controller/usuarioVerCatalago.php">Seguir Comprando</a></td>
-    <td colspan="3"><a href="comprar.php">Finalizar Compra</a></td>
+    <td colspan="3"><a href="../Controller/finCompra.php">Finalizar Compra</a></td>
     </tr>
 </table>
 </div>

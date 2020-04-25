@@ -11,8 +11,6 @@ if (isset($_GET['quitapro'])) {
     }
     $_SESSION['cantidad']--;
     $_SESSION['total'] -= $libroAux->getPrecio();
-    setcookie('cantidad', $_SESSION['cantidad'], time() + 24 * 3600);
-    setcookie('total', $_SESSION['total'], time() + 24 * 3600);
-    setcookie('cesta', serialize($_SESSION['enCesta']), time() + 24 * 3600);
+ 
 }
 header('Location:verContenidoCesta.php');

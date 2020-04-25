@@ -5,11 +5,7 @@ include '../Controller/boostrap.php';
 
 $data['lista']=Libro::getLibro();
 
-if (isset($_COOKIE['cesta'])) {
-        $_SESSION['enCesta']=unserialize($_COOKIE['cesta']);
-        $_SESSION['total']    = $_COOKIE['total'];
-        $_SESSION['cantidad'] = $_COOKIE['cantidad'];
-    }
+
 // si no inicialializco los valores
 if (!isset($_SESSION['enCesta'])) {
     $_SESSION['enCesta'] = [];

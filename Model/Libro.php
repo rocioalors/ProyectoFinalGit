@@ -154,7 +154,7 @@ class  Libro{
 	public function update(){
 		$conexion=proyectoBD::connectDB();
 	 $actualiza="UPDATE libros SET titulo=\"".$this->titulo."\",autor=\"".$this->autor."\",descripcion=\"".$this->descripcion."\",precio=\"".$this->precio."\",cantidadalquiler=\"".$this->cantidadalquiler."\",cantidadvender=\"".$this->cantidadvender."\",genero=\"".$this->genero."\"WHERE id=\"".$this->id."\"";
-		echo $actualiza;
+		//echo $actualiza;
 		$conexion->exec($actualiza);
 	}
 
@@ -194,6 +194,14 @@ class  Libro{
     public static function devolver($titulo){
         $conexion=proyectoBD::connectDB();
         $actualiza="UPDATE libros SET cantidadalquiler=cantidadalquiler+1 WHERE titulo='$titulo'";
+        //echo $actualiza;
+        $conexion->exec($actualiza);
+
+    }
+
+    public static function comprar($id,$cantidad){
+        $conexion=proyectoBD::connectDB();
+        $actualiza="UPDATE libros SET cantidadvender=cantidadvender-$cantidad WHERE id=\"".$id."\"";
         //echo $actualiza;
         $conexion->exec($actualiza);
 
