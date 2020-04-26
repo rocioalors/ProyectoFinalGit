@@ -52,6 +52,9 @@
   <label for="usr">Dirección:</label>
   <input type="text" class="form-control" id="direccion" name="direccion" value="<?=$direccion?>" required>
 
+  <label for="usr">Código Postal:</label>
+  <input type="text" class="form-control" id="cp" name="cp" value="<?=$cp?>" required>
+
   <label for="usr">Telefono:</label>
   <input type="text" class="form-control" id="telefono" name="telefono" value="<?=$telefono?>" required>
 

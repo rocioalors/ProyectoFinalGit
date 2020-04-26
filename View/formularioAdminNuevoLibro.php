@@ -63,6 +63,9 @@
 
  <label for="usr">Genero:</label>
   <input type="text" class="form-control" id="genero" name="genero" value="<?=$genero?>" required>
+
+ <label for="usr">Edición:</label>
+  <input type="text" class="form-control" id="edicion" name="edicion" value="" required>
  
 
  

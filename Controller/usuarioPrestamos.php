@@ -21,7 +21,7 @@ if($libro->getcantidadalquiler()>0){
  $fechadevolucion=date("Y-m-d",strtotime($fechaactual."+ 15 days"));
 
 //INSERTAMOS UN REGISTRO EN LA TABLA PRESTAMO
- $prestamo=new Prestamo("",$fechaactual,$fechadevolucion,$_REQUEST['titulo'],$_SESSION['user']);
+ $prestamo=new Prestamo("",$fechaactual,$fechadevolucion,$_REQUEST['id'],$_REQUEST['titulo'],$_SESSION['user']);
  $prestamo->insert();
 
 //QUITAMOS UN EJEMPLAR DE LA CANTIDAD A PRESTAR DE LA TABLA LIBRO

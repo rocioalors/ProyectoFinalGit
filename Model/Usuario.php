@@ -6,18 +6,20 @@ class  Usuario{
 	private $dni;
 	private $correo;
 	private $direccion;
+    private $cp;
 	private $telefono;
 	private $contraseña;
 	
 
 	
-	function __construct($id=0,$nombre='',$dni='',$correo='',$direccion='',$telefono=0, $contraseña='')
+	function __construct($id=0,$nombre='',$dni='',$correo='',$direccion='',$cp=0,$telefono=0, $contraseña='')
 	{
 		$this->id = $id;
 		$this->nombre=$nombre;
 		$this->dni = $dni;
 		$this->correo=$correo;
 		$this->direccion=$direccion;
+        $this->cp=$cp;
 		$this->telefono=$telefono;
 		$this->contraseña=$contraseña;
 		
@@ -83,6 +85,19 @@ class  Usuario{
 
         return $this;
     }
+    
+    public function getCp()
+    {
+        return $this->cp;
+    }
+
+    public function setCp($cp)
+    {
+        $this->cp = $cp;
+
+        return $this;
+    }
+
 
     public function getTelefono()
     {
@@ -113,7 +128,7 @@ class  Usuario{
 	public function insert() {
 		$conexion = proyectoBD::connectDB();
 		
-		$insercion = "INSERT INTO usuarios (id,nombre,dni,correo,direccion,telefono,contraseña) VALUES ('$this->id','$this->nombre','$this->dni','$this->correo','$this->direccion','$this->telefono','$this->contraseña')";
+		$insercion = "INSERT INTO usuarios (id,nombre,dni,correo,direccion,cp,telefono,contraseña) VALUES ('$this->id','$this->nombre','$this->dni','$this->correo','$this->direccion','$this->cp','$this->telefono','$this->contraseña')";
 		//echo $insercion;
 		$conexion->exec($insercion);
 	}
@@ -128,7 +143,7 @@ class  Usuario{
 
     public function update(){
         $conexion=proyectoBD::connectDB();
-        $actualiza="UPDATE usuarios SET nombre=\"".$this->nombre."\",dni=\"".$this->dni."\",correo=\"".$this->correo."\",direccion=\"".$this->direccion."\",telefono=\"".$this->telefono."\",contraseña=\"".$this->contraseña."\"WHERE id=\"".$this->id."\"";
+        $actualiza="UPDATE usuarios SET nombre=\"".$this->nombre."\",dni=\"".$this->dni."\",correo=\"".$this->correo."\",direccion=\"".$this->direccion."\",cp=\"".$this->cp."\",telefono=\"".$this->telefono."\",contraseña=\"".$this->contraseña."\"WHERE id=\"".$this->id."\"";
         echo $actualiza;
         $conexion->exec($actualiza);
     }
@@ -144,7 +159,7 @@ class  Usuario{
 		$usuarios = [];
 		
 		while ($registro = $consulta->fetchObject()) {
-			$usuarios[] = new Usuario($registro->id, $registro->nombre,$registro->dni,$registro->correo,$registro->direccion,$registro->telefono,$registro->contraseña);
+			$usuarios[] = new Usuario($registro->id, $registro->nombre,$registro->dni,$registro->correo,$registro->direccion,$registro->cp,$registro->telefono,$registro->contraseña);
 		}
 
 		return $usuarios;
@@ -196,9 +211,10 @@ class  Usuario{
         public static function getUsuarioByDni($dni) {
         $conexion = proyectoBD::connectDB();
         $seleccion = "SELECT * FROM usuarios WHERE dni=\"".$dni."\"";
+        //echo $seleccion;
         $consulta = $conexion->query($seleccion);
         $registro = $consulta->fetchObject();
-        $usuario = new Usuario($registro->id,$registro->nombre, $registro->dni, $registro->correo, $registro->direccion, $registro->telefono, $registro->contraseña);
+        $usuario = new Usuario($registro->id,$registro->nombre, $registro->dni, $registro->correo, $registro->direccion,$registro->cp, $registro->telefono, $registro->contraseña);
         return $usuario;
     }
 

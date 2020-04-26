@@ -11,6 +11,7 @@ $precio=$_REQUEST['precio'];
 $cantidadalquiler=$_REQUEST['cantAlquiler'];
 $cantidadvender=$_REQUEST['cantvender'];
 $genero=$_REQUEST['genero'];
+$edicion=$_REQUEST['edicion'];
 include '../View/formularioAdminModificarLibro.php';
 
  ?>

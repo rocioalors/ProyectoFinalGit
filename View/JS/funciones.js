@@ -56,12 +56,12 @@ function comprobarDni() {
     });
 }
 
- function ValidarRegistro(nombre,dni,correo,direccion,telefono, contraseña)
+ function ValidarRegistro(nombre,dni,correo,direccion,cp,telefono, contraseña)
         {
             $.ajax({
                 url: "../Controller/grabarNuevoUsuarioRegistro.php",
                 type: "POST",
-                data: "nombre="+nombre+"&dni="+dni+"&correo="+correo+"&direccion="+direccion+"&telefono="+telefono+"&contraseña="+contraseña,
+                data: "nombre="+nombre+"&dni="+dni+"&correo="+correo+"&direccion="+direccion+"&cp="+cp+"&telefono="+telefono+"&contraseña="+contraseña,
                 success: function(resp){
                 $('#noregistro').html(resp)
                 }       

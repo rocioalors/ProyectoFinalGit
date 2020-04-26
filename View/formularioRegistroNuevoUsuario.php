@@ -40,6 +40,9 @@
             <label class="lavel" for="usr">Dirección:</label>
             <input type="text" class="form-control" id="direccion" name="direccion" value="" required>
 
+             <label class="lavel" for="usr">Codigo Postal:</label>
+            <input type="text" class="form-control" id="cp" name="cp" value="" required>
+
             <label class="lavel" for="usr">Telefono:</label>
             <input type="text" class="form-control" id="telefono" name="telefono" value="" required>
 
@@ -52,7 +55,7 @@
             <br>
              
              <!--Botón que se direige la funcion ValidarRegistro dentro del archivo funciones.js-->
-            <button  class="btn btn-primary" onclick="ValidarRegistro(document.getElementById('nombre').value, document.getElementById('dni').value,document.getElementById('correo').value,document.getElementById('direccion').value,document.getElementById('telefono').value,document.getElementById('contraseña').value);"><i class="fas fa-sign-in-alt"></i> Registrarme </button>
+            <button  class="btn btn-primary" onclick="ValidarRegistro(document.getElementById('nombre').value, document.getElementById('dni').value,document.getElementById('correo').value,document.getElementById('direccion').value,document.getElementById('cp').value,document.getElementById('telefono').value,document.getElementById('contraseña').value);"><i class="fas fa-sign-in-alt"></i> Registrarme </button>
   
             <a href="../Controller/index.php">Volver a Inicio</a>
         </div>

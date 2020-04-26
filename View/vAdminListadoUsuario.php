@@ -45,6 +45,7 @@
           <th>DNI</th>
           <th>CORREO</th>
           <th>DIRECCIÓN</th>
+          <th>Codigo Postal</th>
           <th>TELEFONO</th>
           <th>Modificar</th>
           <th>Eliminar</th>
@@ -62,9 +63,10 @@
           <td><?=$usuario->getDni()?></td>
           <td><?=$usuario->getCorreo()?></td>
           <td><?=$usuario->getDireccion()?></td>
+           <td><?=$usuario->getCp()?></td>
           <td><?=$usuario->getTelefono()?></td>
           <!--Boton modificar-->
-          <td><a href="../Controller/adminModificaUsuario.php?id=<?=$usuario->getId()?>&nombre=<?=$usuario->getNombre()?>&dni=<?=$usuario->getDni()?>&correo=<?=$usuario->getCorreo()?>&direccion=<?=$usuario->getDireccion()?>&telefono=<?=$usuario->getTelefono()?>&contraseña=<?=$usuario->getContraseña()?>"><button type="button" class="btn btn-success">Modificar</button></a></td>
+          <td><a href="../Controller/adminModificaUsuario.php?id=<?=$usuario->getId()?>&nombre=<?=$usuario->getNombre()?>&dni=<?=$usuario->getDni()?>&correo=<?=$usuario->getCorreo()?>&direccion=<?=$usuario->getDireccion()?>&cp=<?=$usuario->getCp()?>&telefono=<?=$usuario->getTelefono()?>&contraseña=<?=$usuario->getContraseña()?>"><button type="button" class="btn btn-success">Modificar</button></a></td>
 
           <!--Boton Eliminar lleva la funcion confirmar del archivo funciones js-->
           <td><a href="../Controller/adminBorraUsuario.php?id=<?=$usuario->getId()?>"><button type="button" class="btn btn-danger" id="eliminar" onclick="return confirmar('¿Está seguro que desea eliminar el registro?')">Eliminar</button></a></td>

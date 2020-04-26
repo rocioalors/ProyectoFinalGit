@@ -42,7 +42,8 @@
           <th>#</th>
           <th>FECHA PRÉSTAMO</th>
           <th>FECHA DEVOLUCIÓN</th>
-          <th>LIBRO</th>
+          <th>Id_Libro</th>
+          <th>Titulo</th>
           <th>USUARIO</th>
       </tr>
     </thead>
@@ -56,7 +57,8 @@
           <td><?=$prestamo->getId()?></td>
           <td><?=$prestamo->getFechaPrestamo()?></td>
           <td><?=$prestamo->getFechaDevolucion()?></td>
-          <td><?=$prestamo->getLibro()?></td>
+          <td><?=$prestamo->getId_Libro()?></td>
+          <td><?=$prestamo->getTitulo()?></td>
           <td><?=$prestamo->getUsuario()?></td>
 
       </tr>

@@ -38,7 +38,8 @@
       	<p>Telefono: <?= $usuario->getTelefono()?>.</p>
       	<p>DNI: <?= $usuario->getDni()?>.</p>
       	<p>Correo: <?= $usuario->getCorreo()?>.</p>
-        <p>Correo: <?= $usuario->getDireccion()?>.</p>
+        <p>Direccion: <?= $usuario->getDireccion()?>.</p>
+        <p>Codigo Postal:<?=$usuario->getCp()?></p>
     </div>
   </div>
 <br><br>
@@ -48,7 +49,8 @@
  	<tr class="table-success">
  		<th>Fecha Préstamo</th>
  		<th>Fecha Devolución</th>
- 		<th>Libro</th>
+ 		<th>Id_Libro</th>
+    <th>Titulo</th>
  		<th>Devolver</th>
  	</tr>
 
@@ -56,8 +58,9 @@
  	<tr>
  		<td class="text-danger"><?=$prestamo->getFechaPrestamo()?></td>
  		<td class="text-danger"><?=$prestamo->getFechaDevolucion()?></td>
- 		<td class="text-danger"><?=$prestamo->getLibro()?></td>
- 		<td><a href="../Controller/usuDevolverPréstamo.php?id=<?=$prestamo->getId()?>&titulo=<?=$prestamo->getLibro()?>"><input type="submit" class="btn btn-success" value ="Devolver"></a></td>
+ 		<td class="text-danger"><?=$prestamo->getId_Libro()?></td>
+    <td class="text-danger"><?=$prestamo->getTiulo()?></td>
+ 		<td><a href="../Controller/usuDevolverPréstamo.php?id=<?=$prestamo->getId()?>&id_libro=<?=$prestamo->getId_Libro()?>"><input type="submit" class="btn btn-success" value ="Devolver"></a></td>
  	</tr>
  	<?php }?>
  </table>
@@ -69,7 +72,8 @@
  	<tr class="table-success">
  		<th>Fecha Préstamo</th>
  		<th>Fecha Devolución</th>
- 		<th>Libro</th>
+ 		<th>Id_Libro</th>
+    <th>Titulo</th>
  		<th>Devolver</th>
  	</tr>
 
@@ -77,8 +81,9 @@
  	<tr>
  		<td><?=$prestamo->getFechaPrestamo()?></td>
  		<td><?=$prestamo->getFechaDevolucion()?></td>
- 		<td><?=$prestamo->getLibro()?></td>
- 		<td><a href="../Controller/usuDevolverPréstamo.php?id=<?=$prestamo->getId()?>&titulo=<?=$prestamo->getLibro()?>"><input type="submit" class="btn btn-success" value ="Devolver"></a></td>
+ 		<td><?=$prestamo->getId_Libro()?></td>
+    <td><?=$prestamo->getTitulo()?></td>
+ 		<td><a href="../Controller/usuDevolverPréstamo.php?id=<?=$prestamo->getId()?>&id_libro=<?=$prestamo->getId_Libro()?>"><input type="submit" class="btn btn-success" value ="Devolver"></a></td>
  	<?php }?>
  	</tr>
  </table>

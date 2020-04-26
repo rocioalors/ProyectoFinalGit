@@ -49,6 +49,7 @@
           <th>CANTD ALQUILER</th>
           <th>CANTD VENDER</th>
           <th>GENERO</th>
+          <th>Edición</th>
           <th>Modificar</th>
           <th>Eliminar</th>
       </tr>
@@ -69,9 +70,10 @@
           <td><?=$libro->getcantidadalquiler()?></td>
           <td><?=$libro->getcantidadvender()?></td>
           <td><?=$libro->getGenero()?></td>
+          <td><?=$libro->getEdicion()?></td>
 
           <!--Botón de Modificar-->
-          <td><a href="../Controller/adminModificaLibro.php?id=<?=$libro->getId()?>&imagen=<?=$libro->getImagen()?>&titulo=<?=$libro->getTitulo()?>&autor=<?=$libro->getAutor()?>&descripcion=<?=$libro->getDescripcion()?>&precio=<?=$libro->getPrecio()?>&cantAlquiler=<?=$libro->getcantidadalquiler()?>&cantvender=<?=$libro->getcantidadvender()?>&genero=<?=$libro->getGenero()?>"><button type="button" class="btn btn-success">Modificar</button></a></td>
+          <td><a href="../Controller/adminModificaLibro.php?id=<?=$libro->getId()?>&imagen=<?=$libro->getImagen()?>&titulo=<?=$libro->getTitulo()?>&autor=<?=$libro->getAutor()?>&descripcion=<?=$libro->getDescripcion()?>&precio=<?=$libro->getPrecio()?>&cantAlquiler=<?=$libro->getcantidadalquiler()?>&cantvender=<?=$libro->getcantidadvender()?>&genero=<?=$libro->getGenero()?>&edicion=<?=$libro->getEdicion()?>"><button type="button" class="btn btn-success">Modificar</button></a></td>
 
           <!--Botón de eliminar lleva la funcion de confirmar del archivo funciones.js-->
           <td><a href="../Controller/adminBorraLibro.php?id=<?=$libro->getId()?>"><button type="button" class="btn btn-danger" id="eliminar" onclick="return confirmar('¿Está seguro que desea eliminar el registro?')">Eliminar</button></a></td>
