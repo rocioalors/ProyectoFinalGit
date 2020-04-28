@@ -10,7 +10,7 @@ if (isset($_GET['quitapro'])) {
         unset($_SESSION['enCesta'][$prod]);
     }
     $_SESSION['cantidad']--;
-    $_SESSION['total'] -= $libroAux->getPrecio();
+    $_SESSION['subtotal'] -= $libroAux->getPrecio();
  
 }
 header('Location:verContenidoCesta.php');

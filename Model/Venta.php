@@ -88,5 +88,51 @@ class Venta{
   
     }
 
+    public static function getVentas(){
+      $conexion = proyectoBD::connectDB();
+      $seleccion= "SELECT * from venta"; 
+        $consulta = $conexion->query($seleccion);
+        
+        
+        
+        while ($registro = $consulta->fetchObject()) {
+            $objeto =array("id"=>$registro->id,"fechacompra"=>$registro->fechacompra,"usuario"=> $registro->usuario,"total"=>$registro->total);
+            $json[]=$objeto;
+        }
+
+            $datos=json_encode($json);
+
+        return $datos; 
+    }
+
+    public static function total(){
+        $conexion = proyectoBD::connectDB();
+        $seleccion= "SELECT * from venta"; 
+        $consulta = $conexion->query($seleccion);
+        //$total=0;
+        while ($registro = $consulta->fetchObject()) {
+            $objeto =array("id"=>$registro->id,"fechacompra"=>$registro->fechacompra,"usuario"=> $registro->usuario,"total"=>$registro->total);
+           $total[]=$objeto;
+        }
+
+            $datos=json_encode($total);
+
+        return $datos; 
+    }
+
+    public static function meses(){
+        $conexion = proyectoBD::connectDB();
+        $seleccion="SELECT MONTH(fechacompra) Mes, SUM(total) total_mes FROM venta GROUP BY Mes";
+        $consulta=$conexion->query($seleccion);
+         while ($registro = $consulta->fetchObject()) {
+            $objeto =array("mes"=>$registro->Mes,"total_mes"=>$registro->total_mes);
+
+           $total[]=$objeto;
+        }
+
+            $datos=json_encode($total);
+
+        return $datos; 
+    }
 
 }

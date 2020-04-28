@@ -67,4 +67,16 @@ function comprobarDni() {
                 }       
             });
         }
+
+
+  function ventas(contraseña){
+            $.ajax({
+                url: "../Controller/adminCompruebaLoginVentas.php",
+                type: "POST",
+                data: "contraseña="+contraseña,
+                success: function(resp){
+                $('#info').html(resp)
+                }       
+            });
+  }
 </script>

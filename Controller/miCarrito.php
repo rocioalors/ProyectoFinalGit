@@ -12,7 +12,7 @@ if (isset($_REQUEST['id'])) {
     }
     }
     $_SESSION['cantidad']++;
-    $_SESSION['total'] += $libroaux->getPrecio();
+    $_SESSION['subtotal'] += $libroaux->getPrecio();
     
     
 header('Location:usuarioVerCatalago.php');

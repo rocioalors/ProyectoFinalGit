@@ -52,11 +52,11 @@
               <!-- Gestionar Ventas -->
               <div class="col-md-6 col-lg-4">
                   <div class="card border-0 transform-on-hover">
-                    <a class="lightbox" href="../img/image4.jpg">
+                    <a class="lightbox" href="../Controller/adminVerVentas.php">
                       <img src="../View/img/ventas.jpg" alt="Card Image" class="card-img-top" width="150px" height="150px">
                     </a>
                       <div class="card-body">
-                          <h6><a href="#">Gestión Ventas</a></h6>
+                          <h6><a href="../Controller/adminVerVentas.php">Gestión Ventas</a></h6>
                           <p class="text-muted card-text">Permite al administrador ver las ventas realizadas por los usuarios.</p>
                       </div>
                   </div>

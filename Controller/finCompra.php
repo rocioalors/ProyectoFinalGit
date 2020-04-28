@@ -24,13 +24,13 @@ foreach ($_SESSION['enCesta'] as $libro => $cantidad) {
   $librito->comprar($libro,$cantidad);
 }
 
-/*$ventaAux=new Venta("",$fechaactual,$_SESSION['user'],$_SESSION['total']);
-$ventaAux->insert();*/
-/*print_r($librito);
-echo "<br>";
-echo $_SESSION['user']."<br>";
-echo "cantidad ".$_SESSION['cantidad']."<br>";
-print_r($_SESSION['enCesta']);*/
+//Borramos el contenido de la cesta
+unset($_SESSION['enCesta']);
+
+//Volvemos al catálogo
+header('Location:usuarioVerCatalago.php')
+
+
 
 
 

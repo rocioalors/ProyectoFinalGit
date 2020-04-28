@@ -10,6 +10,16 @@
   </head>
   <body>
     <div class="contenedor">
+      <h1>Gastos de envios GRATIS por compras superiores a 19 €</h1>
+      <?php 
+      if($_SESSION['subtotal']==0){
+      ?>
+      <h2>Ups tu cesta está vacia</h2>
+      <a href="../Controller/usuarioVerCatalago.php">Seguir Comprando</a>
+      <?php 
+      }else{
+
+       ?>
 <table border = "1"><tr><th colspan="6">
   <h3>PRODUCTOS EN TU CESTA <?=$_SESSION['user']?></h3>
 </th>
@@ -44,9 +54,27 @@
     }
     ?>
     <tr>
-      <td colspan="2">Total</td><td><?=$_SESSION['cantidad']?></td>
+      <td colspan="2">Total</td>
+      <td><?=$_SESSION['cantidad']?></td>
       <td></td>
-      <td> <?=$_SESSION['total']?>euros</td>
+      <td> <?=$_SESSION['subtotal']?>euros</td>
+      <td></td>
+    </tr>
+    <tr>
+     <tr>
+      <td colspan="2">Gastos de envio</td>
+      <td></td>
+      <td></td>
+      <td><?=$envio ?></td>
+      <td></td>
+      <td></td>
+    </tr>
+       <tr>
+      <td colspan="2">Total</td>
+      <td></td>
+      <td></td>
+      <td><?=$_SESSION['total']=$_SESSION['subtotal']+$envio; ?></td>
+      <td></td>
       <td></td>
     </tr>
     <tr>
@@ -55,5 +83,7 @@
     </tr>
 </table>
 </div>
+<?php } 
+?>
   </body>
 </html>

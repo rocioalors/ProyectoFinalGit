@@ -21,7 +21,7 @@
             <a href="../Controller/verCatalogo.php" class="nav-item nav-link">Libros</a>
             <a href="../Controller/verUsuarios.php" class="nav-item nav-link">Usuarios</a>
             <a href="../Controller/adminVerPrestamos.php" class="nav-item nav-link">Prestamos</a>
-            <a href="#" class="nav-item nav-link">Ventas</a>
+            <a href="#" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModalCenter">Ventas</a>
         </div>
         <div class="navbar-nav ml-auto">
           <td><a href="../Controller/cerrarSesion.php"><button type="button" class="btn btn-warning">Cerrar sesion</button></a>
@@ -69,6 +69,32 @@
   </table>
   
   <p></p>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Esta información es confidencial</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="info" id="info"></div>
+       <form>
+          <div class="form-group" id="contrasena-group">
+              <input type="password" class="form-control" placeholder="Contraseña" name="contraseña" id="contraseña" required/>
+              </div>
+       </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
