@@ -33,8 +33,9 @@
     <select class="form-control" id="operacion" name="operacion">
       <option value="todas">Todas las ventas</option>
       <option value="meses">Agrupar por meses</option>
-    </select>
-    <input type="submit" name="consultar" value="Consultar">
+    </select><br>
+     <input type="submit" name="consultar" value="Consultar"><br>
+   
    </div>
   </form>
 
@@ -67,7 +68,7 @@
         					<td><?= $key->fechacompra?></td>
         					<td><?= $key->usuario?></td>
         					<td><?= $key->total?></td>
-        					<td><button type="button" class="btn btn-success">Success</button></td>
+        					<td><a href="../Controller/detalle_venta.php?id=<?=$key->id?>&total=<?=$key->total?>"><button type="button" class="btn btn-success">Success</button></a></td>
      					 </tr>
  	 	
   				<?php 

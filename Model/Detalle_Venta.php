@@ -63,9 +63,37 @@ class  Detalle_Venta{
 		$conexion->exec($insercion);
 	}
 
+    public static function tresLibrosMasVendidos(){
+        $conexion = proyectoBD::connectDB();
+        $seleccion="SELECT d.id_libro,SUM(d.cantidad) AS cantidad,l.imagen,l.titulo,l.descripcion,l.precio,l.autor,l.edicion FROM detalle_venta d INNER JOIN libros l ON d.id_libro=l.id GROUP BY d.id_libro ORDER BY SUM(d.cantidad) DESC LIMIT 0,3";
+        $consulta=$conexion->query($seleccion);
+         while ($registro = $consulta->fetchObject()) {
+            $objeto=array("id_libro"=>$registro->id_libro,"cantidad"=>$registro->cantidad,"imagen"=>$registro->imagen,"titulo"=>$registro->titulo,"descripcion"=>$registro->descripcion,"precio"=>$registro->precio,"autor"=>$registro->autor,"edicion"=>$registro->edicion);
+            $total[]=$objeto;
+           
+        }
 
+            
 
+        return $total; 
 
+    }
+
+   public static function detalleVenta($id){
+    $conexion = proyectoBD::connectDB();
+    $seleccion="SELECT d.id_libro,l.imagen, l.titulo,l.descripcion,l.precio,d.cantidad FROM detalle_venta d INNER JOIN libroS l ON d.id_libro=l.id WHERE d.id_venta='$id'";
+    $consulta=$conexion->query($seleccion);
+     while ($registro = $consulta->fetchObject()) {
+            $objeto =array("id_libro"=>$registro->id_libro,"imagen"=>$registro->imagen,"titulo"=>$registro->titulo,"descripcion"=>$registro->descripcion,"precio"=>$registro->precio,"cantidad"=>$registro->cantidad);
+
+           $total[]=$objeto;
+        }
+
+           
+
+        return $total; 
+
+   }
 
 }
     

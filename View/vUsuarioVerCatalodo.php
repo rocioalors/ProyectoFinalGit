@@ -45,7 +45,7 @@
 
 
 <!--Comienzo de card-->
-
+<div class="container">
 <div class="row" id="libros">
 
 <?php foreach ($data['lista'] as $lista) {
@@ -80,7 +80,7 @@
 }
  ?>
 </div>	
-
+</div>
 
  <!--Codigo para el buscador-->
  <script>

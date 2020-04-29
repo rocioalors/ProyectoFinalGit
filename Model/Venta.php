@@ -104,7 +104,7 @@ class Venta{
 
         return $datos; 
     }
-
+//calcula el total de ingresos
     public static function total(){
         $conexion = proyectoBD::connectDB();
         $seleccion= "SELECT * from venta"; 
@@ -119,7 +119,7 @@ class Venta{
 
         return $datos; 
     }
-
+//Calcula el total por meses
     public static function meses(){
         $conexion = proyectoBD::connectDB();
         $seleccion="SELECT MONTH(fechacompra) Mes, SUM(total) total_mes FROM venta GROUP BY Mes";
