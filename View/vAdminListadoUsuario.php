@@ -21,10 +21,11 @@
             <a href="../Controller/verCatalogo.php" class="nav-item nav-link">Libros</a>
             <a href="../Controller/verUsuarios.php" class="nav-item nav-link">Usuarios</a>
             <a href="../Controller/adminVerPrestamos.php" class="nav-item nav-link">Prestamos</a>
-            <a href="#" class="nav-item nav-link">Ventas</a>
+            <a href="../Controller/adminVerAdministradores.php" class="nav-item nav-link">Administradores</a>
+            <a href="#" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModalCenter">Ventas</a>
         </div>
         <div class="navbar-nav ml-auto">
-          <td><a href="../Controller/cerrarSesion.php"><button type="button" class="btn btn-warning">Cerrar sesion</button></a>
+          <td><a href="../Controller/cerrarSesion.php"><button type="button" class="btn btn-warning">Cerrar sesion</button></a></td>
         </div>
     </div>
 </nav>
@@ -69,7 +70,7 @@
           <td><a href="../Controller/adminModificaUsuario.php?id=<?=$usuario->getId()?>&nombre=<?=$usuario->getNombre()?>&dni=<?=$usuario->getDni()?>&correo=<?=$usuario->getCorreo()?>&direccion=<?=$usuario->getDireccion()?>&cp=<?=$usuario->getCp()?>&telefono=<?=$usuario->getTelefono()?>&contraseña=<?=$usuario->getContraseña()?>"><button type="button" class="btn btn-success">Modificar</button></a></td>
 
           <!--Boton Eliminar lleva la funcion confirmar del archivo funciones js-->
-          <td><a href="../Controller/adminBorraUsuario.php?id=<?=$usuario->getId()?>"><button type="button" class="btn btn-danger" id="eliminar" onclick="return confirmar('¿Está seguro que desea eliminar el registro?')">Eliminar</button></a></td>
+          <td><a href="../Controller/adminBorraUsuario.php?id=<?=$usuario->getId()?>&nombre=<?=$usuario->getNombre()?>"><button type="button" onclick="return confirmar('¿Está seguro que desea eliminar el registro?')" class="btn btn-danger" id="eliminar">Eliminar</button></a></td>
 
       </tr>
     <?php 
@@ -79,6 +80,33 @@
   </table>
   
   <p></p>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Esta información es confidencial</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="info" id="info"></div>
+       <form>
+          <div class="form-group" id="contrasena-group">
+              <input type="password" class="form-control" placeholder="Contraseña" name="contraseña" id="contraseña" required/>
+              </div>
+       </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>

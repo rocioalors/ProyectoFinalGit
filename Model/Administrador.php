@@ -15,7 +15,7 @@ class  Administrador{
 		$this->usuario = $usuario;
 		$this->contraseña=$contraseña;
         $this->dni=$dni;
-		$this->email = $email;
+		$this->email=$email;
 		$this->telefono=$telefono;
 		
     }
@@ -90,23 +90,24 @@ class  Administrador{
 	public function insert() {
 		$conexion = proyectoBD::connectDB();
 		
-		$insercion = "INSERT INTO administradores (usuario,contraseña,dni,email,telefono) VALUES ('$this->usuario','$this->contraseña','$this->dni',$this->email','$this->telefono')";
+		$insercion = "INSERT INTO administradores (usuario,contraseña,dni,email,telefono) VALUES ('$this->usuario','$this->contraseña','$this->dni','$this->email','$this->telefono')";
 		//echo $insercion;
 		$conexion->exec($insercion);
 	}
 
-	public function delete() {
-		$conexion = proyectoBD::connectDB();
-	
-		$borrado = "DELETE FROM administradores WHERE dni=\"".$this->dni."\"";
-	
-		$conexion->exec($borrado);
-	}
+    public function delete($dni) {
+        $conexion = proyectoBD::connectDB();
+    
+        $borrado = "DELETE FROM administradores WHERE dni='$dni'";
+         //echo $borrado;
+        $conexion->exec($borrado);
+    }
+
 
     public function update(){
         $conexion=proyectoBD::connectDB();
-        $actualiza="UPDATE administradores SET usuario=\"".$this->usuario."\",contraseña=\"".$this->contraseña."\",dni=\"".$this->dni."\",email=\"".$this->email."\",telefono=\"".$this->telefono."\"";
-        echo $actualiza;
+        $actualiza="UPDATE administradores SET usuario=\"".$this->usuario."\",contraseña=\"".$this->contraseña."\",dni=\"".$this->dni."\",email=\"".$this->email."\",telefono=\"".$this->telefono."\" WHERE dni=\"".$this->dni."\"";
+        //echo $actualiza;
         $conexion->exec($actualiza);
     }
 
@@ -121,7 +122,7 @@ class  Administrador{
 		$usuarios = [];
 		
 		while ($registro = $consulta->fetchObject()) {
-			$usuarios[] = new Usuario($registro->usuario, $registro->contraseña,$registro->dni,$registro->email,$registro->telefono);
+			$usuarios[] = new Administrador($registro->usuario, $registro->contraseña,$registro->dni,$registro->email,$registro->telefono);
 		}
 
 		return $usuarios;
@@ -136,46 +137,13 @@ class  Administrador{
         return $total ;
     }
 
-      /* public static function getComprobarUsuario($nombre) {
-        $conexion = proyectoBD::connectDB();
-        $seleccion = "SELECT * FROM usuarios WHERE nombre='$nombre'";
-        //echo $seleccion;
-        $consulta = $conexion->query($seleccion);
-        $total=$consulta->rowCount();
-        return $total ;
-      }*/
-
-     /* public static function getComprobarDni($dni) {
-        $conexion = proyectoBD::connectDB();
-        $seleccion = "SELECT * FROM usuarios WHERE dni='$dni'";
-        //echo $seleccion;
-        $consulta = $conexion->query($seleccion);
-        $total=$consulta->rowCount();
-        //echo $total;
-        return $total ;
-      }*/
-
-      /*public static function getComprobarCorreo($correo) {
-        $conexion = proyectoBD::connectDB();
-        $seleccion = "SELECT * FROM usuarios WHERE correo='$correo'";
-        //echo $seleccion;
-        $consulta = $conexion->query($seleccion);
-        $total=$consulta->rowCount();
-        return $total ;
-      }
-
-      public static function getUsurioLinea($dni){
-        $conexion = proyectoBD::connectDB();
-        $seleccion = "SELECT * FROM usuarios WHERE correo='$correo'";
-      }*/
-
 
         public static function getAdministradorByDni($dni) {
         $conexion = proyectoBD::connectDB();
         $seleccion = "SELECT * FROM administradores WHERE dni=\"".$dni."\"";
         $consulta = $conexion->query($seleccion);
         $registro = $consulta->fetchObject();
-        $usuario = new Usuario($registro->usuario,$registro->contraseña, $registro->dni, $registro->email, $registro->telefono);
+        $usuario = new Administrador($registro->usuario,$registro->contraseña, $registro->dni, $registro->email, $registro->telefono);
         return $usuario;
     }
 

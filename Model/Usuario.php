@@ -144,7 +144,7 @@ class  Usuario{
     public function update(){
         $conexion=proyectoBD::connectDB();
         $actualiza="UPDATE usuarios SET nombre=\"".$this->nombre."\",dni=\"".$this->dni."\",correo=\"".$this->correo."\",direccion=\"".$this->direccion."\",cp=\"".$this->cp."\",telefono=\"".$this->telefono."\",contraseña=\"".$this->contraseña."\"WHERE id=\"".$this->id."\"";
-        echo $actualiza;
+        //echo $actualiza;
         $conexion->exec($actualiza);
     }
 
@@ -211,6 +211,16 @@ class  Usuario{
         public static function getUsuarioByDni($dni) {
         $conexion = proyectoBD::connectDB();
         $seleccion = "SELECT * FROM usuarios WHERE dni=\"".$dni."\"";
+        //echo $seleccion;
+        $consulta = $conexion->query($seleccion);
+        $registro = $consulta->fetchObject();
+        $usuario = new Usuario($registro->id,$registro->nombre, $registro->dni, $registro->correo, $registro->direccion,$registro->cp, $registro->telefono, $registro->contraseña);
+        return $usuario;
+    }
+
+       public static function getUsuarioByNombre($nombre) {
+        $conexion = proyectoBD::connectDB();
+        $seleccion = "SELECT * FROM usuarios WHERE nombre=\"".$nombre."\"";
         //echo $seleccion;
         $consulta = $conexion->query($seleccion);
         $registro = $consulta->fetchObject();

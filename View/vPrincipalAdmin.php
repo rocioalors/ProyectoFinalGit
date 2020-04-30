@@ -28,7 +28,7 @@
               <!-- Gestionar usuarios -->
               <div class="col-md-6 col-lg-4">
                   <div class="card border-0 transform-on-hover">
-            <a class="lightbox" href="../img/image2.jpg">
+            <a class="lightbox" href="../Controller/verUsuarios.php">
                       <img src="../View/img/usuarios2.png" alt="Card Image" class="card-img-top" width="150px" height="150px">
                     </a>
                       <div class="card-body">
@@ -65,11 +65,11 @@
             <!--Card Gestion de administradores-->
             <<div class="col-md-6 col-lg-4">
                   <div class="card border-0 transform-on-hover">
-                    <a class="lightbox" href="../img/image5.jpg">
-                      <img src="../View/img/ventas.jpg" alt="Card Image" class="card-img-top">
+                    <a class="lightbox" href="../Controller/adminVerAdministradores.php">
+                      <img src="../View/img/administrador.png"  width="150px" height="150px" alt="Card Image" class="card-img-top">
                     </a>
                       <div class="card-body">
-                          <h6><a href="#">Gestion de admnistradores</a></h6>
+                          <h6><a href="../Controller/adminVerAdministradores.php">Gestion de Admnistradores</a></h6>
                           <p class="text-muted card-text">Esta función permite dar de alta a nuevos administradores, modificar datos y eliminar administradores.</p>
                       </div>
                   </div>

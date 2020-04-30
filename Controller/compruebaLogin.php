@@ -18,8 +18,8 @@ if(isset($_REQUEST['user']) && isset($_REQUEST['pass'])){
 				}else{
 					$total=Administrador::getComprobar($_SESSION['dni'],$_SESSION['pass']);
 						if($total>0){
-						$usuario=Administrador::getAdministradorByDni($_SESSION['dni']);
-						$_SESSION['user']=$usuario->getNombre();
+                        $usuario=Administrador::getAdministradorByDni($_SESSION['dni']);
+						$_SESSION['user']=$usuario->getUsuario();
 	 					echo '<script>location.href = "principalAdmin.php"</script>';
 	 //Si no se ha encontrado registro de usuario y contraseña muestro mensaje de error
 

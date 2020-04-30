@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+	 <link rel="stylesheet" href="../View/css/estilos.css">
 	<title></title>
-	
-	 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
-   <link rel="stylesheet" type="text/css" href="../View/css/estiloFormulario.css">
-
-   
 </head>
 <body>
-
-<!--Código barra de navegación-->
 <!--Código barra de navegación-->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     
@@ -34,6 +28,39 @@
 </nav>
 
 
+
+
+
+<!--Comienzo del contenido-->	
+<div class="container">
+<br><br>
+<h1>DATOS DE CONTACTO</h1><br>
+<table class="table table-bordered">
+	<tr class="table-success">
+		<th>Id</th>
+		<th>Nombre</th>
+		<th>Dni</th>
+		<th>Correo</th>
+		<th>Dirección</th>
+		<th>Codigo Postal</th>
+    <th>Telefono</th>
+    </tr>
+  <tr>
+ 		 <td><?=$usuAux->getId()?></td>
+   		<td><?=$usuAux->getNombre()?></td>
+   		<td><?=$usuAux->getDni()?></td>
+   		<td><?=$usuAux->getCorreo()?></td>
+   		<td><?=$usuAux->getDireccion()?></td>
+   		<td><?=$usuAux->getcp()?></td>
+      <td><?=$usuAux->getTelefono()?></td>
+    </tr>
+
+	
+</table>
+<br><br>
+<a href="../Controller/adminVerPrestamos.php">Volver</a>
+</div>
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -54,62 +81,10 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Entrar</button>
+        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Save changes</button>
       </div>
     </div>
   </div>
 </div>
-
-<!--Contenido del formulario-->
-  <h1 class="titulo">Formulario</h1>
-  <!--Código Formulario-->
-<form action="../Controller/<?=$destino?>" enctype="multipart/form-data" method="POST">
-<div class="container"> 
-
-  <div class="form-group">
-
-
- <label for="usr">Imagen del Libro:</label><br>
-  <input type="file" id="imagen" name="imagen" value="<?=$imagen?>">
- <br>
-  <label for="usr">Titulo:</label>
-  <input type="text" class="form-control" id="titulo" name="titulo" value="<?=$titulo?>" required>
-
-  <label for="usr">Autor:</label>
-  <input type="text" class="form-control" id="autor" name="autor" value="<?=$autor?>" required>
-
-  <label for="usr">Descripcion:</label>
-  <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?=$descripcion?>" required>
-
-  <label for="usr">Precio:</label>
-  <input type="text" class="form-control" id="precio" name="precio" value="<?=$precio?>" required>
-
-  <label for="usr">Cantidad en alquiler:</label>
-  <input type="text" class="form-control" id="cantdalquiler" name="cantAlquiler" value="<?=$cantidadalquiler?>" required>
-
-
-  <label for="usr">Cantidad en venta:</label>
-  <input type="text" class="form-control" id="cantVender" name="cantVender" value="<?=$cantidadvender?>" required>
-
-
- <label for="usr">Genero:</label>
-  <input type="text" class="form-control" id="genero" name="genero" value="<?=$genero?>" required>
-
- <label for="usr">Edición:</label>
-  <input type="text" class="form-control" id="edicion" name="edicion" value="" required>
- 
-
- 
-
-  <br><br>
-
-  <input type="submit" class="btn btn-danger" value="GRABAR">
-  <a href="../Controller/verCatalogo.php">Volver al listado</a>
-</div>
-
-</div>
-
-
-
 </body>
 </html>

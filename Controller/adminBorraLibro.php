@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once '../Model/Libro.php';
 $libroAux=new Libro($_REQUEST['id']);
 $libroAux->delete();

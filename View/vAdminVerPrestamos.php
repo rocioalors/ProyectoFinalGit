@@ -21,17 +21,29 @@
             <a href="../Controller/verCatalogo.php" class="nav-item nav-link">Libros</a>
             <a href="../Controller/verUsuarios.php" class="nav-item nav-link">Usuarios</a>
             <a href="../Controller/adminVerPrestamos.php" class="nav-item nav-link">Prestamos</a>
+            <a href="../Controller/adminVerAdministradores.php" class="nav-item nav-link">Administradores</a>
             <a href="#" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModalCenter">Ventas</a>
         </div>
         <div class="navbar-nav ml-auto">
-          <td><a href="../Controller/cerrarSesion.php"><button type="button" class="btn btn-warning">Cerrar sesion</button></a>
+          <td><a href="../Controller/cerrarSesion.php"><button type="button" class="btn btn-warning">Cerrar sesion</button></a></td>
         </div>
     </div>
 </nav>
 
 <!--Empieza todo lo relativo a la tabla-->
 <div class="container mt-3">
-  <h2>Listado de Préstamos Pendientes</h2>
+  <h2>Listado de Préstamos</h2><br><br>
+    <form>
+    <div class="form-group">
+    <label>Seleccione el tipo de dato</label>
+    <select class="form-control" id="operacion" name="operacion">
+      <option value="todos">Todas los préstamos</option>
+      <option value="fuera">Préstamos fuera de plazo</option>
+    </select><br>
+     <input type="submit" name="consultar" value="Consultar"><br>
+   
+   </div>
+  </form>
 
   <p>Escriba algo en el campo de entrada para buscar en la tabla por fecha, libro o usuario.</p>  
   <input class="form-control" id="myInput" type="text" placeholder="Buscar...">
@@ -42,14 +54,41 @@
           <th>#</th>
           <th>FECHA PRÉSTAMO</th>
           <th>FECHA DEVOLUCIÓN</th>
-          <th>Id_Libro</th>
+          <th>ID_LIBRO</th>
           <th>Titulo</th>
           <th>USUARIO</th>
+          <th>CANCELAR</th>
+          <th>CONTACTAR</th>
       </tr>
     </thead>
     <tbody id="myTable">
        <?php
+       if(isset($_REQUEST['operacion'])){
+
+      if($_REQUEST['operacion']=='todos'){
       foreach ($data['prestamo'] as $prestamo) {
+      
+      
+       ?>
+      <tr>
+          <td><?=$prestamo->getId()?></td>
+          <td><?=$prestamo->getFechaPrestamo()?></td>
+          <td><?=$prestamo->getFechaDevolucion()?></td>
+          <td><?=$prestamo->getId_Libro()?></td>
+          <td><?=$prestamo->getTitulo()?></td>
+          <td><?=$prestamo->getUsuario()?></td>
+          <!--Botón para cancelar présamos, preguntamos antes si estamos seguros-->
+          <td><a href="../Controller/adminCancerlarPrestamo.php?id=<?=$prestamo->getId()?>&id_libro=<?=$prestamo->getId_Libro()?>"><input type="submit"onclick="return confirmar('¿Está seguro que desea eliminar el registro?')" class="btn btn-success" value ="Cancelar"></a></td>
+          <!--Botón que permite al administrador ver los datos de contacto del usuario-->
+          <td><a href="../Controller/adminContactoUsuario.php?usuario=<?=$prestamo->getUsuario()?>"><input type="submit" class="btn btn-info" value ="Contactar"></a></td>
+
+      </tr>
+    <?php 
+    }//FIN DEL FOR DE TODOS LOS PRESTAMOS
+    }//Fin DEL IF DE TODOS LOS PRESTAMOS
+
+    if($_REQUEST['operacion']=='fuera'){
+      foreach ($data['fueraPlazo'] as $prestamo) {
       
       
        ?>
@@ -63,8 +102,15 @@
 
       </tr>
     <?php 
-    }
+    }//FIN DEL FOR DE PRESTAMOS FUERA PLAZO
+    }//Fin DEL IF FUERA PLAZO 
+
+
+
+
+  }//FIN DEL PRIMER IF SI HE RECIBIDO OPERACION
      ?> 
+
     </tbody>
   </table>
   

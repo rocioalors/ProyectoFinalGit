@@ -31,7 +31,7 @@ class Venta{
 
     public function getFechacompra()
     {
-        return $this->id_producto;
+        return $this->fechacompra;
     }
 
     public function setFechacompra($fechacompra)
@@ -133,6 +133,21 @@ class Venta{
             $datos=json_encode($total);
 
         return $datos; 
+    }
+
+ //Ver todas las compras de un mes determinado
+    public static function mesDeterminado($mes){
+        $conexion = proyectoBD::connectDB();
+        $seleccion="SELECT * FROM venta WHERE MONTH(fechacompra)='$mes'";
+        $consulta = $conexion->query($seleccion);
+        $ventas = [];
+        
+        while ($registro = $consulta->fetchObject()) {
+            $ventas[] = new Venta($registro->id,$registro->fechacompra, $registro->usuario,$registro->total);
+        }
+
+        return $ventas;
+     
     }
 
 }

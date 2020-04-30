@@ -114,12 +114,13 @@ class  Prestamo{
 		$conexion->exec($borrado);
 	}
 
-    /*public function update(){
-        $conexion=proyectoBD::connectDB();
-        $actualiza="UPDATE usuarios SET nombre=\"".$this->nombre."\",dni=\"".$this->dni."\",correo=\"".$this->correo."\",direccion=\"".$this->direccion."\",telefono=\"".$this->telefono."\",contraseña=\"".$this->contraseña."\"WHERE id=\"".$this->id."\"";
-        echo $actualiza;
-        $conexion->exec($actualiza);
-    }*/
+    public function BorrarPorUsuario($usuario) {
+        $conexion = proyectoBD::connectDB();
+    
+        $borrado = "DELETE FROM prestamos WHERE usuario='$usuario'";
+        //echo $borrado;
+        $conexion->exec($borrado);
+    }
 
 	public static function getPrestamos() {
 	
@@ -143,6 +144,23 @@ class  Prestamo{
         $conexion = proyectoBD::connectDB();
         
         $seleccion = "SELECT * FROM prestamos WHERE usuario='$use' AND fechadevolucion<CURDATE()";
+        
+        $consulta = $conexion->query($seleccion);
+        
+        $prestamos = [];
+        
+        while ($registro = $consulta->fetchObject()) {
+            $prestamos[] = new Prestamo($registro->id, $registro->fechaprestamo,$registro->fechadevolucion,$registro->id_libro,$registro->titulo,$registro->usuario);
+        }
+
+        return $prestamos;
+    }
+
+      public static function getTodosLosFueraPlazo() {
+    
+        $conexion = proyectoBD::connectDB();
+        
+        $seleccion = "SELECT * FROM prestamos WHERE fechadevolucion<CURDATE()";
         
         $consulta = $conexion->query($seleccion);
         

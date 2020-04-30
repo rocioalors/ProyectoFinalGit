@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once '../Model/Usuario.php';
 
 if(!empty($_POST['nombre'])){

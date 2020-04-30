@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once '../Model/Libro.php';
 
 // sube la imagen al servidor
