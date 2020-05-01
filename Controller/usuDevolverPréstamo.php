@@ -8,5 +8,7 @@ $prestamoAux=new Prestamo($_REQUEST['id']);
 
 $libroAux->devolver($_REQUEST['id_libro']);
 $prestamoAux->delete();
-header("Location:usuarioVerPerfil.php");
+ echo ' <script type="text/javascript">
+        alert("Préstamo devuelto correctamente");
+    </script>';
  ?>

@@ -11,10 +11,10 @@ require_once'../Model/Detalle_Venta.php';
 if(isset($_REQUEST['operacion'])){
 	    
 	
-  		$datos=file_get_contents("http://localhost/ProyectoFinalGit/controller/adminConsultas.php?datos=$_GET[operacion]");
-  		$var=json_decode($datos);
+  		$consulta=file_get_contents("http://localhost/ProyectoFinalGit/controller/adminConsultas.php?datos=$_GET[operacion]");
+  		$datos=json_decode($consulta);
   		if($_REQUEST['operacion']=='todas'){
-  			foreach ($var as $key) {
+  			foreach ($datos as $key) {
 				$total+=$key->total;
   		}
       }

@@ -3,7 +3,7 @@
 <head>
 	<title></title>
 
-
+<script type="text/javascript" src="../View/JS/funcionesdos.js"></script>
 </head>
 <body>
 	<!--Codigo del nav-->
@@ -25,7 +25,7 @@
     </div>
 </nav>
 
-
+  <div id="resultado"></div>
   <h1><?= $_SESSION['user']?></h1><br>
   
  <div class="container">
@@ -60,7 +60,7 @@
  		<td class="text-danger"><?=$prestamo->getFechaDevolucion()?></td>
  		<td class="text-danger"><?=$prestamo->getId_Libro()?></td>
     <td class="text-danger"><?=$prestamo->getTiulo()?></td>
- 		<td><a href="../Controller/usuDevolverPréstamo.php?id=<?=$prestamo->getId()?>&id_libro=<?=$prestamo->getId_Libro()?>"><input type="submit" class="btn btn-success" value ="Devolver"></a></td>
+ 		<td><a href="#" class="btn btn-info" onclick="borrarPrestamo(<?php echo $prestamo->getId(); echo $prestamo->getId_libro(); ?>)">Devolver</a></td>
  	</tr>
  	<?php }?>
  </table>
@@ -83,7 +83,7 @@
  		<td><?=$prestamo->getFechaDevolucion()?></td>
  		<td><?=$prestamo->getId_Libro()?></td>
     <td><?=$prestamo->getTitulo()?></td>
- 		<td><a href="../Controller/usuDevolverPréstamo.php?id=<?=$prestamo->getId()?>&id_libro=<?=$prestamo->getId_Libro()?>"><input type="submit" class="btn btn-success" value ="Devolver"></a></td>
+ 		<td><a href="#" onclick="borrarPrestamo(<?php echo $prestamo->getId()?>,<?= $prestamo->getId_Libro();?>)"> Borrar</a></td>
  	<?php }?>
  	</tr>
  </table>

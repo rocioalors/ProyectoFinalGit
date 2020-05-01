@@ -13,4 +13,10 @@ if(isset($_REQUEST['datos'])){
  	$datos=Venta::meses();
  	echo $datos;
  }
+ 
+ if($_REQUEST['datos']=='gmensual'){
+ 	$datos=Venta::meses();
+ 	echo $datos;
+
+}
 }

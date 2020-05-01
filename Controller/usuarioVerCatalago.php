@@ -4,6 +4,7 @@ include '../Model/Libro.php';
 include '../Controller/boostrap.php';
 include '../View/JS/funciones.js';
 
+
 $data['lista']=Libro::getLibro();
 
 
@@ -15,7 +16,7 @@ if (!isset($_SESSION['enCesta'])) {
 }
 
 
-include '../View/vUsuarioVerCatalodo.php';
+include '../View/vUsuarioVerCatalogo.php';
 
 
  ?>

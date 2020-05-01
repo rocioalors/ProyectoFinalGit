@@ -2,6 +2,8 @@
 <html>
 <head>
    <link rel="stylesheet" href="../View/css/estilos.css">
+   <!--script necesario para ver la gráfica-->
+   <script src="../View/JS/chart.min.js"></script>
 	<title>Gestion de ventas</title>
 </head>
 <body>
@@ -33,14 +35,15 @@
     <div class="form-group">
     <label>Seleccione el tipo de dato</label>
     <select class="form-control" id="operacion" name="operacion">
-      <option value="todas">Todas las ventas</option>
+      <option value="gmensual">Grafico mensual</option>
       <option value="meses">Agrupar por meses</option>
+      <option value="todas">Todas las ventas</option>
     </select><br>
      <input type="submit" class="btn btn-info" name="consultar" value="Consultar"><br>
    
    </div>
   </form>
-  <a href="../Controller/adminVerGrafico.php"><button type="button" class="btn btn-warning">Ver Grafico por meses</button></a><br><br>
+  
 
   <div>
   	<?php 
@@ -48,7 +51,7 @@
   		if(isset($_REQUEST['operacion'])){
   			//Compruebo si el valor es todas
   			if($_REQUEST['operacion']=='todas'){
-            if($var!=null){
+            if($datos!=null){
      ?>
   			<h4>El total de ventas anual es <?=$total?>€</h4>
   			<br>Buscar datos
@@ -63,13 +66,13 @@
         					     <th>Ver detalle</th>
     			     <tbody id="myTable">
     	<?php
-        foreach ($var as $key) {?>
+        foreach ($datos as $key) {?>
       					   <tr>
         					     <td><?= $key->id?></td>
         					     <td><?= $key->fechacompra?></td>
         					     <td><?= $key->usuario?></td>
         					     <td><?= $key->total?></td>
-        					     <td><a href="../Controller/detalle_venta.php?id=<?=$key->id?>&total=<?=$key->total?>"><button type="button" class="btn btn-success">Success</button></a></td>
+        					     <td><a href="../Controller/detalle_venta.php?id=<?=$key->id?>&total=<?=$key->total?>"><button type="button" class="btn btn-success">Detalle_Venta</button></a></td>
      					      </tr>
  	 	
   		<?php } 
@@ -87,8 +90,8 @@
   				
             //Compruebo que operacion vale meses
     		if($_REQUEST['operacion']=='meses'){
-          if($var==Null){?>
-            <p>Lo siento, actualmente no existe ventas</p>
+          if($datos==Null){?>
+            <h1>Lo siento, actualmente no existe ventas</h1>
              
     		<?php }else{?>	
   				<table class="table table-bordered">
@@ -102,12 +105,12 @@
     			<tbody id="myTable">
     			<?php
 
-    			foreach ($var as $key) {?>
+    			foreach ($datos as $key) {?>
       					<tr>
         					<td><?= $key->mes?></td>
         					<!--bcdiv redondeo con dos decimales-->
         					<td><?= bcdiv($key->total_mes,1,2)?></td>
-                  <td><a href="../Controller/venta_mes.php?mes=<?=$key->mes?>"><button type="button" class="btn btn-success">Success</button></a></td>
+                  <td><a href="../Controller/venta_mes.php?mes=<?=$key->mes?>"><button type="button" class="btn btn-success">Ver Ventas</button></a></td>
      					 </tr>
  	 	
   				<?php 
@@ -117,9 +120,59 @@
  				 </table>
   
   	<?php
-  }
-    }
-  }
+  }//fin del ese de si hay datos
+  }//fin compruebo si he recibido meses
+
+        if($_REQUEST['operacion']=='gmensual'){
+          if($datos==Null){?>
+            <h1>Lo siento, actualmente no existe ventas</h1>
+             
+        <?php }else{?>  
+         <h1>Grafica de Ventas por Meses</h1>
+<div class="chart-container" style="position: relative; height:40vh; width:40vw">
+    <canvas id="chart1"></canvas>
+</div>
+
+<script>
+var ctx = document.getElementById("chart1");
+var datos = {
+        labels: [ 
+        <?php foreach($datos as $d):?>
+        "<?php echo $d->mes?>", 
+        <?php endforeach; ?>
+        ],
+        datasets: [{
+            label: '$ Ventas',
+            data: [
+        <?php foreach($datos as $d):?>
+        <?php echo $d->total_mes;?>, 
+        <?php endforeach; ?>
+            ],
+            backgroundColor: "#3898db",
+            borderColor: "#9b59b6",
+            borderWidth: 2
+        }]
+    };
+var options = {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    };
+var chart1 = new Chart(ctx, {
+    type: 'bar', /* valores: line, bar,doughnut,pie*/
+    data: datos,
+    options: options
+
+});
+</script>
+<?php
+        }//fin del else operaciones igual a gmensual(grafico)
+      }//fin del if operacion igual a gmensual
+  }//fin del if de si he recibido operaciones
   ?>
   
   </div>
