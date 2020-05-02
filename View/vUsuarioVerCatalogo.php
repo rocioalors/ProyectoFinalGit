@@ -28,54 +28,73 @@
         </div>
     </div>
 </nav>
+
+<!--Contenido de la página-->
 <div class="container">
-<!--Titulo de la pag-->
-<div id="resultado"></div>
- <h1 class="titulo">Catálogo de libros</h1>
- <h3 class="titulo">Deja que tu Imaginación Despierte... Apaga la TV y Enciende un Libro</h3>
- <p class="hastang">#YoMeQuedoEnCasaConTheCornerOfDreams</p>
+<!--Cabecera de la pag-->
 
- <h6 class="titulo">(Entrega gratuita por compras superiores a 19€)</h6>
+    <h1 class="titulo">Catálogo de libros</h1>
+    <h3 class="titulo">Deja que tu Imaginación Despierte... Apaga la TV y Enciende un Libro</h3>
+    <p class="hastang">#YoMeQuedoEnCasaConTheCornerOfDreams</p>
+    <h6 class="titulo">(Entrega gratuita por compras superiores a 19€)</h6>
 
- <br>
+    <br>
 
 <!--Buscador-->
- <p>Escriba algo en el campo de entrada para buscar por título, autor o género</p>  
+     <p>Escriba algo en el campo de entrada para buscar por título, autor o género</p>  
  
- <input class="form-control" id="myInput" type="text" placeholder="Buscar...">
- <br><br>
+         <input class="form-control" id="myInput" type="text" placeholder="Buscar...">
+ 
+      <br><br>
 
 
 <!--Comienzo de card-->
-<div class="container">
-<div class="row" id="libros">
+    
+    <div class="row" id="libros">
+<!--Se recorre todo el listado de libros de la base de datos-->
+      <?php foreach ($data['lista'] as $lista) {
+//Establecemos un stock temporal para no permitir añadir más productos al carrito de lo que de verdad hay
+          if (isset($_SESSION['enCesta'][$lista->getId()])) {
+             $stockTemp=$lista->getCantidadvender()-$_SESSION['enCesta'][$lista->getId()];
+          }else{
+              $stockTemp=$lista->getCantidadvender();
+          }
+      ?>
+	 <div class="col-sm-3">
+		  <div class="card card-block">
+ 			      <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="../View/img/<?=$lista->getImagen()?>" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;"><br>
+  				      <div class="card-block">
+    				      <h4 class="card-title"><?= $lista->getTitulo()?></h4>
+                    <i class="material-icons" style="font-size:36px;color:red;">favorite</i>
+   					      <h6 class="card-title text-center"><?= $lista->getAutor()?></h6>
+    				      <h6 class="text-center">Género: <?=$lista->getGenero()?></h6>
+    				      <h6 class="text-center"><?=$lista->getPrecio()?> €</h6>
+                  <h6 class="text-center"> Temporal: <?= $stockTemp?> </h6>
+                  <p class="bg-info text-center text-white" data-toggle="tooltip" title="<?=$lista->getDescripcion()?>">Ver sipnosis</p><br>
+<!--if que comprueba la diasponibilidad de libros en alquiler si ya no hay no se muestra el botón de alquilar-->                  
+                    <?php 
+                        if($lista->getCantidadalquiler()>0){
+                    ?> 
+					              <a href="#" class="btn btn-secondary" onclick="realizarPrestamo(<?php echo $lista->getId()?>,'<?php echo $lista->getTitulo();?>')">Préstamo</a>
+                  <?php }else{?>
+                        <p id="noprestamo">(Sin Stock en alquiler)</p>
 
-<?php foreach ($data['lista'] as $lista) {
-?>
-	<div class="col-sm-3">
-		<div class="card card-block">
- 			<img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="../View/img/<?=$lista->getImagen()?>" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;"><br>
-  				<div class="card-block">
-    				<h4 class="card-title"><?= $lista->getTitulo()?></h4>
-            <i class="material-icons" style="font-size:36px;color:red;">favorite</i>
-   					<h6 class="card-title text-center"><?= $lista->getAutor()?></h6>
-    				<h6 class="text-center">Género: <?=$lista->getGenero()?></h6>
-    				<h6 class="text-center"><?=$lista->getPrecio()?> €</h6>
-            <p class="bg-info text-center text-white" data-toggle="tooltip" title="<?=$lista->getDescripcion()?>">Ver sipnosis</p><br>
-           <?php 
-                if($lista->getCantidadalquiler()>0){
-            ?> 
-					         <a href="#" class="btn btn-secondary" onclick="realizarPrestamo(<?php echo $lista->getId()?>,'<?php echo $lista->getTitulo();?>')">Préstamo</a>
-          <?php }else{?>
-                  <p id="noprestamo">(Sin Stock en alquiler)</p>
+                  <?php
+                       } 
+//Hacemos lo mismo pero para la compra pero esta vez utilizando el stock temporal
 
-          <?php
-                } ?>
-    				<a href="#" class="btn btn-primary" onclick="meteCarro(<?php echo $lista->getId();?>)">Compra</button></a>
-  				</div>
-  		</div>
+                      if($stockTemp>0){
+                    ?>
+                      <button type="button" class="btn btn-danger" onclick="meteCarro(<?php echo $lista->getId();?>)">Comprar</button>
+
+                    <?php
+                    } else{?>
+                        <p id="noprestamo">(Sin Stock en Venta)</p>
+                    <?php }?>
+  				    </div>
+  		    </div>
   		<br>
-	</div>
+	 </div>
 
 <?php
 }

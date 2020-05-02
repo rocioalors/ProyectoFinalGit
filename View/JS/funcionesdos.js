@@ -1,4 +1,4 @@
- 
+
 //Función par devolver préstamo
 function borrarPrestamo(id,id_libro){
  	
@@ -42,3 +42,20 @@ function borrarPrestamo(id,id_libro){
 	 });
   
 }
+
+ function cerrarSesion(){
+ 	if (confirm('¿Está seguro que desea cerrar sesion? Los productos de la cesta se perderan')) {
+   		 $.ajax({
+    	    url: "../Controller/usuarioCerrarSesion.php",
+	        type: "POST",
+		    success: function(resp){
+		        if(resp==1){
+		        	 location.href ="../Controller/index.php";
+		        }
+		    }
+         
+	 });
+  }
+}
+
+

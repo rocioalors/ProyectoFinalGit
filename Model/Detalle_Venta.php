@@ -65,10 +65,10 @@ class  Detalle_Venta{
 
     public static function tresLibrosMasVendidos(){
         $conexion = proyectoBD::connectDB();
-        $seleccion="SELECT d.id_libro,SUM(d.cantidad) AS cantidad,l.imagen,l.titulo,l.descripcion,l.precio,l.autor,l.edicion FROM detalle_venta d INNER JOIN libros l ON d.id_libro=l.id GROUP BY d.id_libro ORDER BY SUM(d.cantidad) DESC LIMIT 0,3";
+        $seleccion="SELECT d.id_libro,SUM(d.cantidad) AS cantidad,l.imagen,l.titulo,l.descripcion,l.precio,l.autor,l.edicion,l.cantidadvender FROM detalle_venta d INNER JOIN libros l ON d.id_libro=l.id GROUP BY d.id_libro ORDER BY SUM(d.cantidad) DESC LIMIT 0,3";
         $consulta=$conexion->query($seleccion);
          while ($registro = $consulta->fetchObject()) {
-            $objeto=array("id_libro"=>$registro->id_libro,"cantidad"=>$registro->cantidad,"imagen"=>$registro->imagen,"titulo"=>$registro->titulo,"descripcion"=>$registro->descripcion,"precio"=>$registro->precio,"autor"=>$registro->autor,"edicion"=>$registro->edicion);
+            $objeto=array("id_libro"=>$registro->id_libro,"cantidad"=>$registro->cantidad,"imagen"=>$registro->imagen,"titulo"=>$registro->titulo,"descripcion"=>$registro->descripcion,"precio"=>$registro->precio,"autor"=>$registro->autor,"edicion"=>$registro->edicion,"cantidadvender"=>$registro->cantidadvender);
             $total[]=$objeto;
            
         }

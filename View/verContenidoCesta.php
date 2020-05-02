@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../View/css/dalle_cesta.css">
-   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../View/JS/funcionesdos.js"></script>
       <title>
         
       </title>
@@ -29,8 +30,9 @@
             <a href="../Controller/usuarioFormularioContacto.php" class="nav-item nav-link">Contacto</a> 
            <a href="../Controller/verContenidoCesta.php"> CESTA: <?=$_SESSION['cantidad']?>Prd Total:<?=$_SESSION['subtotal']?>€</a>
         </div>
+        
         <div class="navbar-nav ml-auto">
-          <a href="../Controller/usuarioCerrarSesion.php"><button type="button" class="btn btn-warning">Cerrar sesion</button></a>
+          <button type="button" class="btn btn-warning" onclick="cerrarSesion()">Cerrar sesion</button></a>
         </div>
     </div>
 </nav>
@@ -49,65 +51,66 @@
     }else{
     ?>
 <!--Si no esta vacia le muestro el contenido de la cesta-->
-<br><br>
-<div class="table-responsive">
-<table class="table table-bordered">
-<tr class="table-info">
-  <td>Codigo</td>
-  <td>Producto</td>
-  <td>Titulo</td>
-  <td>Cantidad</td>
-  <td>Precio</td>
-  <td>Importe</td>
-  <td>Eliminar de la cesta</td>
-</tr>
+      <br><br>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class="table-info">
+            <td>Codigo</td>
+            <td>Producto</td>
+            <td>Titulo</td>
+            <td>Cantidad</td>
+            <td>Precio</td>
+            <td>Importe</td>
+            <td>Eliminar de la cesta</td>
+          </tr>
 
-<?php 
+        <?php 
+    //Recorro los productos que están en la cesta
     foreach ($_SESSION['enCesta'] as $libro => $cantidad) {
+    //Los muestros en funcion de su id
             $producto=Libro::getLibroById($libro);
             ?>
-            <tr>
-              <td><?=$libro?></td>
-              <td><img style="width:50px" src="../View/img/<?=$producto->getImagen()?>"></td>
-              <td><?=$producto->getTitulo()?></td>
-              <td><?=$cantidad?></td>
-              <td><?=$producto->getPrecio()?> euros</td>
-              <td><?=$producto->getPrecio()*$cantidad?>euros</td>
-              <td>
-          
-            <form action="QuitaCarro.php" method="get">
-                <input type="hidden" name="quitapro" value="<?= $producto->getId() ?>">
-                <input type="submit" class="btn btn-info" value="Eliminar">
-            </form>
+          <tr>
+            <td><?=$libro?></td>
+            <td><img style="width:50px" src="../View/img/<?=$producto->getImagen()?>"></td>
+            <td><?=$producto->getTitulo()?></td>
+            <td><?=$cantidad?></td>
+            <td><?=$producto->getPrecio()?> euros</td>
+            <td><?=$producto->getPrecio()*$cantidad?>euros</td>
+            <td>
+              <form action="QuitaCarro.php" method="get">
+                  <input type="hidden" name="quitapro" value="<?= $producto->getId() ?>">
+                  <input type="submit" class="btn btn-info" value="Eliminar">
+              </form>
             </td>
           </tr>
     <?php  
     }
     ?>
-    <tr>
-      <td colspan="3" class="table-success">Cantidad</td>
-      <td><?=$_SESSION['cantidad']?></td>
-      <td class="table-success">Subtotal</td>
-      <td><?=$_SESSION['subtotal']?>euros</td>
-      <td></td>
-    </tr>
-     <tr>
-      <td colspan="4"></td>
-      <td class="table-success">Gastos de envio</td>
-      <td><?=$envio ?></td>
-      <td></td>
-    </tr>
-       <tr>
-      <td colspan="4"></td>
-      <td class="table-success">Total</td>
-      <td><?=$_SESSION['total']=$_SESSION['subtotal']+$envio; ?></td>
-      <td></td>
-    </tr>
-    <tr>
-    <td colspan="3"><a href="../Controller/usuarioVerCatalago.php">Seguir Comprando</a></td>
-    <td colspan="4"><a href="../Controller/finCompra.php">Finalizar Compra</a></td>
-    </tr>
-</table>
+          <tr>
+            <td colspan="3" class="table-success">Cantidad</td>
+            <td><?=$_SESSION['cantidad']?></td>
+            <td class="table-success">Subtotal</td>
+            <td><?=$_SESSION['subtotal']?>euros</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="4"></td>
+            <td class="table-success">Gastos de envio</td>
+            <td><?=$envio ?></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="4"></td>
+            <td class="table-success">Total</td>
+            <td><?=$_SESSION['total']=$_SESSION['subtotal']+$envio; ?></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="3"><a href="../Controller/usuarioVerCatalago.php">Seguir Comprando</a></td>
+            <td colspan="4"><a href="../Controller/finCompra.php">Finalizar Compra</a></td>
+          </tr>
+        </table>
 </div>
 
 <?php } ?>
@@ -118,13 +121,17 @@
 <h1>Los Más Vendidos de esta semana</h1>
 <br><br>
 <div class="row">
-<?php
-foreach ($VentaAux as $key => $value) {
+    <?php
+      foreach ($VentaAux as $key => $value) {
+      //Establezco el stock temporal para que no pueda comprar más libros de los que tengo
+         if (isset($_SESSION['enCesta'][$value['id_libro']])) {
+             $stockTemp=$value['cantidadvender']-$_SESSION['enCesta'][$value['id_libro']];
+          }else{
+              $stockTemp=$value['cantidadvender'];
+          }
 
-?>
-
-            <!-- Team member -->
-            
+      ?>
+ <!-- Card -->
             <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="card card-block">
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
@@ -145,7 +152,16 @@ foreach ($VentaAux as $key => $value) {
                                     <p class="card-text"><?=$value['descripcion']?></p>
                                     <p class="card-text"><?=$value['edicion']?></p>
                                     <p class="card-text">Precio <?=$value['precio']?>€</p>
-                                    <a href="../Controller/usuComprarSugerencias.php?id=<?= $value['id_libro']?>"><button type="button" class="btn btn-primary">Compra</button></a>
+<!--Establezco el if para no mostrar el botón comprar cuando no disponemos de stock-->
+                                    <?php if($stockTemp>0){?>
+                                      <button type="button" class="btn btn-danger" onclick="meteCarro(<?php echo $value['id_libro'];?>)">Comprar</button>
+                                   <?php
+                                    }else{
+                                    ?>
+                                    <p id="noprestamo">Sin Stock</p>
+                                     <?php
+                                   }
+                                   ?>
                                 </div>
                             </div>
                         </div>
