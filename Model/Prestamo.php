@@ -189,6 +189,22 @@ class  Prestamo{
 		
 	}
 
+    public static function getPrestamoByUsuarioById($id_libro,$usuario) {
+        $conexion = proyectoBD::connectDB();
+        $seleccion = "SELECT * FROM prestamos WHERE id_libro='$id_libro' AND usuario='$usuario'";
+        //echo $seleccion;
+           $consulta = $conexion->query($seleccion);
+        
+        $prestamos = [];
+        
+        while ($registro = $consulta->fetchObject()) {
+            $prestamos[] = new Prestamo($registro->id, $registro->fechaprestamo,$registro->fechadevolucion,$registro->id_libro,$registro->titulo,$registro->usuario);
+        }
+
+        return $prestamos;
+        
+    }
+
 }
     
 

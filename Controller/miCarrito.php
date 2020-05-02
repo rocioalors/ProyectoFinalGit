@@ -14,4 +14,3 @@ if (isset($_REQUEST['id'])) {
     $_SESSION['subtotal'] += $libroaux->getPrecio();
     
     
-header('Location:usuarioVerCatalago.php');

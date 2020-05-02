@@ -25,7 +25,7 @@
     </div>
 </nav>
 
-  <div id="resultado"></div>
+
   <h1><?= $_SESSION['user']?></h1><br>
   
  <div class="container">

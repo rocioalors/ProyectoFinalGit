@@ -2,7 +2,7 @@
 session_start();
 include '../Model/Libro.php';
 include '../Controller/boostrap.php';
-include '../View/JS/funciones.js';
+
 
 
 $data['lista']=Libro::getLibro();

@@ -4,6 +4,7 @@
 	<title>Catálogo de Libros</title>
 	<link rel="stylesheet" type="text/css" href="../View/css/estiloPrincipalUsuario.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script type="text/javascript" src="../View/JS/funcionesdos.js"></script>
 </head>
 <body>
 <!--Codigo NAV-->
@@ -29,6 +30,7 @@
 </nav>
 <div class="container">
 <!--Titulo de la pag-->
+<div id="resultado"></div>
  <h1 class="titulo">Catálogo de libros</h1>
  <h3 class="titulo">Deja que tu Imaginación Despierte... Apaga la TV y Enciende un Libro</h3>
  <p class="hastang">#YoMeQuedoEnCasaConTheCornerOfDreams</p>
@@ -54,7 +56,6 @@
 		<div class="card card-block">
  			<img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="../View/img/<?=$lista->getImagen()?>" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;"><br>
   				<div class="card-block">
-                     <input type="hidden" name="" value="<?=$lista->getId()?>">
     				<h4 class="card-title"><?= $lista->getTitulo()?></h4>
             <i class="material-icons" style="font-size:36px;color:red;">favorite</i>
    					<h6 class="card-title text-center"><?= $lista->getAutor()?></h6>
@@ -64,19 +65,19 @@
            <?php 
                 if($lista->getCantidadalquiler()>0){
             ?> 
-					         <a href="../Controller/usuarioPrestamos.php?id=<?=$lista->getId()?>&titulo=<?=$lista->getTitulo()?>"class="btn btn-secondary">Préstamo</a>
+					         <a href="#" class="btn btn-secondary" onclick="realizarPrestamo(<?php echo $lista->getId()?>,'<?php echo $lista->getTitulo();?>')">Préstamo</a>
           <?php }else{?>
                   <p id="noprestamo">(Sin Stock en alquiler)</p>
 
           <?php
                 } ?>
-    				<a href="../Controller/miCarrito.php?id=<?= $lista->getId()?>"><button type="button" class="btn btn-primary">Compra</button></a>
+    				<a href="#" class="btn btn-primary" onclick="meteCarro(<?php echo $lista->getId();?>)">Compra</button></a>
   				</div>
   		</div>
   		<br>
 	</div>
 
-<?php 
+<?php
 }
  ?>
 </div>	
