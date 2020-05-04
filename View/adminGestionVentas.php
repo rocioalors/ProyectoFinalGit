@@ -4,6 +4,7 @@
    <link rel="stylesheet" href="../View/css/estilos.css">
    <!--script necesario para ver la gráfica-->
    <script src="../View/JS/chart.min.js"></script>
+   <script src="../View/JS/funciones.js"></script>
 	<title>Gestion de ventas</title>
 </head>
 <body>

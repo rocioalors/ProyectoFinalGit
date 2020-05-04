@@ -5,6 +5,7 @@
 	
 	 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="../View/css/estiloFormulario.css">
+   <script src="../View/JS/funciones.js"></script>
    
 </head>
 <body>

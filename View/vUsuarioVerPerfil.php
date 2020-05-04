@@ -83,7 +83,7 @@
  		<td><?=$prestamo->getFechaDevolucion()?></td>
  		<td><?=$prestamo->getId_Libro()?></td>
     <td><?=$prestamo->getTitulo()?></td>
- 		<td><a href="#" onclick="borrarPrestamo(<?php echo $prestamo->getId()?>,<?= $prestamo->getId_Libro();?>)"> Borrar</a></td>
+ 		<td><a href="#"  class="btn btn-danger" onclick="borrarPrestamo(<?php echo $prestamo->getId()?>,<?= $prestamo->getId_Libro();?>)"> Borrar</a></td>
  	<?php }?>
  	</tr>
  </table>

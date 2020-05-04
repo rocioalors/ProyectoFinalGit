@@ -4,6 +4,7 @@
 <head>
 	<title>Formulario Registro</title>
  <link rel="stylesheet" type="text/css" href="../View/css/estiloFormularioRegistro.css">
+ <script src="../View/JS/funciones.js"></script>
 </head>
 <body>
 

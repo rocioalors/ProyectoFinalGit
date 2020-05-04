@@ -3,6 +3,7 @@
 <head>
 
     <link rel="stylesheet" href="../View/css/cards-gallery.css">
+    <script src="../View//JS/funciones.js"></script>
 </head>
 <body>
   <form action="../Controller/cerrarSesion.php" method="get">

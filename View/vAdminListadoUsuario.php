@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="../View/css/estilos.css">
+ <script  src="../View/JS/funciones.js"></script>
 </head>
 
 <!--Código barra de navegación-->

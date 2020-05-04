@@ -1,7 +1,7 @@
 <?php 
 session_start();
-include '../Model/Usuario.php';
-include '../Model/Prestamo.php';
+require_once '../Model/Usuario.php';
+require_once '../Model/Prestamo.php';
 include 'boostrap.php';
 $data['prestamofueraplazo']=Prestamo::getFueraPlazo($_SESSION['user']);
 $usuario=Usuario::getUsuarioByDni($_SESSION['dni']);

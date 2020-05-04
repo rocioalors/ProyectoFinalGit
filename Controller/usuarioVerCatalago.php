@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include '../Model/Libro.php';
+require_once '../Model/Libro.php';
 include '../Controller/boostrap.php';
 
 

@@ -2,6 +2,7 @@
 <html>
 <head>
 	 <link rel="stylesheet" href="../View/css/estilos.css">
+<meta charset="utf-8">
 	<title></title>
 </head>
 <body>
@@ -26,10 +27,6 @@
         </div>
     </div>
 </nav>
-
-
-
-
 
 <!--Comienzo del contenido-->	
 <div class="container">
@@ -59,8 +56,19 @@
 	<?php }?>
 	
 </table>
+
+<!--Utilizo estos datos para generar el pdf de la factura-->
+<form action="../Controller/generarpdf.php" method="post">
+  <input type="hidden" name="usuario" value="<?=$_REQUEST['usuario']?>">
+  <input type="hidden" name="id_venta" value="<?=$_REQUEST['id']?>">
+  <input type="hidden" name="fecha" value="<?=$_REQUEST['fecha']?>">
+  <input type="hidden" name="total" value="<?=$_REQUEST['total']?>">
+  <input type="submit" class="btn btn-info" name="enviar" value="Generar PDF">
+</form>
+
 <br><br>
 <a href="../Controller/adminVerVentas.php">Volver</a>
 </div>
+
 </body>
 </html>

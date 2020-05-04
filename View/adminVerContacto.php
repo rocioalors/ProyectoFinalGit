@@ -2,6 +2,7 @@
 <html>
 <head>
 	 <link rel="stylesheet" href="../View/css/estilos.css">
+   <script  src="../View/JS/funciones.js"></script>
 	<title></title>
 </head>
 <body>
@@ -27,40 +28,6 @@
     </div>
 </nav>
 
-
-
-
-
-<!--Comienzo del contenido-->	
-<div class="container">
-<br><br>
-<h1>DATOS DE CONTACTO</h1><br>
-<table class="table table-bordered">
-	<tr class="table-success">
-		<th>Id</th>
-		<th>Nombre</th>
-		<th>Dni</th>
-		<th>Correo</th>
-		<th>Dirección</th>
-		<th>Codigo Postal</th>
-    <th>Telefono</th>
-    </tr>
-  <tr>
- 		 <td><?=$usuAux->getId()?></td>
-   		<td><?=$usuAux->getNombre()?></td>
-   		<td><?=$usuAux->getDni()?></td>
-   		<td><?=$usuAux->getCorreo()?></td>
-   		<td><?=$usuAux->getDireccion()?></td>
-   		<td><?=$usuAux->getcp()?></td>
-      <td><?=$usuAux->getTelefono()?></td>
-    </tr>
-
-	
-</table>
-<br><br>
-<a href="../Controller/adminVerPrestamos.php">Volver</a>
-</div>
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -81,10 +48,40 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Save changes</button>
+        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Entrar</button>
       </div>
     </div>
   </div>
 </div>
+
+
+
+<!--Comienzo del contenido-->	
+<div class="container">
+<br><br>
+<h1>DATOS DE CONTACTO</h1><br>
+
+
+  <div class="media">
+    <img src="../View/img/usuarios.jpg" alt="John Doe" class="mr-4 mt-4 rounded-circle" style="width:100px;">
+       <div class="media-body" >
+        <div class="card  mb-4" style="max-width: 30rem;">
+          <div class="card-header text-danger"><h2><?=$usuAux->getNombre()?></h2></div>
+          <div class="card-body text-secondary">
+            <h5 class="card-title">Teléfono: <?=$usuAux->getTelefono()?></h5>
+            <h4 class="card-title">Email: <?=$usuAux->getCorreo()?></h4>
+            <p class="card-text">Dirección: <?=$usuAux->getDireccion()?>, CP: <?=$usuAux->getCp()?></p>
+          </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+<br><br>
+<a href="../Controller/adminVerPrestamos.php">Volver</a>
+</div>
+
 </body>
 </html>

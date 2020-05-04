@@ -1,4 +1,4 @@
-<script language="JavaScript">
+
 
 function confirmar ( mensaje ) {
         return confirm( mensaje );
@@ -79,4 +79,4 @@ function comprobarDni() {
                 }       
             });
   }
-</script>
+

@@ -1,7 +1,6 @@
 <?php 
 session_start();
 require_once('../Model/Prestamo.php');
-include '../View/JS/funciones.js';
 include '../Controller/boostrap.php';
 //Si he recibido algún valor del select
 if(isset($_REQUEST['operacion'])){

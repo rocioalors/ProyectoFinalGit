@@ -52,7 +52,7 @@
         <td><?=$key->getFechaCompra()?></td>
         <td><?=$key->getUsuario()?></td>
         <td><?=$key->getTotal()?></td>
-        <td><a href="../Controller/detalle_venta.php?id=<?=$key->getId()?>&total=<?=$key->getTotal()?>"><button type="button" class="btn btn-success">Ver venta</button></a></td>
+        <td><a href="../Controller/detalle_venta.php?id=<?=$key->getId()?>&total=<?=$key->getTotal()?>&usuario=<?=$key->getUsuario()?>&fecha=<?=$key->getFechaCompra()?>"><button type="button" class="btn btn-success">Ver venta</button></a></td>
       </tr>
       <tr>
     <?php } ?>

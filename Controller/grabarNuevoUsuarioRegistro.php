@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include '../Model/Usuario.php';
+require_once '../Model/Usuario.php';
 
 
   if($_REQUEST['nombre']==''||$_REQUEST['dni']==''||$_REQUEST['correo']==''||$_REQUEST['direccion']==''||$_REQUEST['cp']==''||$_REQUEST['telefono']==''|| $_REQUEST['contraseña']==''){

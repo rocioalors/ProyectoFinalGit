@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include "boostrap.php";
-include '../View/JS/funciones.js';
+
 $destino="adminActualizarUsuario.php";
 $nombre=$_REQUEST['nombre'];
 $id=$_REQUEST['id'];

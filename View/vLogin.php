@@ -4,7 +4,7 @@
 <head>
 <!-- Nuestro css -->
 <link rel="stylesheet" type="text/css" href="../View/css/style.css">
-
+<script src="../View/JS/funciones.js"></script>
 </head>
 <body>
     <div class="modal-dialog text-center">
