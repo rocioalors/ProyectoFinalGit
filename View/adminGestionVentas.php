@@ -73,10 +73,19 @@
         					     <td><?= $key->fechacompra?></td>
         					     <td><?= $key->usuario?></td>
         					     <td><?= $key->total?></td>
-        					     <td><a href="../Controller/detalle_venta.php?id=<?=$key->id?>&total=<?=$key->total?>"><button type="button" class="btn btn-success">Detalle_Venta</button></a></td>
+        					     <td>
+                      <!--Utilizo estos datos para generar el pdf de la factura-->
+                          <form action="../Controller/detalle_venta.php" method="post">
+                              <input type="hidden" name="usuario" value="<?=$key->usuario?>">
+                              <input type="hidden" name="id" value="<?=$key->id?>">
+                              <input type="hidden" name="fecha" value="<?=$key->fechacompra?>">
+                              <input type="hidden" name="total" value="<?=$key->total?>">
+                              <input type="submit" class="btn btn-info" name="enviar" value="Ver Venta">
+                          </form>
+                      </td>
      					      </tr>
  	 	
-  		<?php } 
+  		    <?php } 
           
           
           }else{?>
