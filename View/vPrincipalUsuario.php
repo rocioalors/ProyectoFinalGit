@@ -9,7 +9,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="../View/JS/funcionesDOM.js"></script>
   <link rel="stylesheet" type="text/css" href="../View/css/estiloPrincipalUsuario.css">
+
 </head>
 <body>
  
@@ -39,29 +41,43 @@
 <!--Carousel Wrapper-->
 <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
   <!--Indicators-->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-1z" data-slide-to="1"></li>
-    <li data-target="#carousel-example-1z" data-slide-to="2"></li>
-  </ol>
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+        <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+    </ol>
   <!--/.Indicators-->
   <!--Slides-->
   <div class="carousel-inner" role="listbox">
     <!--First slide-->
     <div class="carousel-item active">
-      <img class="d-block w-100" src="../View/img/fondoPrincipalUser.jpg"
-        alt="First slide">
+      <img class="d-block w-100" src="../View/img/una.jpeg"
+      alt="First slide">
+        <div class="container">
+          <div class="carousel-caption text-left">
+            <h1 class="tcs ">Bienvenido a The Corner Of Dreams</h1>
+            <h3 class="tcs ">Apaga la TV y Enciende un Libro</h3>
+              <h2 class="tc2 "><?=$_SESSION['user']?></h2>
+              <p><a class="btn btn-lg btn-danger" href="../Controller/usuarioVerCatalago.php" target="_blank" role="button">Ver Catálogo</a></p>
+          </div>
+        </div>
     </div>
     <!--/First slide-->
     <!--Second slide-->
     <div class="carousel-item">
-      <img class="d-block w-100" src="../View/img/tres.jpg"
+      <img class="d-block w-100" src="../View/img/fondoPrincipalUsuario.jpg"
         alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption text-left">
+              <h1 class="tc3 ">Miles de aventuras te esperan...</h1>
+              <p><a class="btn btn-lg btn-danger" href="../Controller/usuarioVerCatalago.php" target="_blank" role="button">Ver Catálogo</a></p>
+          </div>
+        </div>
     </div>
     <!--/Second slide-->
     <!--Third slide-->
     <div class="carousel-item">
-      <img class="d-block w-100" src="../View/img/cuatro.jpg"
+      <img class="d-block w-100" src="../View/img/carrussel5.jpg"
         alt="Third slide">
     </div>
     <!--/Third slide-->
@@ -83,10 +99,7 @@
 
 <br><br>
 <!--Contenido-->
-
-	<h1 class="titulo">Bienvenido a The Corner Of Dreams</h1>
-    <h3 class="titulo"><?=$_SESSION['user']?></h3><br>
-    <p class="hastang">#YoMeQuedoEnCasaConTheCornerOfDreams<br></p>
+<p class="hastang">#TheCornerOfDreams<br></p>
 
 
 <div class="container marketing">
@@ -94,15 +107,26 @@
           <div class="col-lg-4">
             <img class="rounded-circle" src="../View/img/dos.jpg" alt="Generic placeholder image" width="140" height="140">
             <h2>¿Qué Ofrecemos?</h2>
-            <p> 
+            <p class="titulos"> 
             Nuestra librería digital TheCornerOfDreams.com está abierta 24/7 y acercamos los mejores contenidos para todos, desde nuestros canales, para que puedas leer aquellos libros que te interesan, que te intrigan, que te llevan a otros escenarios; para aprender, para jugar, para entretenerte solo o en familia… </p>
-          </div><!-- /.col-lg-4 -->
+             
+            <button class="btn btn-primary" id="ampliar">Saber más</button>
+
+            <div id="myDIV" style="display: none">
+            <p class="titulos">Nuestra historia comienza en 2020 con la ilusión de  invitar a nuestros usuarios a descubrir la melodía, la energía y la emoción de leer un buen libro en formato de papel. En un mundo donde siempre estamos acelerados, queremos ofrecerle la oportunidad de evadirse disfrutando cada día de una aventura diferente... </p>
+            <button class="btn btn-primary" id="menos">Mostrar menos</button>
+            </div>
+
+
+          </div>
+
+
 
           <div class="col-lg-4">
             <img class="rounded-circle" src="../View/img/duda.jpg" alt="Generic placeholder image" width="140" height="140">
             <h2>¿Cómo lo Hacemos?</h2>
-            <p>Porque los libros siempre son buenos compañeros y más en este periodo que estamos viviendo, en The Corner Of Dreams queremos acompañarte, formar parte de tu experiencia lectora.<br>
-            Solo preocupate de escoger tu libro y nosotros te los llevamos a casa.
+            <p class="titulos">Porque los libros siempre son buenos compañeros y más en este periodo que estamos viviendo, en The Corner Of Dreams queremos acompañarte, formar parte de tu experiencia lectora.<br>
+            Solo preocupate de escoger tu libro y nosotros te los llevamos a casa o bien acercate a nuestro establecimiento a recogerlo.
             </p>
             <a class="btn btn-primary" href="../Controller/usuarioVerCatalago.php" role="button">Ver Catálogo »</a>
           </div><!-- /.col-lg-4 -->
@@ -110,59 +134,38 @@
           <div class="col-lg-4">
             <img class="rounded-circle" src="../View/img/contacto.png" alt="Generic placeholder image" width="140" height="140">
             <h2>Contáctanos</h2>
-            <p>Estaremos encantados de resolverte cualquier duda. Nos pondremos en contacto lo antes posible</p>
+            <p class="titulos">Estaremos encantados de resolverte cualquier duda. Nos pondremos en contacto lo antes posible</p>
             <a class="btn btn-primary" href="../Controller/usuarioPrestamos.php" role="button">Contacta »</a>
           </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
 
+<br><br>
+        <!--iconos informativos-->
+        <div class="row">
+        <div class="col-lg-4">
+          <img class="rounded-circle" src="../View/img/comprasegura.png" alt="Generic placeholder image" width="60" height="60">
+          <p>Compra Segura</p>
+        </div>
+
+        <div class="col-lg-4">
+          <img class="rounded-circle" src="../View/img/enviogratis.png" alt="Generic placeholder image" width="60" height="60">
+          <p>Envío Gratis a partir de 19€</p>
+        </div>
+      
+
+       <div class="col-lg-4">
+          <img class="rounded-circle" src="../View/img/recogidaGratis.jpg" alt="Generic placeholder image" width="60" height="60">
+          <p>Recogida Gratis en tienda</p>
+        </div>
+      </div>
 </div>
 
 <!-- Footer -->
-<footer class="page-footer font-small special-color-dark pt-4">
-
-  <!-- Footer Elements -->
-  <div class="container">
-
-    <!-- Social buttons -->
-    <ul class="list-unstyled list-inline text-center">
-      <li class="list-inline-item">
-        <a class="btn-floating btn-fb mx-1">
-          <i class="fab fa-facebook-f"> </i>
-        </a>
-      </li>
-      <li class="list-inline-item">
-        <a class="btn-floating btn-tw mx-1">
-          <i class="fab fa-twitter"> </i>
-        </a>
-      </li>
-      <li class="list-inline-item">
-        <a class="btn-floating btn-gplus mx-1">
-          <i class="fab fa-google-plus-g"> </i>
-        </a>
-      </li>
-      <li class="list-inline-item">
-        <a class="btn-floating btn-li mx-1">
-          <i class="fab fa-linkedin-in"> </i>
-        </a>
-      </li>
-      <li class="list-inline-item">
-        <a class="btn-floating btn-dribbble mx-1">
-          <i class="fab fa-dribbble"> </i>
-        </a>
-      </li>
-    </ul>
-    <!-- Social buttons -->
-
-  </div>
-  <!-- Footer Elements -->
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
-
-</footer>
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; The Corner Of Dreams</small>
+    </div>
+  </footer>
 <!-- Footer -->
 
 

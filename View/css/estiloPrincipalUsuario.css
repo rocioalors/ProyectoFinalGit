@@ -1,13 +1,31 @@
 
-.titulo{
-  color:#aba104;
-  text-align: center;
-  font-family:'Pacifico', cursive;
-}
-
 .carousel-inner img {
   max-width:100%; 
-  max-height: 250px;
+  max-height: 400px;
+}
+
+.titulos{
+  font-weight: bold;
+}
+
+.tcs{
+ color:#9a0606;
+ text-align: center;
+ font-family:'Pacifico', cursive;
+ font-weight: bold;
+}
+.tc2{
+ color:#153607;
+ text-align: center;
+ font-family:'Pacifico', cursive;
+ font-weight: bold; 
+}
+.tc3{
+ color:black;
+
+ text-align: center;
+ font-family:'Pacifico', cursive;
+ font-weight: bold; 
 }
 
 .hastang{
