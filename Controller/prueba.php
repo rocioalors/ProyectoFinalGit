@@ -4,7 +4,7 @@ require_once '../Model/Venta.php';
 require_once '../Model/Detalle_Venta.php';
 require_once '../Model/Libro.php';
 
-$Ventaaux=Detalle_Venta::tresLibrosMasVendidos();
+$Ventaaux=Detalle_Venta::DiezLibrosMasVendidos();
 //$datos=json_decode($Ventaaux);
 print_r($Ventaaux);
 

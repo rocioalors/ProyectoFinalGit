@@ -1,0 +1,29 @@
+.jumbotron{
+	background: url(../img/c2.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.display-4{
+	color:red;
+	font-weight: bold;
+}
+
+.lead{
+	color: #aba104;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+#oferta{
+	color: #d7d7d7;
+	font-weight: bold;
+	font-size: 20px;
+
+}
+
+.hastang{
+	text-align: center;
+	color: red;
+	font-weight: bold;
+	font-size: 20px;
+}

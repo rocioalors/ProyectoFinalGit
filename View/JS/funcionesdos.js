@@ -42,7 +42,7 @@ function borrarPrestamo(id,id_libro){
 	 });
   
 }
-
+//FUNCION PARA CONFIRMAR QUE DESEA CERRAR SESION
  function cerrarSesion(){
  	if (confirm('¿Está seguro que desea cerrar sesion? Los productos de la cesta se perderan')) {
    		 $.ajax({
@@ -58,4 +58,17 @@ function borrarPrestamo(id,id_libro){
   }
 }
 
+//buscador en tiempo real con jquery usuario ver catálogo
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#libros div").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+  });
 
+//Funcion que muestra el tooltip con la descripcion de los libros
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});

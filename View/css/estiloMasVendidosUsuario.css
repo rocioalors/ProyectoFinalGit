@@ -1,0 +1,47 @@
+.jumbotron{
+	background: url(../img/carrausel2.png) no-repeat center center fixed;
+    background-size: cover;
+
+}
+
+.display-4{
+	color:#9a0606;
+	font-weight: bold;
+	font-size: 40px;
+}
+
+.lead{
+	color: #01233f;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+#oferta{
+	color:#153607;
+	font-weight: bold;
+	font-size: 20px;
+
+}
+
+.hastang{
+	text-align: center;
+	color: red;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.featurette-heading{
+	color:#01233f;
+	font-weight: bold;
+
+}
+
+.descripcion{
+	color:#01233f;
+	font-size: 20px;
+}
+.titulo{
+	color: #9a0606;
+	font-weight: bold;
+	text-align: center;
+}
