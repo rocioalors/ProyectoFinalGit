@@ -9,8 +9,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <!--Funciones propias-->
   <script src="../View/JS/funcionesDOM.js"></script>
+  <script src="../View/JS/funcionesdos.js"></script>
+  <!--El estilo-->
   <link rel="stylesheet" type="text/css" href="../View/css/estiloPrincipalUsuario.css">
+  <!--Para los iconos-->
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 

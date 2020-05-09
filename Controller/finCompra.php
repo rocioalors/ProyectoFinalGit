@@ -26,6 +26,8 @@ foreach ($_SESSION['enCesta'] as $libro => $cantidad) {
 
 //Borramos el contenido de la cesta
 unset($_SESSION['enCesta']);
+$_SESSION['cantidad']=0;
+$_SESSION['subtotal']=0;
 
 //Volvemos al catálogo
 header('Location:usuarioVerCatalago.php')

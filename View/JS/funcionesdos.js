@@ -98,3 +98,14 @@ $(document).ready(function(){
     });
  });
 
+//Función muestra o oculta la info de proteccion de datos
+$(document).ready(function(){
+	 $("#boton1").on("click", function() {
+	 	 var x=$("#descripcion");
+  			x.toggle("slow");
+
+    });
+ })
+
+
+

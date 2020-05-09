@@ -69,7 +69,7 @@
         <a href="../Controller/usuarioVerPerfil.php" class="list-group-item list-group-item-action bg-secondary text-light">Información General</a>
         <a href="../Controller/usuarioVerDatosPersonales.php" class="list-group-item list-group-item-action bg-secondary text-light">Datos Personales</a>
         <a href="#" class="list-group-item list-group-item-action bg-secondary text-light">Préstamos</a>
-        <a href="#" class="list-group-item list-group-item-action bg-secondary text-light">Compras</a>
+        <a href="../Controller/usuarioVerCompras.php" class="list-group-item list-group-item-action bg-secondary text-light">Compras</a>
       </div>
     </div>
 
@@ -96,10 +96,18 @@
  		<th>Devolver</th>
  	</tr>
 
- 	<?php foreach ($data['prestamofueraplazo'] as $prestamo) {?>
+ 	<?php foreach ($data['prestamofueraplazo'] as $prestamo) {
+       $fechaPrestamo=$prestamo->getFechaPrestamo();
+     $fechaDevo=$prestamo->getFechaDevolucion();
+  
+      $dateUno= strftime("%d de %B del %Y", strtotime($fechaPrestamo));
+      $dateDos= strftime("%d de %B del %Y", strtotime($fechaDevo));
+
+
+    ?>
  	<tr>
- 		<td class="text-danger"><?=$prestamo->getFechaPrestamo()?></td>
- 		<td class="text-danger"><?=$prestamo->getFechaDevolucion()?></td>
+ 		<td class="text-danger"><?=$dateUno?></td>
+ 		<td class="text-danger"><?=$dateDos?></td>
  		<td class="text-danger"><?=$prestamo->getId_Libro()?></td>
     <td class="text-danger"><?=$prestamo->getTiulo()?></td>
  		<td><a href="#" class="btn btn-info" onclick="borrarPrestamo(<?php echo $prestamo->getId(); echo $prestamo->getId_libro(); ?>)">Devolver</a></td>
@@ -119,10 +127,17 @@
  		<th>Devolver</th>
  	</tr>
 
- 	<?php foreach ($data['prestamos'] as $prestamo) {?>
+ 	<?php foreach ($data['prestamos'] as $prestamo) {
+     $fechaPrestamo=$prestamo->getFechaPrestamo();
+     $fechaDevo=$prestamo->getFechaDevolucion();
+  
+      $dateUno= strftime("%d de %B del %Y", strtotime($fechaPrestamo));
+      $dateDos= strftime("%d de %B del %Y", strtotime($fechaDevo));
+
+    ?>
  	<tr>
- 		<td><?=$prestamo->getFechaPrestamo()?></td>
- 		<td><?=$prestamo->getFechaDevolucion()?></td>
+ 		<td><?=$dateUno?></td>
+ 		<td><?=$dateDos?></td>
  		<td><?=$prestamo->getId_Libro()?></td>
     <td><?=$prestamo->getTitulo()?></td>
  		<td><a href="#"  class="btn btn-danger" onclick="borrarPrestamo(<?php echo $prestamo->getId()?>,<?= $prestamo->getId_Libro();?>)">Devolver</a></td>

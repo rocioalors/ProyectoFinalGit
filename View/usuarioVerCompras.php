@@ -83,6 +83,8 @@
  <!--Botón para mostrar o ocultar el sidebar-->
   <br>
    <button class="btn btn-primary" id="menu-toggle">Mostrar/Ocultar Opciones</button>
+   <br>
+    <img class="imgUsuario" src="../View/img/compra.jpg" width="180">
   <br><br>
 
   <div class="table-responsive">
@@ -108,7 +110,7 @@
       <td><?=$key->getId()?></td>  
       <td><?=$key->getTotal()?></td> 
       <td>
-        <form action="../Controller/generarpdf.php" method="post">
+        <form action="../Controller/usuarioVerDetalleCompra.php" method="post">
         <input type="hidden" name="usuario" value="<?=$key->getUsuario()?>">
         <input type="hidden" name="id_venta" value="<?=$key->getId()?>">
         <input type="hidden" name="fecha" value="<?=$key->getfechaCompra()?>">
@@ -134,6 +136,7 @@
     </tbody>
 
   </table>
+  <br><br>
   
 </div>  
 

@@ -72,7 +72,7 @@
         <a href="../Controller/usuarioVerPerfil.php" class="list-group-item list-group-item-action bg-secondary text-light">Información General</a>
         <a href="../Controller/usuarioVerDatosPersonales.php" class="list-group-item list-group-item-action bg-secondary text-light">Datos Personales</a>
         <a href="../Controller/usuarioVerPrestamos.php" class="list-group-item list-group-item-action bg-secondary text-light">Préstamos</a>
-        <a href="#" class="list-group-item list-group-item-action bg-secondary text-light">Compras</a>
+        <a href="../Controller/usuarioVerCompras.php" class="list-group-item list-group-item-action bg-secondary text-light">Compras</a>
       </div>
     </div>
 
@@ -88,6 +88,7 @@
     <img class="imgUsuario" src="../View/img/usuarios2.png" width="180">
 
 <br><br>
+<h1 class="tituloInfoGeneral">Datos Personales</h1>
 <div class="table-responsive">
 <table class="table bg-warning">
 	<thead>
@@ -123,22 +124,41 @@
 </table>
 </div>
 <br><br>
+<h1 class="tituloInfoGeneral">Cambiar Contraseña</h1>
+<div id="correcto"></div>
+<div class="table-responsive">
+<table class="table bg-warning">
+  <thead>
+    <tr>
+      <th>Contraseña Actual</th>
+      <th>Nueva Contraseña</th>
+      <th>Repetir Contraseña</th>
+      <th>Cambiar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <form id="formulario">
+        <input type="hidden" name="dni" value="<?=$usuario->getDni()?>">
+        <td><input type="password" name="contraseñaActual" placeholder="Contraseña actual" required=""></td>
 
-<div class="contraseña">
- <form id="formulario">
-  <p id="tituloContraseña">Cambiar Contraseña</p>
-  <input type="hidden" name="dni" value="<?=$usuario->getDni()?>">
-  <input type="password" name="contraseñaActual" placeholder="Contraseña actual" required=""><br><br>
+        <td><input type="password" name="nuevaContraseña" placeholder="Nueva Contraseña" required=""></td>
 
-  <input type="password" name="nuevaContraseña" placeholder="Nueva Contraseña" required=""><br><br>
+        <td><input type="password" name="repetirContraseña" placeholder="Confirmar Contraseña" required=""></td>
+        <td><input type="button" class="btn btn-success" id="cambio" value="Modificar" /></td>
 
-  <input type="password" name="repetirContraseña" placeholder="Confirmar Contraseña" required=""><br><br>
- <input type="button" class="btn btn-success" id="cambio" value="Ingresar" />
+      </form>
+    </tr>
+   
+  </tbody>
+</table>
 
-</form>
- <div id="correcto"></div>
  
 </div>
+
+<br>
+<input type="button" id="boton1" class="btn btn-danger" value="Mostrar/Ocultar INFO PROTECCION DE DATOS">
+<div id="descripcion" class="recuadro" style="display: none">
     <h3 class="tituloInfoGeneral">Responsable del tratamiento de datos de carácter personal</h3>
 		<p>Sus datos son recogidos y tratados por The Corner Of Dreams, de Sevilla (CIF 47394439H), creada por la Ley 3/1997, de 1 de junio (BOE de 29 de Marzo de 2020) y cuya dirección, a la que podrán dirigirse los usuarios en materia de protección de datos, es:
 
@@ -162,7 +182,7 @@
 		<p>Conforme a la normativa vigente, puede ejercitar sus derechos de acceso, rectificación, supresión y portabilidad de sus datos, de limitación del tratamiento, de oposición a su tratamiento, así como a no ser objeto de decisiones basadas únicamente en el tratamiento automatizado de sus datos, cuando procedan.
 
 		Puede ejercer dichos derechos mediante escrito dirigido a The Corner Of Dreams.</p>
-		
+	</div>	
 
 <br><br>
 </div>

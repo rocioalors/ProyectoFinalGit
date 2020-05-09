@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-   <link rel="stylesheet" type="text/css" href="../View/css/estiloUsuarioPerfil.css">
+  <title></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../View/css/estiloUsuarioPerfil.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="../View/JS/funcionesdos.js"></script>
-    <!-- Los iconos tipo Solid de Fontawesome-->
+
+   <!-- Los iconos tipo Solid de Fontawesome-->
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+ 
 </head>
 <body>
-	<!--Codigo del nav-->
+
+<!--Codigo del nav-->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
   <!--Botón para comprimir en ventana pequeña-->
@@ -75,47 +79,97 @@
 
   
   
- <div class="container">
-  <!--Botón para mostrar o ocultar el sidebar-->
+ <div class="container" id="principal">
+ <!--Botón para mostrar o ocultar el sidebar-->
   <br>
    <button class="btn btn-primary" id="menu-toggle">Mostrar/Ocultar Opciones</button>
-
-  <!--Página Principal-->
-  <h1 class="tituloInfoGeneral"> Perfíl de <?= $_SESSION['user']?></h1><br>
-  <p class="parrafoInfoGenral">Bienvenido al Panel de Control desde el que podrás ver de un solo vistazo la actividad realizada en nuestra web, así como devolver tus préstamos, ver tus compras realizadas, descargar facturas de compra...</p>
-
-  <br><br>
-
-  <div class="card-deck">
-    <div class="card ">
-      <div class="card-header bg-success text-white">PRESTAMOS ACTIVOS</div>
-      <div class="card-body text-white bg-success">
-        <p class="card-text" id="totales"><?= $_SESSION['todosPrestamos']?></p>
-        <p class="card-text">Puedes consultar todos tus préstamos activos desde la pestaña Préstamos del Menú de opciones</p>
+   <br><br>
+    <h1 class="tituloInfoGeneral">Detalle de la Compra</h1>
+   <br><br>
+   <div class="container-fluid">
+    <div class="row">
+      <!--Datos de la empresa-->
+        <div class="col-8">
+          <P>De:</P>
+          <p>The Corner Of Dreams</p>
+          <p>47394439H</p>
+          <p>C/ Judea, 6 - 41710, Utrera</p>
+          <p>626278473</p>
+          <p>thecornerofdreams@gmail.com</p>
+          
+        </div>
+      <!--Datos del comprador-->
+        <div class="col-4">
+         <P>Para:</P>
+          <p><?=$usuario->getNombre()?></p>
+          <p><?=$usuario->getDni()?></p>
+          <p><?=$usuario->getDireccion()?>, <?=$usuario->getCp()?></p>
+          <p><?=$usuario->getTelefono()?></p>
+          <p><?=$usuario->getCorreo()?></p>
+         
+        </div>
     </div>
+</div>
+    <p class="factura">Factura nº <?=$_REQUEST['id_venta']?> de <?=$date?></p>
+
+  <div class="table-responsive">
+  <table class="table table-bordered">
+    <thead class="table-info text-white">
+      <tr>
+        <th>Id</th>
+        <th>Titulo</th>
+        <th>Precio/Unidad</th>
+        <th>Cantidad</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php 
+     foreach ($venta as $key) {
+      ?>
+      <tr>
+      <td><?=$key['id_libro']?></td> 
+      <td><?=$key['titulo']?></td>  
+      <td><?=$key['precio']?>€</td> 
+      <td><?=$key['cantidad']?></td>
+      <td><?=$key['cantidad']*$key['precio']?>€</td>
+
+      <?php
+      }
+      ?>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <div class="row">
+    <div class="col-sm-9"></div>
+    <div class="col-sm">IVA</div>
+    <div class="col-sm"><?=$IVA?>€</div>
   </div>
-  <div class="card">
-    <div class="card-header bg-danger text-white">PRESTAMOS FUERA PLAZO</div>
-    <div class="card-body text-white bg-danger">
-      <p class="card-text" id="totales"> <?= $_SESSION['fueraplazo']?></p>
-      <p class="card-text"> Puedes devolver tus préstamos desde la pestaña Préstamos del Menú de Opciones.</p>
-    </div>
+
+  <div class="row">
+    <div class="col-sm-9"></div>
+    <div class="col-sm">Envio</div>
+    <div class="col-sm"><?=$envio?>€</div>
   </div>
-  <div class="card">
-    <div class="card-header bg-info text-white">COMPRAS REALIZADAS</div>
-    <div class="card-body text-white bg-info">
-      <p class="card-text" id="totales"> <?=  $_SESSION['comprasTotales'] ?></p>
-      <p class="card-text">Puedes ver todas tus compras y descargar tus facturas desde la pestaña Compras del Menú de Opciones.</p>
-    </div>
+
+  <div class="row">
+    <div class="col-sm-9"></div>
+    <div class="col-sm">Total</div>
+    <div class="col-sm"><?=$_REQUEST['total']?>€</div>
   </div>
+
+ <br><br>
+
+
+<br><br><br> 
+</div>  
+
+
 </div>
 
-
-
-<br><br>
-
- </div>
-
+</div>
 </div>
 <!-- Footer -->
   <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
@@ -124,6 +178,5 @@
     </div>
   </footer>
 <!-- Footer --> 
-
 </body>
 </html>
