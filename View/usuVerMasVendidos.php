@@ -20,47 +20,46 @@
 
 	<!--Codigo NAV-->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <!-- Brand -->
-  <a class="navbar-brand" href="#"><img src="../View/img/Logo.png" width="50px" height="50px"></a>
+
+  <!--Botón para comprimir en ventana pequeña-->
+   		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+   		 aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+  		</button>
+  	<div class="collapse navbar-collapse" id="navbarSupportedContent-555">
 
   <!-- Links -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="../Controller/principalUsuario.php">Inicio</a>
-    </li>
+ 		 <ul class="navbar-nav">
+   			<li class="nav-item">
+      			<a class="nav-link" href="../Controller/principalUsuario.php">Inicio</a>
+    		</li>
 
     <!-- Dropdown -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        Catálogo
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="../Controller/usuarioVerCatalago.php">Todo el catálogo</a>
-        <a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Los más vendidos</a>
-      </div>
-    </li>
+    		<li class="nav-item dropdown">
+     			<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+       			Catálogo
+      			</a>
+      		<div class="dropdown-menu">
+        		<a class="dropdown-item" href="../Controller/usuarioVerCatalago.php">Todo el catálogo</a>
+       			<a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Los más vendidos</a>
+      		</div>
+    		</li>
+    		<li class="nav-item">
+      			<a class="nav-link" href="../Controller/usuarioVerPerfil.php">Mi Perfíl</a>
+   			 </li>
 
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        Mi perfil
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="">link</a>
-        <a class="dropdown-item" href="../Controller/usuarioVerPerfil.php">Préstamos</a>
-        <a class="dropdown-item" href="#">Link 3</a>
-      </div>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="../Controller/principalUsuario.php">Contacto</a>
-    </li>
-  </ul>
-     <div class="navbar-nav ml-auto">
-          <a href="../Controller/verContenidoCesta.php"><i class="fas fa-shopping-cart"></i> <?=$_SESSION['cantidad']?> Total:<?=$_SESSION['subtotal']?>€</a> 
-        </div>
-          <div class="navbar-nav ml-auto">
-         <button type="button" class="btn btn-warning" onclick="cerrarSesion()">Cerrar sesion</button>
-        </div>
-   
+   			
+    		<li class="nav-item">
+      			<a class="nav-link" href="../Controller/principalUsuario.php">Contacto</a>
+   			 </li>
+  			</ul>
+     		<div class="navbar-nav ml-auto">
+          		<a href="../Controller/verContenidoCesta.php"><i class="fas fa-shopping-cart"></i> <?=$_SESSION['cantidad']?> Total:<?=$_SESSION['subtotal']?>€</a> 
+        	</div>
+          	<div class="navbar-nav ml-auto">
+         		<button type="button" class="btn btn-warning" onclick="cerrarSesion()">Cerrar sesion</button>
+        	</div>
+   </div>
 </nav>
 
 <div class="jumbotron">

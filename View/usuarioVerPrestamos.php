@@ -2,13 +2,17 @@
 <html>
 <head>
 	<title></title>
-   <link rel="stylesheet" type="text/css" href="../View/css/estiloUsuarioPerfil.css">
+	 <link rel="stylesheet" type="text/css" href="../View/css/estiloUsuarioPerfil.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="../View/JS/funcionesdos.js"></script>
+
+   <!-- Los iconos tipo Solid de Fontawesome-->
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+ <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </head>
 <body>
 	<!--Codigo del nav-->
@@ -64,8 +68,8 @@
       <div class="list-group list-group-flush">
         <a href="../Controller/usuarioVerPerfil.php" class="list-group-item list-group-item-action bg-secondary text-light">Información General</a>
         <a href="../Controller/usuarioVerDatosPersonales.php" class="list-group-item list-group-item-action bg-secondary text-light">Datos Personales</a>
-        <a href="../Controller/usuarioVerPrestamos.php" class="list-group-item list-group-item-action bg-secondary text-light">Préstamos</a>
-        <a href="../Controller/usuarioVerCompras.php" class="list-group-item list-group-item-action bg-secondary text-light">Compras</a>
+        <a href="#" class="list-group-item list-group-item-action bg-secondary text-light">Préstamos</a>
+        <a href="#" class="list-group-item list-group-item-action bg-secondary text-light">Compras</a>
       </div>
     </div>
 
@@ -73,54 +77,60 @@
   
   
  <div class="container">
-  <!--Botón para mostrar o ocultar el sidebar-->
+
   <br>
    <button class="btn btn-primary" id="menu-toggle">Mostrar/Ocultar Opciones</button>
-
-  <!--Página Principal-->
-  <h1 class="tituloInfoGeneral"> Perfíl de <?= $_SESSION['user']?></h1><br>
-  <p class="parrafoInfoGenral">Bienvenido al Panel de Control desde el que podrás ver de un solo vistazo la actividad realizada en nuestra web, así como devolver tus préstamos, ver tus compras realizadas, descargar facturas de compra...</p>
-
   <br><br>
 
-  <div class="card-deck">
-    <div class="card ">
-      <div class="card-header bg-success text-white">PRESTAMOS ACTIVOS</div>
-      <div class="card-body text-white bg-success">
-        <p class="card-text" id="totales"><?= $_SESSION['todosPrestamos']?></p>
-        <p class="card-text">Puedes consultar todos tus préstamos activos desde la pestaña Préstamos del Menú de opciones</p>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header bg-danger text-white">PRESTAMOS FUERA PLAZO</div>
-    <div class="card-body text-white bg-danger">
-      <p class="card-text" id="totales"> <?= $_SESSION['fueraplazo']?></p>
-      <p class="card-text"> Puedes devolver tus préstamos desde la pestaña Préstamos del Menú de Opciones.</p>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header bg-info text-white">COMPRAS REALIZADAS</div>
-    <div class="card-body text-white bg-info">
-      <p class="card-text" id="totales"> <?=  $_SESSION['comprasTotales'] ?></p>
-      <p class="card-text">Puedes ver todas tus compras y descargar tus facturas desde la pestaña Compras del Menú de Opciones.</p>
-    </div>
-  </div>
+    <img class="imgUsuario" src="../View/img/libro.png" width="180">
+  <br><br>
+
+ 	<h3 class="tituloInfoGeneral">Prestamos Fuera de Plazo</h3><br>
+  <div class="table-responsive">
+  <table class="table table-bordered">
+ 	<tr class="table-danger text-white">
+ 		<th>Fecha Préstamo</th>
+ 		<th>Fecha Devolución</th>
+ 		<th>Id_Libro</th>
+    <th>Titulo</th>
+ 		<th>Devolver</th>
+ 	</tr>
+
+ 	<?php foreach ($data['prestamofueraplazo'] as $prestamo) {?>
+ 	<tr>
+ 		<td class="text-danger"><?=$prestamo->getFechaPrestamo()?></td>
+ 		<td class="text-danger"><?=$prestamo->getFechaDevolucion()?></td>
+ 		<td class="text-danger"><?=$prestamo->getId_Libro()?></td>
+    <td class="text-danger"><?=$prestamo->getTiulo()?></td>
+ 		<td><a href="#" class="btn btn-info" onclick="borrarPrestamo(<?php echo $prestamo->getId(); echo $prestamo->getId_libro(); ?>)">Devolver</a></td>
+ 	</tr>
+ 	<?php }?>
+ </table>
 </div>
+ <br><br>
 
+  <h3 class="tituloInfoGeneral">Todos mis prestamos en vigor</h3><br>
+ <table class="table table-bordered ">
+ 	<tr class="table-warning">
+ 		<th>Fecha Préstamo</th>
+ 		<th>Fecha Devolución</th>
+ 		<th>Id_Libro</th>
+    <th>Titulo</th>
+ 		<th>Devolver</th>
+ 	</tr>
 
-
-<br><br>
+ 	<?php foreach ($data['prestamos'] as $prestamo) {?>
+ 	<tr>
+ 		<td><?=$prestamo->getFechaPrestamo()?></td>
+ 		<td><?=$prestamo->getFechaDevolucion()?></td>
+ 		<td><?=$prestamo->getId_Libro()?></td>
+    <td><?=$prestamo->getTitulo()?></td>
+ 		<td><a href="#"  class="btn btn-danger" onclick="borrarPrestamo(<?php echo $prestamo->getId()?>,<?= $prestamo->getId_Libro();?>)">Devolver</a></td>
+ 	<?php }?>
+ 	</tr>
+ </table>
 
  </div>
-
-</div>
-<!-- Footer -->
-  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
-    <div class="container text-center">
-      <small>Copyright &copy; The Corner Of Dreams</small>
-    </div>
-  </footer>
-<!-- Footer --> 
 
 </body>
 </html>

@@ -2,16 +2,23 @@
 <html>
 <head>
 	<title></title>
-   <link rel="stylesheet" type="text/css" href="../View/css/estiloUsuarioPerfil.css">
+	<meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../View/css/estiloUsuarioPerfil.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="../View/JS/funcionesdos.js"></script>
+
+   <!-- Los iconos tipo Solid de Fontawesome-->
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+ <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+ 
 </head>
 <body>
-	<!--Codigo del nav-->
+
+<!--Codigo del nav-->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
   <!--Botón para comprimir en ventana pequeña-->
@@ -72,46 +79,66 @@
 
   
   
- <div class="container">
-  <!--Botón para mostrar o ocultar el sidebar-->
+ <div class="container" id="principal">
+ <!--Botón para mostrar o ocultar el sidebar-->
   <br>
    <button class="btn btn-primary" id="menu-toggle">Mostrar/Ocultar Opciones</button>
-
-  <!--Página Principal-->
-  <h1 class="tituloInfoGeneral"> Perfíl de <?= $_SESSION['user']?></h1><br>
-  <p class="parrafoInfoGenral">Bienvenido al Panel de Control desde el que podrás ver de un solo vistazo la actividad realizada en nuestra web, así como devolver tus préstamos, ver tus compras realizadas, descargar facturas de compra...</p>
-
   <br><br>
 
-  <div class="card-deck">
-    <div class="card ">
-      <div class="card-header bg-success text-white">PRESTAMOS ACTIVOS</div>
-      <div class="card-body text-white bg-success">
-        <p class="card-text" id="totales"><?= $_SESSION['todosPrestamos']?></p>
-        <p class="card-text">Puedes consultar todos tus préstamos activos desde la pestaña Préstamos del Menú de opciones</p>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header bg-danger text-white">PRESTAMOS FUERA PLAZO</div>
-    <div class="card-body text-white bg-danger">
-      <p class="card-text" id="totales"> <?= $_SESSION['fueraplazo']?></p>
-      <p class="card-text"> Puedes devolver tus préstamos desde la pestaña Préstamos del Menú de Opciones.</p>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header bg-info text-white">COMPRAS REALIZADAS</div>
-    <div class="card-body text-white bg-info">
-      <p class="card-text" id="totales"> <?=  $_SESSION['comprasTotales'] ?></p>
-      <p class="card-text">Puedes ver todas tus compras y descargar tus facturas desde la pestaña Compras del Menú de Opciones.</p>
-    </div>
-  </div>
+  <div class="table-responsive">
+  <table class="table table-bordered">
+    <thead class="table-info text-white">
+      <tr>
+        <th>Fecha Compra</th>
+        <th>Nº Factura</th>
+        <th>Total</th>
+        <th>Ver Detalle</th>
+        <th>Descargar Factura</th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php 
+     foreach ($compras as $key) {
+      $fecha=$key->getFechacompra();
+  
+        $date= strftime("%d de %B del %Y", strtotime($fecha));
+      ?>
+      <tr>
+      <td><?=$date?></td> 
+      <td><?=$key->getId()?></td>  
+      <td><?=$key->getTotal()?></td> 
+      <td>
+        <form action="../Controller/generarpdf.php" method="post">
+        <input type="hidden" name="usuario" value="<?=$key->getUsuario()?>">
+        <input type="hidden" name="id_venta" value="<?=$key->getId()?>">
+        <input type="hidden" name="fecha" value="<?=$key->getfechaCompra()?>">
+        <input type="hidden" name="total" value="<?=$key->getTotal()?>">
+        <input type="submit" class="btn btn-success" name="enviar" value="Ver Detalle">
+      </form>
+      </td>
+      
+      <!--Utilizo estos datos para generar el pdf de la factura-->
+      <td><form action="../Controller/generarpdf.php" method="post">
+        <input type="hidden" name="usuario" value="<?=$key->getUsuario()?>">
+        <input type="hidden" name="id_venta" value="<?=$key->getId()?>">
+        <input type="hidden" name="fecha" value="<?=$key->getfechaCompra()?>">
+        <input type="hidden" name="total" value="<?=$key->getTotal()?>">
+        <input type="submit" class="btn btn-info" name="enviar" value="Generar PDF">
+      </form>
+       </td>
+      </tr>
+
+      <?php
+      }
+      ?>
+    </tbody>
+
+  </table>
+  
+</div>  
+
+
 </div>
-
-
-
-<br><br>
-
- </div>
 
 </div>
 <!-- Footer -->
@@ -121,6 +148,5 @@
     </div>
   </footer>
 <!-- Footer --> 
-
 </body>
 </html>

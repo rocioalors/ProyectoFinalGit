@@ -38,4 +38,8 @@ $datos=json_decode($data);
 foreach ($datos as $key) {
 	echo $key->mes;
 }
+
+$ventaUser=Venta::ventasPorUsuario('@javier');
+echo '<br><br>';
+print_r($ventaUser);
 ?>

@@ -2,6 +2,11 @@
 session_start();
 require_once'../Model/Prestamo.php';
 require_once'../Model/Libro.php';
+date_default_timezone_set('Europe/Madrid');
+// Unix
+setlocale(LC_TIME, 'es_ES.UTF-8');
+// En windows
+setlocale(LC_TIME, 'spanish');
 
 //Comprobamos el número de préstamos que tiene el usuario
 

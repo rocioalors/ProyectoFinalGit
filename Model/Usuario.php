@@ -146,7 +146,18 @@ class  Usuario{
         $actualiza="UPDATE usuarios SET nombre=\"".$this->nombre."\",dni=\"".$this->dni."\",correo=\"".$this->correo."\",direccion=\"".$this->direccion."\",cp=\"".$this->cp."\",telefono=\"".$this->telefono."\",contraseña=\"".$this->contraseña."\"WHERE id=\"".$this->id."\"";
         //echo $actualiza;
         $conexion->exec($actualiza);
+
     }
+
+
+    public  function cambiarContraseña($dni,$contraseña){
+        $conexion=proyectoBD::connectDB();
+            $actualiza="UPDATE usuarios SET contraseña= '$contraseña' WHERE dni='$dni'";
+        //echo $actualiza;
+            $conexion->exec($actualiza);
+    }
+
+
 
 	public static function getUsuario() {
 	
@@ -202,10 +213,6 @@ class  Usuario{
         return $total ;
       }
 
-      public static function getUsurioLinea($dni){
-        $conexion = proyectoBD::connectDB();
-        $seleccion = "SELECT * FROM usuarios WHERE correo='$correo'";
-      }
 
 
         public static function getUsuarioByDni($dni) {

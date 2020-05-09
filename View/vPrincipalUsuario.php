@@ -11,31 +11,55 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="../View/JS/funcionesDOM.js"></script>
   <link rel="stylesheet" type="text/css" href="../View/css/estiloPrincipalUsuario.css">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+ <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
 </head>
 <body>
  
 <!--Codigo NAV-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav">
-        	<img src="../View/img/Logo.png" width="50px" height="50px">
-            <a href="../Controller/principalUsuario.php" class="nav-item nav-link active">Inicio</a>
-            <a href="../Controller/usuarioVerCatalago.php" class="nav-item nav-link">Ver Catálogo</a>
-            <a href="../Controller/usuarioVerPerfil.php" class="nav-item nav-link">Mi perfil</a>
-            <a href="../Controller/usuarioFormularioContacto.php" class="nav-item nav-link">Contacto</a> 
-        </div>
+  <!--Botón para comprimir en ventana pequeña-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+       aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+
+  <!-- Links -->
+     <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="../Controller/principalUsuario.php">Inicio</a>
+        </li>
+
+    <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            Catálogo
+            </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../Controller/usuarioVerCatalago.php">Todo el catálogo</a>
+            <a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Los más vendidos</a>
+          </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="../Controller/usuarioVerPerfil.php">Mi Perfíl</a>
+         </li>
+
+        
+        <li class="nav-item">
+            <a class="nav-link" href="../Controller/principalUsuario.php">Contacto</a>
+         </li>
+        </ul>
         <div class="navbar-nav ml-auto">
-          <a href="../Controller/cerrarSesion.php"><button type="button" class="btn btn-warning">Cerrar sesion</button></a>
-        </div>
-    </div>
+              <a href="../Controller/verContenidoCesta.php"><i class="fas fa-shopping-cart"></i> <?=$_SESSION['cantidad']?> Total:<?=$_SESSION['subtotal']?>€</a> 
+          </div>
+            <div class="navbar-nav ml-auto">
+            <button type="button" class="btn btn-warning" onclick="cerrarSesion()">Cerrar sesion</button>
+          </div>
+   </div>
 </nav>
-
 	
 
 <!--Carousel Wrapper-->

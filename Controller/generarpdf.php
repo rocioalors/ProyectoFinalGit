@@ -5,6 +5,15 @@ require_once '../Model/Detalle_Venta.php';
 require_once '../Model/Usuario.php';
 require_once '../View/pdf/fpdf.php';
 
+date_default_timezone_set('Europe/Madrid');
+// Unix
+setlocale(LC_TIME, 'es_ES.UTF-8');
+// En windows
+setlocale(LC_TIME, 'spanish');
+
+  
+        $date= strftime("%d de %B del %Y", strtotime($_REQUEST['fecha']));
+
 $ventas=Detalle_Venta::detalleVenta($_REQUEST['id_venta']);
 $usuario=Usuario::getUsuarioByNombre($_REQUEST['usuario']);
 
@@ -68,7 +77,7 @@ $pdf->SetXY(25, 50);
 $pdf->MultiCell(90,10,$texto1,1,"L");*/
 
 // 2º Datos de la factura (fecha y numero de factura)
-$texto2=utf8_decode("Factura número: ").$_REQUEST['id_venta']." de fecha: ".$_REQUEST['fecha'];
+$texto2=utf8_decode("Factura número: ").$_REQUEST['id_venta']." de ".$date;
 $pdf->SetXY(25, 95);
 $pdf->Cell(150,10,$texto2,0,0,"C");
 

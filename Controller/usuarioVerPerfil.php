@@ -2,16 +2,16 @@
 session_start();
 require_once '../Model/Usuario.php';
 require_once '../Model/Prestamo.php';
-include 'boostrap.php';
+require_once '../Model/Venta.php';
 $data['prestamofueraplazo']=Prestamo::getFueraPlazo($_SESSION['user']);
+
+
 $usuario=Usuario::getUsuarioByDni($_SESSION['dni']);
 $data['prestamos']=Prestamo::getPrestamoByUsuario($_SESSION['user']);
- 
- if(sizeof($data['prestamofueraplazo'])>0){
- 	$_SESSION['fueraplazo']=sizeof($data['prestamofueraplazo']);
- }else{
- 	$_SESSION['fueraplazo']=0;
- }
+$data['compras']=Venta::ventasPorUsuario($_SESSION['user']);
+$_SESSION['todosPrestamos']=sizeof($data['prestamos']);
+$_SESSION['comprasTotales']=sizeof($data['compras']);
+$_SESSION['fueraplazo']=sizeof($data['prestamofueraplazo']);
 
  include '../View/vUsuarioVerPerfil.php';
  ?>

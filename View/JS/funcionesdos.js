@@ -72,3 +72,29 @@ $(document).ready(function(){
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
 });
+
+//Función cambio de contraseña
+
+$(document).ready(function(){
+	 $("#cambio").on("click", function() {
+        $.ajax({                        
+           type: "POST", 
+           data: $("#formulario").serialize(),                
+           url:"../Controller/compruebaCambioContraseña.php",                     
+           success: function(data)             
+           {
+             $('#correcto').html(data);               
+           }
+       });
+    });
+ });
+
+//funcion mostrar ocultar el slieder
+$(document).ready(function(){
+
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+ });
+

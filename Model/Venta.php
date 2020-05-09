@@ -150,4 +150,18 @@ class Venta{
      
     }
 
+       public static function ventasPorUsuario($usuario){
+        $conexion = proyectoBD::connectDB();
+        $seleccion="SELECT * FROM venta WHERE usuario='$usuario'";
+        $consulta = $conexion->query($seleccion);
+        $ventas = [];
+        
+        while ($registro = $consulta->fetchObject()) {
+            $ventas[] = new Venta($registro->id,$registro->fechacompra, $registro->usuario,$registro->total);
+        }
+
+        return $ventas;
+     
+    }
+
 }
