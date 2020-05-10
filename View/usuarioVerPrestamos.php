@@ -47,7 +47,7 @@
 
         
         <li class="nav-item">
-            <a class="nav-link" href="../Controller/principalUsuario.php">Contacto</a>
+            <a class="nav-link" href="../Controller/usuFormularioContacto.php">Contacto</a>
          </li>
         </ul>
         <div class="navbar-nav ml-auto">
@@ -146,6 +146,14 @@
  </table>
 
  </div>
+</div>
+ <!-- Footer -->
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; The Corner Of Dreams</small>
+    </div>
+  </footer>
+<!-- Footer --> 
 
 </body>
 </html>

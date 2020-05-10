@@ -46,7 +46,7 @@
 
         
         <li class="nav-item">
-            <a class="nav-link" href="../Controller/principalUsuario.php">Contacto</a>
+            <a class="nav-link" href="../Controller/usuFormularioContacto.php">Contacto</a>
          </li>
         </ul>
         <div class="navbar-nav ml-auto">
