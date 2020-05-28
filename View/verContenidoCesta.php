@@ -65,20 +65,21 @@
 
 <!--Comienzo del contenido de la cesta-->
 <div class="container">
-  <h1>Gastos de envios GRATIS por compras superiores a 19 €</h1>
+  <br><br>
+  <h1 class="tituloInfoGeneral">Gastos de envios GRATIS por compras superiores a 19 €</h1>
 <!--Compruebo que la cesta no está vacia-->
     <?php 
     if($_SESSION['subtotal']==0){
     ?>
-      <h2>Ups tu cesta está vacia</h2>
-      <a href="../Controller/usuarioVerCatalago.php">Seguir Comprando</a>
+      <h2 class="tituloInfoGeneral">¡Ups tu cesta está vacia!</h2>
+      <a  class="btn btn-success" href="../Controller/usuarioVerCatalago.php">Seguir Comprando</a>
     <?php 
     }else{
     ?>
 <!--Si no esta vacia le muestro el contenido de la cesta-->
       <br><br>
       <div class="table-responsive">
-        <table class="table table-bordered">
+        <table class="table">
           <tr class="table-info">
             <td>Codigo</td>
             <td>Producto</td>
@@ -100,8 +101,8 @@
             <td><img style="width:50px" src="../View/img/<?=$producto->getImagen()?>"></td>
             <td><?=$producto->getTitulo()?></td>
             <td><?=$cantidad?></td>
-            <td><?=$producto->getPrecio()?> euros</td>
-            <td><?=$producto->getPrecio()*$cantidad?>euros</td>
+            <td><?=$producto->getPrecio()?> €</td>
+            <td><?=$producto->getPrecio()*$cantidad?> €</td>
             <td>
               <form action="QuitaCarro.php" method="get">
                   <input type="hidden" name="quitapro" value="<?= $producto->getId() ?>">
@@ -112,38 +113,47 @@
     <?php  
     }
     ?>
-          <tr>
-            <td colspan="3" class="table-success">Cantidad</td>
-            <td><?=$_SESSION['cantidad']?></td>
-            <td class="table-success">Subtotal</td>
-            <td><?=$_SESSION['subtotal']?>euros</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td colspan="4"></td>
-            <td class="table-success">Gastos de envio</td>
-            <td><?=$envio ?></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td colspan="4"></td>
-            <td class="table-success">Total</td>
-            <td><?=$_SESSION['total']=$_SESSION['subtotal']+$envio; ?></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td colspan="3"><a href="../Controller/usuarioVerCatalago.php">Seguir Comprando</a></td>
-            <td colspan="4"><a href="../Controller/finCompra.php">Finalizar Compra</a></td>
-          </tr>
-        </table>
-</div>
+  </table>
+ </div>
+<hr color="blue" size=3>
+   <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-3">Total Productos</div>
+    <div class="col-sm"><?=$_SESSION['cantidad']?></div>
+  </div>
+
+   <div class="row">
+    <div class="col-sm-7"></div>
+    <div class="col-sm">SubTotal</div>
+    <div class="col-sm"><?=$_SESSION['subtotal']?> €</div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-7"></div>
+    <div class="col-sm">Gastos de Envío</div>
+    <div class="col-sm"><?=$_SESSION['envio'] ?> €</div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-7"></div>
+    <div class="col-sm">Total con IVA</div>
+    <div class="col-sm"><?=$_SESSION['total']=$_SESSION['subtotal']+$_SESSION['envio']; ?> €</div>
+  </div>
+         
+           
+  <a  class="btn btn-info" href="../Controller/usuarioVerCatalago.php">Seguir Comprando</a>
+ <!-- <a  class="btn btn-danger" href="../Controller/finCompra.php">Finalizar Compra</a>-->
+ <a  class="btn btn-danger" href="../Controller/realizarPago.php">Finalizar Compra</a>
+          
+        
+
 
 <?php } ?>
 
 
 <!--Sugerencias de libros más venididos-->
 <br><br>
-<h1>Los Más Vendidos de esta semana</h1>
+<h1 class="masVendidos">Los Más Vendidos de esta semana</h1>
 <br><br>
 <div class="row">
     <?php
@@ -201,5 +211,13 @@
 
  </div>
 </div>
+
+ <!-- Footer -->
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; The Corner Of Dreams</small>
+    </div>
+  </footer>
+<!-- Footer --> 
   </body>
 </html>

@@ -1,0 +1,14 @@
+.texto{
+  text-align: center;
+  font-weight: bold;
+}
+
+.tituloInfoGeneral{
+  color:#9a0606;
+  text-align: center;
+  font-weight: bold;
+}
+
+.formulario{
+  position: flex;
+}

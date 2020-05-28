@@ -24,8 +24,10 @@
                     <div class="form-group" id="contrasena-group">
                         <input type="password" class="form-control" placeholder="Contraseña" name="pass" id="pass" required/>
                     </div>
+
+                    <p class="nombre"><input type="checkbox" onclick="verContraseña()"> Ver Contraseña</p>
                  
-                    <button  class="btn btn-primary" onclick="Validar(document.getElementById('user').value, document.getElementById('pass').value);"><i class="fas fa-sign-in-alt"></i>  Ingresar </button><br>
+                    <button  class="btn btn-primary" onclick="Validar(document.getElementById('user').value, document.getElementById('pass').value);"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
                 </form>
                     <h5 class="textoregistro"> ¿Eres nuevo? Registrate</h6>
                 <form class="col-12">

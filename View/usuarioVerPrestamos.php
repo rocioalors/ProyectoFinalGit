@@ -109,7 +109,7 @@
  		<td class="text-danger"><?=$dateUno?></td>
  		<td class="text-danger"><?=$dateDos?></td>
  		<td class="text-danger"><?=$prestamo->getId_Libro()?></td>
-    <td class="text-danger"><?=$prestamo->getTiulo()?></td>
+    <td class="text-danger"><?=$prestamo->getTitulo()?></td>
  		<td><a href="#" class="btn btn-info" onclick="borrarPrestamo(<?php echo $prestamo->getId(); echo $prestamo->getId_libro(); ?>)">Devolver</a></td>
  	</tr>
  	<?php }?>

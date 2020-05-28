@@ -100,6 +100,10 @@
           <td><?=$prestamo->getId_Libro()?></td>
           <td><?=$prestamo->getTitulo()?></td>
           <td><?=$prestamo->getUsuario()?></td>
+           <!--Botón para cancelar présamos, preguntamos antes si estamos seguros-->
+          <td><a href="../Controller/adminCancerlarPrestamo.php?id=<?=$prestamo->getId()?>&id_libro=<?=$prestamo->getId_Libro()?>"><input type="submit"onclick="return confirmar('¿Está seguro que desea eliminar el registro?')" class="btn btn-success" value ="Cancelar"></a></td>
+          <!--Botón que permite al administrador ver los datos de contacto del usuario-->
+          <td><a href="../Controller/adminContactoUsuario.php?usuario=<?=$prestamo->getUsuario()?>"><input type="submit" class="btn btn-info" value ="Contactar"></a></td>
 
       </tr>
     <?php 

@@ -39,6 +39,7 @@
   <p>Escriba algo en el campo de entrada para buscar en la tabla por nombre, dni, correo, dirección ó teléfono.</p>  
   <input class="form-control" id="myInput" type="text" placeholder="Buscar...">
   <br>
+  <div class="table-responsive">
   <table class="table table-bordered">
     <thead>
       <tr class="table-success">
@@ -79,7 +80,7 @@
      ?> 
     </tbody>
   </table>
-  
+  </div>
   <p></p>
 </div>
 

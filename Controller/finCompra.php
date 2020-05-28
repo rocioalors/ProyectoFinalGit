@@ -28,9 +28,10 @@ foreach ($_SESSION['enCesta'] as $libro => $cantidad) {
 unset($_SESSION['enCesta']);
 $_SESSION['cantidad']=0;
 $_SESSION['subtotal']=0;
+$_SESSION['envio']=0;
 
-//Volvemos al catálogo
-header('Location:usuarioVerCatalago.php')
+//Volvemos al detalle de la venta
+header('Location:usuarioVerPerfil.php')
 
 
 
