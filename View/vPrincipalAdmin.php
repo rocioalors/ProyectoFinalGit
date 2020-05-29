@@ -5,14 +5,68 @@
     <link rel="stylesheet" href="../View/css/cards-gallery.css">
     <script src="../View//JS/funciones.js"></script>
 </head>
+
 <body>
-  <form action="../Controller/cerrarSesion.php" method="get">
-  <button type="submit" class="btn btn-secondary btn-lg">Cerrar Sesion</button></form>
+ <!--Código barra de navegación-->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav">
+            <a href="../Controller/principalAdmin.php" class="nav-item nav-link active">Inicio</a>
+            <a href="../Controller/verCatalogo.php" class="nav-item nav-link">Libros</a>
+            <a href="../Controller/verUsuarios.php" class="nav-item nav-link">Usuarios</a>
+            <a href="../Controller/adminVerPrestamos.php" class="nav-item nav-link">Prestamos</a>
+            <a href="../Controller/adminVerAdministradores.php" class="nav-item nav-link">Administradores</a>
+            <a href="#" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModalCenter">Ventas</a>
+        </div>
+        <div class="navbar-nav ml-auto">
+          <td><a href="../Controller/cerrarSesion.php"><button type="button" class="btn btn-warning">Cerrar sesion</button></a></td>
+        </div>
+    </div>
+</nav> 
+
+
+
+
+  <!--Contenido de la pagina principal-->
    <section class="gallery-block cards-gallery">
       <div class="container">
           <div class="heading">
             <img src="../View/img/Logo.png" width="250px" height="250px">
           </div>
+        <hr>
+
+          <h2 class="tituloInfoGeneral">Información General</h2> 
+          <div class="row">
+          <div class="col-md-4 col-lg-2 bg-primary" id="visitas">
+             <p>Nº de Visitas Recibidas: <?=$_COOKIE['contador']?> </p>
+          </div>
+
+          <div class="col-md-4 col-lg-2 bg-warning" id="visitas">
+             <p>Usuarios Registrados: <?=$usuarios?> </p>
+          </div>
+
+           <div class="col-md-4 col-lg-2 bg-success" id="visitas">
+             <p>Libros Registrados: <?=$libros?> </p>
+          </div>
+
+          <div class="col-md-4 col-lg-2 bg-info" id="visitas">
+             <p>Préstamos Activos: <?=$prestamos?> </p>
+          </div>
+
+           <div class="col-md-4 col-lg-2 bg-danger" id="visitas">
+             <p>Préstamos Fuera de Plazo: <?=$fueraPlazos?> </p>
+          </div>
+        </div>
+
+        <hr>
+
+        <h2 class="tituloInfoGeneral">Gestionar Datos</h2>
+         
           <div class="row">
             <!-- Editar catalogo-->
               <div class="col-md-6 col-lg-4">
@@ -64,7 +118,7 @@
               </div>
 
             <!--Card Gestion de administradores-->
-            <<div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4">
                   <div class="card border-0 transform-on-hover">
                     <a class="lightbox" href="../Controller/adminVerAdministradores.php">
                       <img src="../View/img/administrador.png"  width="150px" height="150px" alt="Card Image" class="card-img-top">
@@ -74,7 +128,20 @@
                           <p class="text-muted card-text">Esta función permite dar de alta a nuevos administradores, modificar datos y eliminar administradores.</p>
                       </div>
                   </div>
-              </div>-->
+              </div>
+
+               <!--Card Gestion de Correo-->
+            <div class="col-md-6 col-lg-4">
+                  <div class="card border-0 transform-on-hover">
+                    <a class="lightbox" href="../Controller/adminLecturaEmail.php">
+                      <img src="../View/img/email.png"  width="150px" height="150px" alt="Card Image" class="card-img-top">
+                    </a>
+                      <div class="card-body">
+                          <h6><a href="../Controller/adminLecturaEmail.php">Gestion de Email Formulario de Contacto</a></h6>
+                          <p class="text-muted card-text">Esta función permite leer los email recibidos mediante el formualario de contacto.</p>
+                      </div>
+                  </div>
+              </div>
             
           </div>
       </div>
@@ -99,8 +166,8 @@
        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Entrar</button>
       </div>
     </div>
   </div>
@@ -109,5 +176,13 @@
     <script>
         baguetteBox.run('.cards-gallery', { animation: 'slideIn'});
     </script>
+
+  <!-- Footer -->
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; The Corner Of Dreams</small>
+    </div>
+  </footer>
+<!-- Footer -->
 </body>
 </html>
