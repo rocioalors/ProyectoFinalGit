@@ -23,7 +23,9 @@
             <a href="../Controller/verUsuarios.php" class="nav-item nav-link">Usuarios</a>
             <a href="../Controller/adminVerPrestamos.php" class="nav-item nav-link">Prestamos</a>
             <a href="../Controller/adminVerAdministradores.php" class="nav-item nav-link">Administradores</a>
+            <a href="../Controller/adminLecturaEmail.php" class="nav-item nav-link">Emails</a>
             <a href="#" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModalCenter">Ventas</a>
+
         </div>
         <div class="navbar-nav ml-auto">
           <td><a href="../Controller/cerrarSesion.php"><button type="button" class="btn btn-warning">Cerrar sesion</button></a></td>
@@ -33,16 +35,16 @@
 
 <!--Empieza todo lo relativo a la tabla-->
 <div class="container mt-3">
-  <h2>Catálogo de libros</h2>
+  <h2 class="titulo">Catálogo de libros</h2>
   <a href="../Controller/nuevoLibro.php"><button type="button" class="btn btn-info">Nuevo Libro</button></a>
     <br><br>
-  <p>Escriba algo en el campo de entrada para buscar en la tabla por título, autor o género</p>  
+  <p class="texto">Escriba algo en el campo de entrada para buscar en la tabla por título, autor o género</p>  
   <input class="form-control" id="myInput" type="text" placeholder="Buscar...">
   <br>
   <div class="table-responsive">
   <table class="table table-bordered">
     <thead>
-      <tr class="table-success">
+      <tr class="table-primary text-light">
           <th>#</th>
           <th>IMAGEN</th>
           <th>TITULO</th>
@@ -115,6 +117,7 @@
     </div>
   </div>
 </div>
+<br><br>
 
 <script>
 $(document).ready(function(){
@@ -126,7 +129,13 @@ $(document).ready(function(){
   });
 });
 </script>
-
+  <!-- Footer -->
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; The Corner Of Dreams</small>
+    </div>
+  </footer>
+<!-- Footer -->
 
 </body>
 </html>

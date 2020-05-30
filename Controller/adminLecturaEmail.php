@@ -6,7 +6,7 @@ if(!isset($_SESSION['emails'])){
 	$_SESSION['emails']=[];
 }
 
-
+if(file_exists('../emailRecibidos/email.txt')){
 //Creamos el array de las fechas
 $fecha=[];
 
@@ -84,7 +84,12 @@ $consultar="#".$_REQUEST['consultar']."#";
  fclose($fichero);
 
 }
-
+}
+if(isset($_REQUEST['borrar'])){
+  if(file_exists('../emailRecibidos/email.txt')){
+  unlink('../emailRecibidos/email.txt');
+}
+}
 include '../View/vAdminLecturaEmail.php';
 
  ?>

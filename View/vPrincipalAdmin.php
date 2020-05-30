@@ -21,6 +21,7 @@
             <a href="../Controller/verUsuarios.php" class="nav-item nav-link">Usuarios</a>
             <a href="../Controller/adminVerPrestamos.php" class="nav-item nav-link">Prestamos</a>
             <a href="../Controller/adminVerAdministradores.php" class="nav-item nav-link">Administradores</a>
+            <a href="../Controller/adminLecturaEmail.php" class="nav-item nav-link">Emails</a>
             <a href="#" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModalCenter">Ventas</a>
         </div>
         <div class="navbar-nav ml-auto">

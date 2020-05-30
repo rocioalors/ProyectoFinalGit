@@ -68,10 +68,12 @@
 
 
 <div class="container">
- El número de lineas que tiene el fichero es <?=$num_lineas?> y el número de carácteres es: <?=$caracteres?>
+<h1 class="titulo1">Revisión de Emails</h1>
+<?php if(file_exists('../emailRecibidos/email.txt')){?>
 
  	<form action="#" method="post">
-    	Consultar fecha
+ 		<div class="form-group">
+    	<h5 class="texto">Seleccione la Fecha</h5>
 			<select name="consultar">
 				<?php 
 					foreach ($fecha as $fecha) {?>
@@ -82,7 +84,8 @@
 				 ?>
      		</select>
      <br><br>
-    		<input class="btn btn-info" type="submit" value="Mostrar Emails">
+    	<input class="btn btn-success" type="submit" value="Mostrar Emails">
+    </div>
 	</form>
 <br><br>
 <?php if(isset($_SESSION['emails'])){?>
@@ -112,13 +115,36 @@
  			?>
  		</tbody>
  	</table>
+ 	</div>
+  <br><br>
+ 	 <h4 class="info">El número de lineas que tiene el fichero es <?=$num_lineas?> y el número de carácteres es: <?=$caracteres?></h4>
+ 	<br><br>
+ 	<div class="form-row text-center">
+ 		<div class="col-12">
+ 			<form action="#" method="post">
+	 			<input class="btn btn-danger" name="borrar" type="submit" value="Borrar Emails">
+			</form>
+		</div>
+	</div>
+	<br><br>
  	<?php
-   }else{?>
-   <p>No existen correos actualmente</p>
+ }
+   }else{
+   ?>
+   <h2 class="info">Actualmente no tiene correos por leer</h2>
+   <img class="rounded-circle" id="email" src="../View/img/email.jpg">
 <?php
 }
 ?>
-	</div>
+	
  </div>
+
+ <!-- Footer -->
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; The Corner Of Dreams</small>
+    </div>
+  </footer>
+<!-- Footer --> 
  </body>
  </html>

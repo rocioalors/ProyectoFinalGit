@@ -5,4 +5,35 @@ body{
 
 .titulo{
 	text-align: center;
+	color: #9a0606;
+	font-weight: bold;
+}
+
+.titulo1{
+	text-align: center;
+	color: #9a0606;
+	font-weight: bold;
+	margin-top: 45px;
+}
+
+#email{
+	display: block;
+	 margin-left: auto;
+  	margin-right: auto;
+  	margin-top: 50px;
+  	margin-bottom: 60px;
+  	max-width: 50%;
+}
+
+.info{
+	text-align: center;
+	color: #aba104;
+	font-weight: bold;
+	margin-top: 30px;
+}
+.texto{
+	color: #aba104;
+	font-weight: bold;
+	margin-top: 30px
+
 }

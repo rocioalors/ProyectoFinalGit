@@ -51,6 +51,9 @@
             <a class="nav-link" href="../Controller/usuarioVerPerfil.php">Mi Perfíl</a>
          </li>
 
+         <li class="nav-item">
+            <a class="nav-link" href="../Controller/usuBlog.php">Blog</a>
+         </li>
         
         <li class="nav-item">
             <a class="nav-link" href="../Controller/usuFormularioContacto.php">Contacto</a>
