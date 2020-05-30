@@ -20,6 +20,8 @@
             <a href="../Controller/verUsuarios.php" class="nav-item nav-link">Usuarios</a>
             <a href="../Controller/adminVerPrestamos.php" class="nav-item nav-link">Prestamos</a>
             <a href="../Controller/adminVerAdministradores.php" class="nav-item nav-link">Administradores</a>
+            <a href="../Controller/adminLecturaEmail.php" class="nav-item nav-link">Emails</a>
+
             <a href="#" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModalCenter">Ventas</a>
         </div>
         <div class="navbar-nav ml-auto">
@@ -59,7 +61,7 @@
 <!--Comienzo del contenido-->	
 <div class="container">
 <br><br>
-<h1>DATOS DE CONTACTO</h1><br>
+<h1 class="titulo">Datos de contacto</h1><br>
 
 
   <div class="media">
@@ -70,7 +72,7 @@
           <div class="card-body text-secondary">
             <h5 class="card-title">Teléfono: <?=$usuAux->getTelefono()?></h5>
             <h4 class="card-title">Email: <?=$usuAux->getCorreo()?></h4>
-            <p class="card-text">Dirección: <?=$usuAux->getDireccion()?>, CP: <?=$usuAux->getCp()?></p>
+            <h5 class="card-title">Dirección: <?=$usuAux->getDireccion()?>, CP: <?=$usuAux->getCp()?></h5>
           </div>
       </div>
     </div>
@@ -82,6 +84,16 @@
 <br><br>
 <a href="../Controller/adminVerPrestamos.php">Volver</a>
 </div>
+<br><br>
+
+
+  <!-- Footer -->
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; The Corner Of Dreams</small>
+    </div>
+  </footer>
+<!-- Footer -->
 
 </body>
 </html>

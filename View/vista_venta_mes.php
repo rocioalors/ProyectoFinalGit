@@ -19,6 +19,7 @@
             <a href="../Controller/verUsuarios.php" class="nav-item nav-link">Usuarios</a>
             <a href="../Controller/adminVerPrestamos.php" class="nav-item nav-link">Prestamos</a>
             <a href="../Controller/adminVerAdministradores.php" class="nav-item nav-link">Administradores</a>
+             <a href="../Controller/adminLecturaEmail.php" class="nav-item nav-link">Emails</a>
             <a href="#" class="nav-item nav-link">Ventas</a>
         </div>
         <div class="navbar-nav ml-auto">
@@ -31,12 +32,12 @@
 
 <div class="container">
   <br><br>
-  <h2>Vista del mes <?=$_REQUEST['mes']?></h2><br>
+  <h2 class="titulo">Vista del mes <?=$_REQUEST['mes']?></h2><br>
   <?php if($ventaMes!=null) {?>  
   <input class="form-control" id="myInput" type="text" placeholder="Buscar.."><br>   
   <table class="table table-bordered">
     <thead>
-      <tr class="table-success">
+      <tr class="table-primary text-light">
         <th>Id_Venta</th>
         <th>Fecha Venta</th>
         <th>Usuario</th>
@@ -46,10 +47,15 @@
     </thead>
     <tbody id="myTable">
    <?php
-    foreach ($ventaMes as $key) {?>
+    foreach ($ventaMes as $key) {
+       $fecha=$key->getFechaCompra();
+  
+        $date= strftime("%d de %B del %Y", strtotime($fecha))
+
+      ?>
        <tr>
         <td><?=$key->getId()?></td>
-        <td><?=$key->getFechaCompra()?></td>
+        <td><?=$date?></td>
         <td><?=$key->getUsuario()?></td>
         <td><?=$key->getTotal()?></td>
         <td><a href="../Controller/detalle_venta.php?id=<?=$key->getId()?>&total=<?=$key->getTotal()?>&usuario=<?=$key->getUsuario()?>&fecha=<?=$key->getFechaCompra()?>"><button type="button" class="btn btn-success">Ver venta</button></a></td>
@@ -62,6 +68,15 @@
   <h3>Lo siento, aún no existen datos registrados</h3>
 <?php }?>
 </div>
+
+  <!-- Footer -->
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; The Corner Of Dreams</small>
+    </div>
+  </footer>
+<!-- Footer -->
+
 </body>
 <script>
 $(document).ready(function(){

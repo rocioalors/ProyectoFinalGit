@@ -5,8 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+  <!--DATATABLES-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
+
  <link rel="stylesheet" href="../View/css/estilos.css">
  <script src="../View/JS/funciones.js"></script>
+ 
+
 </head>
 
 <!--Código barra de navegación-->
@@ -23,6 +29,7 @@
             <a href="../Controller/verUsuarios.php" class="nav-item nav-link">Usuarios</a>
             <a href="../Controller/adminVerPrestamos.php" class="nav-item nav-link">Prestamos</a>
             <a href="../Controller/adminVerAdministradores.php" class="nav-item nav-link">Administradores</a>
+            <a href="../Controller/adminLecturaEmail.php" class="nav-item nav-link">Emails</a>
             <a href="#" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModalCenter">Ventas</a>
         </div>
         <div class="navbar-nav ml-auto">
@@ -33,25 +40,26 @@
 
 <!--Empieza todo lo relativo a la tabla-->
 <div class="container mt-3">
-  <h2>Listado de Préstamos</h2><br><br>
+  <h2 class="titulo">Listado de Préstamos</h2><br><br>
     <form>
     <div class="form-group">
-    <label>Seleccione el tipo de dato</label>
+    <label class="texto">Seleccione el tipo de dato:</label>
     <select class="form-control" id="operacion" name="operacion">
-      <option value="todos">Todas los préstamos</option>
+      <option value="todos">Todos los préstamos</option>
       <option value="fuera">Préstamos fuera de plazo</option>
     </select><br>
-     <input type="submit" name="consultar" value="Consultar"><br>
+     <input class="btn btn-success" type="submit" name="consultar" value="Consultar"><br>
    
    </div>
   </form>
 
-  <p>Escriba algo en el campo de entrada para buscar en la tabla por fecha, libro o usuario.</p>  
-  <input class="form-control" id="myInput" type="text" placeholder="Buscar...">
+  <p class="texto">Escriba algo en el campo de entrada para buscar en la tabla por fecha, libro o usuario.</p>  
+  
   <br>
-  <table class="table table-bordered">
+  <div class="table-responsive">
+  <table id="prestamos"  data-order='[[ 5, "asc" ]]' data-page-length='10'class="table table-bordered">
     <thead>
-      <tr class="table-success">
+      <tr class="table-primary text-light">
           <th>#</th>
           <th>FECHA PRÉSTAMO</th>
           <th>FECHA DEVOLUCIÓN</th>
@@ -79,7 +87,7 @@
           <td><?=$prestamo->getTitulo()?></td>
           <td><?=$prestamo->getUsuario()?></td>
           <!--Botón para cancelar présamos, preguntamos antes si estamos seguros-->
-          <td><a href="../Controller/adminCancerlarPrestamo.php?id=<?=$prestamo->getId()?>&id_libro=<?=$prestamo->getId_Libro()?>"><input type="submit"onclick="return confirmar('¿Está seguro que desea eliminar el registro?')" class="btn btn-success" value ="Cancelar"></a></td>
+          <td><a href="../Controller/adminCancerlarPrestamo.php?id=<?=$prestamo->getId()?>&id_libro=<?=$prestamo->getId_Libro()?>"><input type="submit"onclick="return confirmar('¿Está seguro que desea eliminar el registro?')" class="btn btn-danger" value ="Cancelar"></a></td>
           <!--Botón que permite al administrador ver los datos de contacto del usuario-->
           <td><a href="../Controller/adminContactoUsuario.php?usuario=<?=$prestamo->getUsuario()?>"><input type="submit" class="btn btn-info" value ="Contactar"></a></td>
 
@@ -101,7 +109,7 @@
           <td><?=$prestamo->getTitulo()?></td>
           <td><?=$prestamo->getUsuario()?></td>
            <!--Botón para cancelar présamos, preguntamos antes si estamos seguros-->
-          <td><a href="../Controller/adminCancerlarPrestamo.php?id=<?=$prestamo->getId()?>&id_libro=<?=$prestamo->getId_Libro()?>"><input type="submit"onclick="return confirmar('¿Está seguro que desea eliminar el registro?')" class="btn btn-success" value ="Cancelar"></a></td>
+          <td><a href="../Controller/adminCancerlarPrestamo.php?id=<?=$prestamo->getId()?>&id_libro=<?=$prestamo->getId_Libro()?>"><input type="submit"onclick="return confirmar('¿Está seguro que desea eliminar el registro?')" class="btn btn-danger" value ="Cancelar"></a></td>
           <!--Botón que permite al administrador ver los datos de contacto del usuario-->
           <td><a href="../Controller/adminContactoUsuario.php?usuario=<?=$prestamo->getUsuario()?>"><input type="submit" class="btn btn-info" value ="Contactar"></a></td>
 
@@ -118,7 +126,7 @@
 
     </tbody>
   </table>
-  
+  </div>
   <p></p>
 </div>
 
@@ -141,23 +149,21 @@
        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Entrar</button>
       </div>
     </div>
   </div>
 </div>
 
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
+
+  <!-- Footer -->
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; The Corner Of Dreams</small>
+    </div>
+  </footer>
+<!-- Footer -->
 
 </body>
 </html>

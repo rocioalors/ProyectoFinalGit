@@ -23,6 +23,7 @@
             <a href="../Controller/verUsuarios.php" class="nav-item nav-link">Usuarios</a>
             <a href="../Controller/adminVerPrestamos.php" class="nav-item nav-link">Prestamos</a>
             <a href="../Controller/adminVerAdministradores.php" class="nav-item nav-link">Administradores</a>
+            <a href="../Controller/adminLecturaEmail.php" class="nav-item nav-link">Emails</a>
             <a href="#" class="nav-item nav-link">Ventas</a>
         </div>
         <div class="navbar-nav ml-auto">
@@ -31,10 +32,10 @@
     </div>
 </nav>
 <div class="container">
- <h1>Gestión de ventas</h1>
+ <h1 class="titulo">Gestión de ventas</h1>
   <form>
     <div class="form-group">
-    <label>Seleccione el tipo de dato</label>
+    <label class="texto">Seleccione el tipo de dato</label>
     <select class="form-control" id="operacion" name="operacion">
       <option value="gmensual">Grafico mensual</option>
       <option value="meses">Agrupar por meses</option>
@@ -46,7 +47,7 @@
   </form>
   
 
-  <div>
+
   	<?php 
   	//Compruebo que he recibido operacion
   		if(isset($_REQUEST['operacion'])){
@@ -54,12 +55,13 @@
   			if($_REQUEST['operacion']=='todas'){
             if($datos!=null){
      ?>
-  			<h4>El total de ventas anual es <?=$total?>€</h4>
-  			<br>Buscar datos
-  				  <input class="form-control" id="myInput" type="text" placeholder="Search.."> <br>	
+  			<h4 class="titulo">El total de ventas anual es <?=$total?>€</h4>
+  			<br><p class="texto">Buscar datos</p>
+  				  <input class="form-control" id="myInput" type="text" placeholder="Buscar.."> <br>	
+            <div>
   				    <table class="table table-bordered">
     				    <thead>
-      					   <tr class="table-success">
+      					   <tr class="table-primary text-light">
         					     <th>id</th>
         					     <th>Fecha Compra</th>
         					     <th>Usuario</th>
@@ -67,10 +69,15 @@
         					     <th>Ver detalle</th>
     			     <tbody id="myTable">
     	<?php
-        foreach ($datos as $key) {?>
+        foreach ($datos as $key) {
+      $fecha=$key->fechacompra;
+  
+        $date= strftime("%d de %B del %Y", strtotime($fecha));
+
+          ?>
       					   <tr>
         					     <td><?= $key->id?></td>
-        					     <td><?= $key->fechacompra?></td>
+        					     <td><?= $date?></td>
         					     <td><?= $key->usuario?></td>
         					     <td><?= $key->total?></td>
         					     <td>
@@ -80,7 +87,7 @@
                               <input type="hidden" name="id" value="<?=$key->id?>">
                               <input type="hidden" name="fecha" value="<?=$key->fechacompra?>">
                               <input type="hidden" name="total" value="<?=$key->total?>">
-                              <input type="submit" class="btn btn-info" name="enviar" value="Ver Venta">
+                              <input type="submit" class="btn btn-success" name="enviar" value="Ver Venta">
                           </form>
                       </td>
      					      </tr>
@@ -104,9 +111,9 @@
             <h1>Lo siento, actualmente no existe ventas</h1>
              
     		<?php }else{?>	
-  				<table class="table table-bordered">
+  				<table  id="meses" class="table table-bordered">
     				<thead>
-      					<tr class="table-success">
+      					<tr class="table-primary text-light">
         					<th>Mes</th>
         					<th>Total Mes</th>
                   <th>Ver Ventas</th>
@@ -138,7 +145,7 @@
             <h1>Lo siento, actualmente no existe ventas</h1>
              
         <?php }else{?>  
-         <h1>Grafica de Ventas por Meses</h1>
+         <h1 class="titulo">Grafica de Ventas por Meses</h1>
 <div class="chart-container" style="position: relative; height:40vh; width:40vw">
     <canvas id="chart1"></canvas>
 </div>
@@ -179,14 +186,26 @@ var chart1 = new Chart(ctx, {
 
 });
 </script>
+<br><br>
 <?php
         }//fin del else operaciones igual a gmensual(grafico)
       }//fin del if operacion igual a gmensual
-  }//fin del if de si he recibido operaciones
+  }else{?>
+    <img class="imgVentas" src="../View/img/ventas2.jpg">
+  <?php
+  }
   ?>
   
   </div>
 </div>
+
+  <!-- Footer -->
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; The Corner Of Dreams</small>
+    </div>
+  </footer>
+<!-- Footer -->
 
 </body>
 <script>

@@ -20,6 +20,7 @@
             <a href="../Controller/verUsuarios.php" class="nav-item nav-link">Usuarios</a>
             <a href="../Controller/adminVerPrestamos.php" class="nav-item nav-link">Prestamos</a>
             <a href="../Controller/adminVerAdministradores.php" class="nav-item nav-link">Administradores</a>
+              <a href="../Controller/adminLecturaEmail.php" class="nav-item nav-link">Emails</a>
             <a href="#" class="nav-item nav-link">Ventas</a>
         </div>
         <div class="navbar-nav ml-auto">
@@ -31,10 +32,11 @@
 <!--Comienzo del contenido-->	
 <div class="container">
 
-<h1>Detalle de la venta</h1>
-<h3>Total de la venta: <?=$_REQUEST['total']?> €</h3><br>
+<h1 class="titulo">Detalle de la venta</h1>
+<h3 class="titulo">Total de la venta: <?=$_REQUEST['total']?> €</h3><br>
+<div class="table-responsive">
 <table class="table table-bordered">
-	<tr class="table-success">
+	<tr class="table-primary text-light">
 		<th>Id_Libro</th>
 		<th>Imagen</th>
 		<th>Título</th>
@@ -56,7 +58,7 @@
 	<?php }?>
 	
 </table>
-
+</div>
 <!--Utilizo estos datos para generar el pdf de la factura-->
 <form action="../Controller/generarpdf.php" method="post">
   <input type="hidden" name="usuario" value="<?=$_REQUEST['usuario']?>">
@@ -69,6 +71,14 @@
 <br><br>
 <a href="../Controller/adminVerVentas.php">Volver</a>
 </div>
+<br><br>
+  <!-- Footer -->
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; The Corner Of Dreams</small>
+    </div>
+  </footer>
+<!-- Footer -->
 
 </body>
 </html>

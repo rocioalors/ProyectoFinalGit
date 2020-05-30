@@ -1,0 +1,26 @@
+.row{
+	margin-top: 40px;
+}
+
+.titulo{
+	font-weight: bold;
+	color: #9a0606;
+}
+
+.titulo2{
+	font-weight: bold;
+	font-style: italic;
+	color: #aba104;
+	
+}
+
+.texto{
+	font-size: 16px;
+	color: #153607;
+}
+.central{
+	margin-bottom: 30px;
+}
+.usuario{
+	font-weight: bold;
+}

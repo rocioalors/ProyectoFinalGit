@@ -9,11 +9,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <script src="../View/JS/funcionesdos.js"></script>
+  <script src="../View/JS/funciones.js"></script>
 
    <!-- Los iconos tipo Solid de Fontawesome-->
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+   <!--DATATABLES-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
 
  </head>
 
@@ -32,6 +36,7 @@
             <a href="../Controller/verUsuarios.php" class="nav-item nav-link">Usuarios</a>
             <a href="../Controller/adminVerPrestamos.php" class="nav-item nav-link">Prestamos</a>
             <a href="../Controller/adminVerAdministradores.php" class="nav-item nav-link">Administradores</a>
+            <a href="#" class="nav-item nav-link">Emails</a>
             <a href="#" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModalCenter">Ventas</a>
         </div>
         <div class="navbar-nav ml-auto">
@@ -90,10 +95,10 @@
 <br><br>
 <?php if(isset($_SESSION['emails'])){?>
 <div class="table-responsive">
-	<table class="table">
+	<table class="table table-bordered">
  		<thead>
  			<tr>Emails Recibidos el <?= $fecha ?></tr>
- 			<tr>
+ 			<tr class="table-primary text-light">
  			<th>Nombre</th>
  			<th>Email</th>
  			<th>Información</th>
@@ -117,6 +122,7 @@
  	</table>
  	</div>
   <br><br>
+  <hr>
  	 <h4 class="info">El número de lineas que tiene el fichero es <?=$num_lineas?> y el número de carácteres es: <?=$caracteres?></h4>
  	<br><br>
  	<div class="form-row text-center">

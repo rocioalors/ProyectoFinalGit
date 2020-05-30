@@ -1,8 +1,15 @@
 <?php 
 session_start();
+
 if($_SESSION['acceso']!='ok'){
  header('Location:index.php');
 }else{
+date_default_timezone_set('Europe/Madrid');
+// Unix
+setlocale(LC_TIME, 'es_ES.UTF-8');
+// En windows
+setlocale(LC_TIME, 'spanish');
+
 $total=0;
 include'boostrap.php';
 require_once'../Model/Venta.php';

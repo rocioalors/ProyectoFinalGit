@@ -12,7 +12,7 @@
   <script src="../View/JS/funcionesDOM.js"></script>
   <script src="../View/JS/funcionesdos.js"></script>
   <!--El estilo-->
-  <link rel="stylesheet" type="text/css" href="../View/css/estiloPrincipalUsuario.css">
+  <link rel="stylesheet" type="text/css" href="../View/css/estiloBlog.css">
   <!--Para los iconos-->
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
@@ -67,10 +67,42 @@
 </nav>
 	
 	<div class="container">
-	<?php if($registros>0){
-		foreach ($comentarios as $key) {?>
-	 <p><?=$key->getNombre()?></p>
-	 <p><?=$key->getFecha()?></p>
+ <div class="row">
+<div class="col-sm-4">
+	  <h2 class="titulo">Eventos</h2>
+	  <h4 class="titulo2">Firma de libro Javier Castillo 19/06/20 19:00</h4>
+	 
+	  <img src="../View/img/javierCastillo.jpg" width="90%" >
+
+	  <p class="texto">Javier Castillo firmará su último libro La chica de la nieve.</p>
+
+	  <h4 class="titulo2">Concurso de escritura 29/06/20 19:00</h4>
+	 
+	  <img src="../View/img/concurso.jpg" width="90%" >
+
+	  <p class="texto">GANA HASTA 150€...Puedes inscribirte hasta el 15/06/2020.</p>
+
+      <h3 class="titulo">Frases Célebres</h3>
+      <div class="fakeimg"><img src="../View/img/escritura.jpg"></div>
+      <p class="texto">El misterio de la vida no es un problema a resolver, sino una realidad a experimentar (Duna, Frank Herbert)</p>
+      
+</div>
+
+ <div class="col-sm-8">
+	<!--MUESTRO LOS COMENTARIOS SI EXISTEN-->
+	<img  class="central" src="../View/img/opinion.jpg" width="100%" height="20%">
+	<?php if($registros>0){?>
+     <h1 class="titulo">Comentarios de Nuestros Lectores</h1>
+	
+    <?php
+		foreach ($comentarios as $key) {
+        $fecha=$key->getFecha();
+  
+        $date= strftime("%d de %B del %Y", strtotime($fecha));
+
+			?>
+
+	 <p class="usuario"><?=$key->getNombre().' '.$date?>
 	 <p><?=$key->getComentario()?></p>
 
 
@@ -86,24 +118,36 @@
 	}
 		
     ?>
-	  <form action="#contact" method="post" class="contact-form">
-            <h2 class="tm-section-title">DEJANOS TU COMENTARIO</h2>
-                      <p id="texto">Estaremos encantados de ayudarles a través de nuestro formulario de contacto, teléfono o email.</p>
+    <hr><br><br>
+	  <form action="#" method="post" class="contact-form">
+            <h4 class="titulo">DEJANOS TU COMENTARIO</h4>
+                      <p class ="titulo2">¿As leído alguno de nuestros libros? Tu comentario puede resultar útil para otros lectores.</p>
                                        
                           <div class="form-group">
-                            <textarea id="contact_message" name="comentario" class="form-control" rows="9" placeholder="Mensaje" required></textarea>
+                            <textarea id="contact_message" name="comentario" class="form-control" rows="9" placeholder="Escribe aquí tu referencia..." required></textarea>
                           </div>
 
                           
-                          <button type="submit" name="enviar" class="btn btn-warning">Enviar</button>
+                          <button type="submit" name="enviar" class="btn btn-warning">Comentar</button>
                            
                       </form>
 
 	   	
 
 	   </form>
-		
 	</div>
+	</div>
+</div>
+
+
+
+<!-- Footer -->
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; The Corner Of Dreams</small>
+    </div>
+  </footer>
+<!-- Footer --> 
 
 </body>
 </html>

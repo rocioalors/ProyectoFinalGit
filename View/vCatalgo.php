@@ -5,6 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+
+  <!--DATATABLES-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
+
  <link rel="stylesheet" href="../View/css/estilos.css">
  <script src="../View/JS/funciones.js"></script>
 </head>
@@ -38,11 +43,10 @@
   <h2 class="titulo">Catálogo de libros</h2>
   <a href="../Controller/nuevoLibro.php"><button type="button" class="btn btn-info">Nuevo Libro</button></a>
     <br><br>
-  <p class="texto">Escriba algo en el campo de entrada para buscar en la tabla por título, autor o género</p>  
-  <input class="form-control" id="myInput" type="text" placeholder="Buscar...">
-  <br>
+  <p class="texto">Escriba algo en el campo de entrada para buscar en la tabla por título, autor o género</p>
+    <br>
   <div class="table-responsive">
-  <table class="table table-bordered">
+  <table id="example"  data-order='[[ 5, "asc" ]]' data-page-length='10'class="table table-bordered">
     <thead>
       <tr class="table-primary text-light">
           <th>#</th>
@@ -78,10 +82,10 @@
           <td><?=$libro->getEdicion()?></td>
 
           <!--Botón de Modificar-->
-          <td><a href="../Controller/adminModificaLibro.php?id=<?=$libro->getId()?>&imagen=<?=$libro->getImagen()?>&titulo=<?=$libro->getTitulo()?>&autor=<?=$libro->getAutor()?>&descripcion=<?=$libro->getDescripcion()?>&precio=<?=$libro->getPrecio()?>&cantAlquiler=<?=$libro->getcantidadalquiler()?>&cantvender=<?=$libro->getcantidadvender()?>&genero=<?=$libro->getGenero()?>&edicion=<?=$libro->getEdicion()?>"><button type="button" class="btn btn-success">Modificar</button></a></td>
+          <td><a href="../Controller/adminModificaLibro.php?id=<?=$libro->getId()?>&imagen=<?=$libro->getImagen()?>&titulo=<?=$libro->getTitulo()?>&autor=<?=$libro->getAutor()?>&descripcion=<?=$libro->getDescripcion()?>&precio=<?=$libro->getPrecio()?>&cantAlquiler=<?=$libro->getcantidadalquiler()?>&cantvender=<?=$libro->getcantidadvender()?>&genero=<?=$libro->getGenero()?>&edicion=<?=$libro->getEdicion()?>"><button type="button" class="btn btn-success"><i class="far fa-edit"></i></button></a></td>
 
           <!--Botón de eliminar lleva la funcion de confirmar del archivo funciones.js-->
-          <td><a href="../Controller/adminBorraLibro.php?id=<?=$libro->getId()?>"><button type="button" class="btn btn-danger" id="eliminar" onclick="return confirmar('¿Está seguro que desea eliminar el registro?')">Eliminar</button></a></td>
+          <td><a href="../Controller/adminBorraLibro.php?id=<?=$libro->getId()?>"><button type="button" class="btn btn-danger" id="eliminar" onclick="return confirmar('¿Está seguro que desea eliminar el registro?')"><i class="fas fa-trash-alt"></i></button></a></td>
       </tr>
     <?php 
     }
@@ -111,24 +115,15 @@
        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Entrar</button>
       </div>
     </div>
   </div>
 </div>
 <br><br>
 
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
+
   <!-- Footer -->
   <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
     <div class="container text-center">
