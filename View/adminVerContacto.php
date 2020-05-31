@@ -3,7 +3,7 @@
 <head>
 	 <link rel="stylesheet" href="../View/css/estilos.css">
    <script  src="../View/JS/funciones.js"></script>
-	<title></title>
+	 <title></title>
 </head>
 <body>
 <!--Código barra de navegación-->

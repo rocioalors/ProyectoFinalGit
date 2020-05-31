@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <link rel="stylesheet" href="../View/css/estilos.css">
+  <link rel="stylesheet" href="../View/css/estilos.css">
    <!--DATATABLES-->
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
   <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
    <!--script necesario para ver la gráfica-->
-   <script src="../View/JS/chart.min.js"></script>
-   <script src="../View/JS/funciones.js"></script>
+  <script src="../View/JS/chart.min.js"></script>
+  <script src="../View/JS/funciones.js"></script>
 	<title>Gestion de ventas</title>
 </head>
 <body>

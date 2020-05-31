@@ -6,8 +6,8 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
   <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
 
-   <link rel="stylesheet" href="../View/css/estilos.css">
-   <script src="../View/JS/funciones.js"></script>
+  <link rel="stylesheet" href="../View/css/estilos.css">
+  <script src="../View/JS/funciones.js"></script>
 </head>
 <body>
 <!--Código barra de navegación-->

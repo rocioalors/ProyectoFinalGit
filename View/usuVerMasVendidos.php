@@ -39,18 +39,18 @@
      			<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
        			Catálogo
       			</a>
-      		<div class="dropdown-menu">
-        		<a class="dropdown-item" href="../Controller/usuarioVerCatalago.php">Todo el catálogo</a>
-       			<a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Los más vendidos</a>
-      		</div>
+      		  <div class="dropdown-menu">
+        		  <a class="dropdown-item" href="../Controller/usuarioVerCatalago.php">Todo el catálogo</a>
+       			  <a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Los más vendidos</a>
+      		  </div>
     		</li>
     		<li class="nav-item">
       			<a class="nav-link" href="../Controller/usuarioVerPerfil.php">Mi Perfíl</a>
    			 </li>
 
-          <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link" href="../Controller/usuBlog.php">Blog</a>
-         </li>
+        </li>
 
    			
     		<li class="nav-item">
@@ -59,10 +59,10 @@
   			</ul>
      		<div class="navbar-nav ml-auto">
           		<a href="../Controller/verContenidoCesta.php"><i class="fas fa-shopping-cart"></i> <?=$_SESSION['cantidad']?> Total:<?=$_SESSION['subtotal']?>€</a> 
-        	</div>
-          	<div class="navbar-nav ml-auto">
+        </div>
+        <div class="navbar-nav ml-auto">
          		<button type="button" class="btn btn-warning" onclick="cerrarSesion()">Cerrar sesion</button>
-        	</div>
+        </div>
    </div>
 </nav>
 

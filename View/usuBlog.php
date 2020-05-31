@@ -101,9 +101,14 @@
         $date= strftime("%d de %B del %Y", strtotime($fecha));
 
 			?>
-
-	 <p class="usuario"><?=$key->getNombre().' '.$date?>
-	 <p><?=$key->getComentario()?></p>
+  <div class="card bg-warning text-light">
+    <div class="card-body">
+      <p class="usuario"><?=$key->getNombre().' '.$date?>
+      <p><?=$key->getComentario()?></p>
+    </div>
+  </div>
+  <br>
+	 
 
 
 	<?php	

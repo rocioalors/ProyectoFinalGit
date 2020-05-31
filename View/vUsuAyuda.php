@@ -2,27 +2,23 @@
 <html>
 <head>
 	<title></title>
-	<meta charset="utf-8">
+
+  <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="../View/css/estiloUsuarioPerfil.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <script src="../View/JS/funcionesdos.js"></script>
-
-   <!--DATATABLES-->
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
-  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
+  <script src="../View/JS/funcionesPagAyuda.js"></script>
 
    <!-- Los iconos tipo Solid de Fontawesome-->
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
- 
 </head>
 <body>
 
-<!--Codigo del nav-->
+	<!--Codigo NAV-->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
   <!--Botón para comprimir en ventana pequeña-->
@@ -51,11 +47,10 @@
         <li class="nav-item">
             <a class="nav-link" href="../Controller/usuarioVerPerfil.php">Mi Perfíl</a>
          </li>
-         
-          <li class="nav-item">
+
+         <li class="nav-item">
             <a class="nav-link" href="../Controller/usuBlog.php">Blog</a>
          </li>
-
         
         <li class="nav-item">
             <a class="nav-link" href="../Controller/usuFormularioContacto.php">Contacto</a>
@@ -63,13 +58,12 @@
         </ul>
         <div class="navbar-nav ml-auto">
               <a href="../Controller/verContenidoCesta.php"><i class="fas fa-shopping-cart"></i> <?=$_SESSION['cantidad']?> Total:<?=$_SESSION['subtotal']?>€</a> 
-          </div>
+        </div>
             <div class="navbar-nav ml-auto">
             <button type="button" class="btn btn-warning" onclick="cerrarSesion()">Cerrar sesion</button>
-          </div>
-   </div>
+             </div>
+   		</div>
 </nav>
-
 
 <div class="d-flex" id="wrapper">
 
@@ -89,70 +83,84 @@
   
   
  <div class="container" id="principal">
- <!--Botón para mostrar o ocultar el sidebar-->
+  <!--Botón para mostrar o ocultar el sidebar-->
   <br>
    <button class="btn btn-primary" id="menu-toggle">Mostrar/Ocultar Opciones</button>
-   <br>
-    <img class="imgUsuario" src="../View/img/compra.jpg" width="180">
   <br><br>
 
-  <div class="table-responsive">
-  <table id="example"   data-page-length='10' class="table table-bordered">
-    <thead class="table-info text-white">
-      <tr>
-        <th>Fecha Compra</th>
-        <th>Nº Factura</th>
-        <th>Total</th>
-        <th>Ver Detalle</th>
-        <th>Descargar Factura</th>
-      </tr>
-    </thead>
-    <tbody>
-    <?php 
-     foreach ($compras as $key) {
-      $fecha=$key->getFechacompra();
-  
-        $date= strftime("%d de %B del %Y", strtotime($fecha));
-      ?>
-      <tr>
-      <td><?=$date?></td> 
-      <td><?=$key->getId()?></td>  
-      <td><?=$key->getTotal()?></td> 
-      <td>
-        <form action="../Controller/usuarioVerDetalleCompra.php" method="post">
-        <input type="hidden" name="usuario" value="<?=$key->getUsuario()?>">
-        <input type="hidden" name="id_venta" value="<?=$key->getId()?>">
-        <input type="hidden" name="fecha" value="<?=$key->getfechaCompra()?>">
-        <input type="hidden" name="total" value="<?=$key->getTotal()?>">
-        <input type="submit" class="btn btn-success" name="enviar" value="Ver Detalle">
-      </form>
-      </td>
-      
-      <!--Utilizo estos datos para generar el pdf de la factura-->
-      <td><form action="../Controller/generarpdf.php" method="post">
-        <input type="hidden" name="usuario" value="<?=$key->getUsuario()?>">
-        <input type="hidden" name="id_venta" value="<?=$key->getId()?>">
-        <input type="hidden" name="fecha" value="<?=$key->getfechaCompra()?>">
-        <input type="hidden" name="total" value="<?=$key->getTotal()?>">
-        <input type="submit" class="btn btn-info" name="enviar" value="Generar PDF">
-      </form>
-       </td>
-      </tr>
+ <!--INFORMACION-->
+   <h2 class="titulo">¿Necesitas Ayuda?</h2>
+   <h3 class="texto">Te mostramos las preguntas más frecuentes:</h3>
 
-      <?php
-      }
-      ?>
-    </tbody>
+<div class="tab">
+  <button class="tablinks text-light" onmouseover="openCity(event, 'comprar')"><i class="fas fa-shopping-basket"></i> ¿Cómo Comprar online?</button>
+  <button class="tablinks text-light" onmouseover="openCity(event, 'Prestamos')"><i class="far fa-calendar-check"></i> Préstamos</button>
+  <button class="tablinks text-light" onmouseover="openCity(event, 'envio')"><i class="fas fa-shipping-fast"></i> Envíos y devoluciones</button>
+  <button class="tablinks text-light" onmouseover="openCity(event, 'dudas')"><i class="fas fa-question"></i> ¿Aún con dudas?</button>
+</div>
 
-  </table>
-  <br><br>
-  
-</div>  
+<div id="comprar" class="tabcontent">
+  <h3 class="titulo">Compras</h3>
+  <p>¡Comprar en The Corner Of Dreams es muy sencillo! Sólo debes seguir los siguientes pasos:</p>
 
+  <p>1. Deslizate por nuestro catálogo o bien escribe el título de tu libro en el buscador. ¡Seguro que encuentras lo que buscas!</p> 
+
+  <p>2. Has encontrado lo que quieres? Selecciona tus libros y añade los artículos que desees a la cesta. Cuándo hayas terminado de añadir productos, selecciona el icono <i class="fas fa-shopping-cart"></i></p>
+
+  <p>3. Para tramitar tu compra selecciona finalizar compra y rellena los datos necesarios para tramitarla (Nombre, apellidos, nº de cuenta y CVV).</p>
+
+  <P>4. Lo tienes todo? ¡Ahora ya puedes confirmar tu pedido y disfrutar en muy poco tiempo de tu compra!</P>
 
 </div>
 
+<div id="Prestamos" class="tabcontent">
+  <h3 class="titulo">Préstamos</h3>
+  <p>Para realizar tu préstamo, sólo debes seguir los siguienes pasos:</p>
+
+  <p>1. Deslizate por nuestro catálogo o bien escribe el título de tu libro en el buscador. ¡Seguro que encuentras lo que buscas!</p> 
+
+  <p>2. Has encontrado lo que quieres? Selecciona el botón prestar y añade tu libro a tus préstamos. Ya puedes pasar a recogerlo en nuestro establecimiento.(Recuerda que sólo puedes tener dos préstamos activos y que no se puede prestar un mismo libro dos veces).</p>
+
+  <p>3. Para consultar tus préstamos activos, solo debes entrar en la pestaña Perfil->Préstamos...¡No te olvides de devolverlos a tiempo!</p>
 </div>
+
+<div id="envio" class="tabcontent">
+  <h3 class="titulo">Envíos y devoluciones</h3>
+  <p>¿Cuales son nuestros gastos de envío?</p>
+
+  <p>¡Si seleccionas tu envío a domicilio será gratuito para pedidos a partir de 19€!</p>
+  <p>En caso contrario, los costes de envío son de 2.95€</p>
+
+  <p>¿Cuales son los plazos de entrega?</p>
+
+  <p>Queremos que disfrutes de tu lectura lo antes posible, por eso los plazos de entrega son de 2 a 4 días hábiles.</p>
+
+  <p>Devolución</p>
+
+  <p>Para poder devolver un artículo, éste tiene que conservar su envoltorio original.Dispones un plazo de 15 desde que lo recibes.</p> 
+  <p>Puedes realizar tu devolución tanto por correo como en nuestras tiendas.</p>
+
+</div>
+
+<div id="dudas" class="tabcontent">
+  <h3 class="titulo">Contáctanos</h3>
+  <p><i class="fas fa-phone-volume"></i> Teléfono: 626 278 473</p>
+
+  <p><i class="fas fa-gift"></i> Dirección: C/Rafaél Cabrera Angulo, 3 Utrera,Sevilla</p>
+  <p><i class="far fa-envelope"></i> Email: thecornerofdreamslibreria@gmail.com</p>
+
+  <p><i class="fas fa-at"></i><a href="../Controller/usuFormularioContacto.php">Formulario de contacto</a></p>
+
+</div>
+
+<div class="clearfix"></div>	
+
+<br><br>
+</div>
+
+</div>
+
+
 <!-- Footer -->
   <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
     <div class="container text-center">
@@ -160,5 +168,8 @@
     </div>
   </footer>
 <!-- Footer --> 
+</body>
+</html>
+
 </body>
 </html>
