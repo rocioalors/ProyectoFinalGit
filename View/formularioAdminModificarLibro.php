@@ -5,6 +5,7 @@
 	
 	 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="../View/css/estiloFormulario.css">
+   <script  src="../View/JS/funciones.js"></script>
    
  
 </head>
@@ -25,6 +26,7 @@
             <a href="../Controller/verUsuarios.php" class="nav-item nav-link">Usuarios</a>
             <a href="../Controller/adminVerPrestamos.php" class="nav-item nav-link">Prestamos</a>
             <a href="../Controller/adminVerAdministradores.php" class="nav-item nav-link">Administradores</a>
+             <a href="../Controller/adminLecturaEmail.php" class="nav-item nav-link">Emails</a>
             <a href="#" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModalCenter">Ventas</a>
         </div>
         <div class="navbar-nav ml-auto">
@@ -52,7 +54,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Entrar</button>
+        <button id="entrar" type="button" class="btn btn-primary">Entrar</button>
       </div>
     </div>
   </div>
@@ -69,30 +71,30 @@
 
   <input type="hidden" class="form-control" id="id" name="id" value="<?=$id?>" required>
   
-  <label for="usr">Titulo:</label>
+  <label class="texto" for="usr">Titulo:</label>
   <input type="text" class="form-control" id="titulo" name="titulo" value="<?=$titulo?>" required>
 
-  <label for="usr">Autor:</label>
+  <label  class="texto" for="usr">Autor:</label>
   <input type="text" class="form-control" id="autor" name="autor" value="<?=$autor?>" required>
 
-  <label for="usr">Descripcion:</label>
+  <label class="texto" for="usr">Descripcion:</label>
   <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?=$descripcion?>" required>
 
-  <label for="usr">Precio:</label>
+  <label class="texto" for="usr">Precio:</label>
   <input type="text" class="form-control" id="precio" name="precio" value="<?=$precio?>" required>
 
-  <label for="usr">Cantidad en alquiler:</label>
+  <label class="texto" for="usr">Cantidad en alquiler:</label>
   <input type="text" class="form-control" id="cantdalquiler" name="cantAlquiler" value="<?=$cantidadalquiler?>" required>
 
 
-  <label for="usr">Cantidad en venta:</label>
+  <label class="texto" for="usr">Cantidad en venta:</label>
   <input type="text" class="form-control" id="cantVender" name="cantVender" value="<?=$cantidadvender?>" required>
 
 
- <label for="usr">Genero:</label>
+ <label class="texto" for="usr">Genero:</label>
   <input type="text" class="form-control" id="genero" name="genero" value="<?=$genero?>" required>
 
- <label for="usr">Edición:</label>
+ <label class="texto" for="usr">Edición:</label>
   <input type="text" class="form-control" id="edicion" name="edicion" value="<?=$edicion?>" required>
 
 

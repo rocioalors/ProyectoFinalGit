@@ -2,6 +2,9 @@
 <html>
 <head>
    <link rel="stylesheet" href="../View/css/estilos.css">
+   <!--DATATABLES-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
    <!--script necesario para ver la gráfica-->
    <script src="../View/JS/chart.min.js"></script>
    <script src="../View/JS/funciones.js"></script>
@@ -57,9 +60,9 @@
      ?>
   			<h4 class="titulo">El total de ventas anual es <?=$total?>€</h4>
   			<br><p class="texto">Buscar datos</p>
-  				  <input class="form-control" id="myInput" type="text" placeholder="Buscar.."> <br>	
+  				  	
             <div>
-  				    <table class="table table-bordered">
+  				    <table id="example"   data-page-length='10'class="table table-bordered">
     				    <thead>
       					   <tr class="table-primary text-light">
         					     <th>id</th>
@@ -198,6 +201,7 @@ var chart1 = new Chart(ctx, {
   
   </div>
 </div>
+<br><br>
 
   <!-- Footer -->
   <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
@@ -208,14 +212,5 @@ var chart1 = new Chart(ctx, {
 <!-- Footer -->
 
 </body>
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
+
 </html>

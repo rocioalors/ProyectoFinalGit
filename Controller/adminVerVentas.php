@@ -11,7 +11,7 @@ setlocale(LC_TIME, 'es_ES.UTF-8');
 setlocale(LC_TIME, 'spanish');
 
 $total=0;
-include'boostrap.php';
+
 require_once'../Model/Venta.php';
 require_once'../Model/Detalle_Venta.php';
 
@@ -27,6 +27,7 @@ if(isset($_REQUEST['operacion'])){
       }
     
 }
+include'../View/boostrap.php';
 include'../View/adminGestionVentas.php';
 
 }

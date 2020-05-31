@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include "boostrap.php";
+
 $destino="adminGrabaUsuario.php";
 $nombre="";
 $dni="";
@@ -9,5 +9,7 @@ $direccion="";
 $telefono="";
 $cp='';
 $contraseña="";
+
+include '../View/boostrap.php';
 include "../View/formularioAdminNuevoUsuario.php";
  ?>

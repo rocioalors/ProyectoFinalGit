@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include'boostrap.php';
+
 
 $destino='actualizararticulo.php';
 $id=$_REQUEST['id'];
@@ -12,6 +12,8 @@ $cantidadalquiler=$_REQUEST['cantAlquiler'];
 $cantidadvender=$_REQUEST['cantvender'];
 $genero=$_REQUEST['genero'];
 $edicion=$_REQUEST['edicion'];
+
+include '../View/boostrap.php';
 include '../View/formularioAdminModificarLibro.php';
 
  ?>

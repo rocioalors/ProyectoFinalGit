@@ -22,7 +22,7 @@ if(!isset($_COOKIE['contador'])){
 	setcookie('contador',0,time()+365*24*60*60);
 }
 
-include 'boostrap.php';
+include '../View/boostrap.php';
 include '../View/vPrincipalAdmin.php';
 
  ?>

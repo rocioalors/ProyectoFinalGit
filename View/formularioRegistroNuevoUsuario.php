@@ -11,7 +11,7 @@
   
  <div class="container">
 
-     <form class="col-12 col-md-9" method="POST" action="return false" onsubmit="return false">
+     <form  id="formularioRegistro" class="col-12 col-md-9" method="POST" action="return false" onsubmit="return false">
      
       <h1 class="nombre">The Corner of Dreams</h1>
 
@@ -56,7 +56,7 @@
             <br>
              
              <!--Botón que se direige la funcion ValidarRegistro dentro del archivo funciones.js-->
-            <button  class="btn btn-primary" onclick="ValidarRegistro(document.getElementById('nombre').value, document.getElementById('dni').value,document.getElementById('correo').value,document.getElementById('direccion').value,document.getElementById('cp').value,document.getElementById('telefono').value,document.getElementById('contraseña').value);"><i class="fas fa-sign-in-alt"></i> Registrarme </button>
+            <button id="registrarme" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Registrarme </button>
   
             <a href="../Controller/index.php">Volver a Inicio</a>
         </div>

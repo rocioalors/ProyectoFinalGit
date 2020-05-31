@@ -11,16 +11,21 @@ function confirmar ( mensaje ) {
         return confirm( mensaje );
 }
 
- function Validar(user, pass){
+//Comprueba si el usuario esta iniciando session correctamente o no
+$(document).ready(function(){
+   $("#formularioInicio").on("click", function() {
     $.ajax({
         url: "../Controller/compruebaLogin.php",
         type: "POST",
-        data: "user="+user+"&pass="+pass,
+        data: $("#inicio").serialize(), 
         success: function(resp){
         $('#resultado').html(resp)
         }       
     });
-}
+
+  });
+ });
+
 
 function comprobarUsuario() {
     $("#loaderIcon").show();
@@ -63,29 +68,34 @@ function comprobarDni() {
     });
 }
 
- function ValidarRegistro(nombre,dni,correo,direccion,cp,telefono, contraseña)
-        {
-            $.ajax({
+//Funcion para validar el registro de nuevos usuarios
+$(document).ready(function(){
+   $("#registrarme").on("click", function() {
+             $.ajax({
                 url: "../Controller/grabarNuevoUsuarioRegistro.php",
                 type: "POST",
-                data: "nombre="+nombre+"&dni="+dni+"&correo="+correo+"&direccion="+direccion+"&cp="+cp+"&telefono="+telefono+"&contraseña="+contraseña,
+                data: $("#formularioRegistro").serialize(),
                 success: function(resp){
                 $('#noregistro').html(resp)
                 }       
             });
-        }
-
-
-  function ventas(contraseña){
+    });
+});
+        
+//Funcion para entrar en las ventas --Pide clave de acceso
+$(document).ready(function(){
+   $("#entrar").on("click", function() {
+ 
             $.ajax({
                 url: "../Controller/adminCompruebaLoginVentas.php",
                 type: "POST",
-                data: "contraseña="+contraseña,
+                data: "contraseña="+$("#contraseña").val(),
                 success: function(resp){
                 $('#info').html(resp)
                 }       
             });
-  }
+   });
+ });
 //datatable.
 $(document).ready(function() {
 $('#example').DataTable({

@@ -16,7 +16,7 @@ if(!empty($_REQUEST['dni'])){
 	if($total>0){
 		echo "<span class='estado-no-disponible-usuario'> Ya existe un usuario registrado con ese DNI.Pruebe a iniciar sesion.</span>";
 	}else{
-      echo "<span class='estado-disponible-usuario'> Usuario Disponible.</span>";
+      echo "<span class='estado-disponible-usuario'> DNI Disponible.</span>";
 	}
  }
 
@@ -25,6 +25,6 @@ if(!empty($_REQUEST['dni'])){
 	if($correo>0){
 		echo "<span class='estado-no-disponible-usuario'> Ya existe un usuario registrado con ese correo.Pruebe a iniciar sesion.</span>";
 	}else{
-      echo "<span class='estado-disponible-usuario'> Usuario Disponible.</span>";
+      echo "<span class='estado-disponible-usuario'> Email Disponible.</span>";
 	}
  }

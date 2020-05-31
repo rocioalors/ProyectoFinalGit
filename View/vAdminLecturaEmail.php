@@ -65,7 +65,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Entrar</button>
+        <button id="entrar" type="button" class="btn btn-primary">Entrar</button>
       </div>
     </div>
   </div>
@@ -97,7 +97,6 @@
 <div class="table-responsive">
 	<table class="table table-bordered">
  		<thead>
- 			<tr>Emails Recibidos el <?= $fecha ?></tr>
  			<tr class="table-primary text-light">
  			<th>Nombre</th>
  			<th>Email</th>

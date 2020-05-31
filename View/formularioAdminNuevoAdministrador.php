@@ -5,6 +5,7 @@
 	
 	 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../View/css/estiloFormulario.css"> 
+  <script  src="../View/JS/funciones.js"></script>
    
 </head>
 <body>
@@ -24,6 +25,7 @@
             <a href="../Controller/verUsuarios.php" class="nav-item nav-link">Usuarios</a>
             <a href="../Controller/adminVerPrestamos.php" class="nav-item nav-link">Prestamos</a>
             <a href="../Controller/adminVerAdministradores.php" class="nav-item nav-link">Administradores</a>
+             <a href="../Controller/adminLecturaEmail.php" class="nav-item nav-link">Emails</a>
             <a href="#" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModalCenter">Ventas</a>
         </div>
         <div class="navbar-nav ml-auto">
@@ -52,7 +54,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Entrar</button>
+        <button id="entrar" type="button" class="btn btn-primary">Entrar</button>
       </div>
     </div>
   </div>
@@ -65,29 +67,29 @@
  <div class="container">
 
      
-<form action="../Controller/<?=$destino?>"  method="POST">
+<form id="form" action="../Controller/<?=$destino?>"  method="POST">
 
   
   <div class="form-group">
 
-  <label for="usr">Usuario:</label>
-  <input type="text" class="form-control" id="usuario" name="usuario" value="<?=$usuario?>" required>
+    <label class="texto" for="usr">Usuario:</label>
+      <input type="text" class="form-control" id="usuario" name="usuario" value="<?=$usuario?>" required>
 
-  <label for="usr">Contraseña:</label>
-  <input type="text" class="form-control" id="contraseña" name="contraseña" value="<?=$contraseña?>" required>
+    <label class="texto" for="usr">Contraseña:</label>
+      <input type="text" class="form-control" id="contraseña" name="contraseña" value="<?=$contraseña?>" required>
 
-  <label for="usr">DNI:</label>
-  <input type="text" class="form-control" id="dni" name="dni" value="<?=$dni?>" required>
+    <label class="texto" for="usr">DNI:</label>
+      <input type="text" class="form-control" id="dni" name="dni" value="<?=$dni?>" required>
 
-  <label for="usr">Email:</label>
-  <input type="text" class="form-control" id="email" name="email" value="<?=$email?>" required>
+    <label class="texto" for="usr">Email:</label>
+      <input type="text" class="form-control" id="email2" name="email" value="<?=$email?>" required>
 
-  <label for="usr">Telefono:</label>
-  <input type="text" class="form-control" id="telefono" name="telefono" value="<?=$telefono?>" required>
+    <label class="texto" for="usr">Telefono:</label>
+      <input type="text" class="form-control" id="telefono" name="telefono" value="<?=$telefono?>" required>
 
-  <br><br>
-  <input type="submit" class="btn btn-danger" value="GESTIONAR">
-  <a href="../Controller/adminVerAdministradores.php">Volver al listado</a>
+    <br><br>
+      <input type="submit" class="btn btn-danger" value="GESTIONAR">
+    <a href="../Controller/adminVerAdministradores.php">Volver al listado</a>
 </div>
 
 </div>

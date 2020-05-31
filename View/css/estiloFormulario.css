@@ -37,3 +37,13 @@ body{
 	margin-top: 30px
 
 }
+
+#form{
+	display: block;
+	 margin-left: auto;
+  	margin-right: auto;
+  	margin-top: 50px;
+  	margin-bottom: 60px;
+  	max-width: 50%;
+
+}

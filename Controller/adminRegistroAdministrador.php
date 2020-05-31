@@ -1,11 +1,13 @@
 <?php 
 session_start();
-include "boostrap.php";
+
 $destino="adminGrabaAdministrador.php";
 $usuario='';
 $contraseña='';
 $dni='';
 $email='';
 $telefono='';
+
+include '../View/boostrap.php';
 include "../View/formularioAdminNuevoAdmnistrador.php";
  ?>

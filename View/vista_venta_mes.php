@@ -2,7 +2,12 @@
 <html>
 <head>
 	<title></title>
+  <!--DATATABLES-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
+
    <link rel="stylesheet" href="../View/css/estilos.css">
+   <script src="../View/JS/funciones.js"></script>
 </head>
 <body>
 <!--Código barra de navegación-->
@@ -34,8 +39,8 @@
   <br><br>
   <h2 class="titulo">Vista del mes <?=$_REQUEST['mes']?></h2><br>
   <?php if($ventaMes!=null) {?>  
-  <input class="form-control" id="myInput" type="text" placeholder="Buscar.."><br>   
-  <table class="table table-bordered">
+  <div class="table-responsive"> 
+  <table id="prestamos"   data-page-length='10' class="table table-bordered">
     <thead>
       <tr class="table-primary text-light">
         <th>Id_Venta</th>
@@ -60,7 +65,7 @@
         <td><?=$key->getTotal()?></td>
         <td><a href="../Controller/detalle_venta.php?id=<?=$key->getId()?>&total=<?=$key->getTotal()?>&usuario=<?=$key->getUsuario()?>&fecha=<?=$key->getFechaCompra()?>"><button type="button" class="btn btn-success">Ver venta</button></a></td>
       </tr>
-      <tr>
+      
     <?php } ?>
     </tbody>
   </table>
@@ -68,7 +73,7 @@
   <h3>Lo siento, aún no existen datos registrados</h3>
 <?php }?>
 </div>
-
+</div>
   <!-- Footer -->
   <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
     <div class="container text-center">
@@ -78,14 +83,5 @@
 <!-- Footer -->
 
 </body>
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
+
 </html>

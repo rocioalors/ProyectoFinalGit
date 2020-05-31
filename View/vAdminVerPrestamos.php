@@ -76,13 +76,17 @@
 
       if($_REQUEST['operacion']=='todos'){
       foreach ($data['prestamo'] as $prestamo) {
-      
+          $fechaPrestamo=$prestamo->getFechaPrestamo();
+          $fechaDevo=$prestamo->getFechaDevolucion();
+  
+      $dateUno= strftime("%d de %B del %Y", strtotime($fechaPrestamo));
+      $dateDos= strftime("%d de %B del %Y", strtotime($fechaDevo));
       
        ?>
       <tr>
           <td><?=$prestamo->getId()?></td>
-          <td><?=$prestamo->getFechaPrestamo()?></td>
-          <td><?=$prestamo->getFechaDevolucion()?></td>
+          <td><?=$dateUno?></td>
+          <td><?=$dateDos?></td>
           <td><?=$prestamo->getId_Libro()?></td>
           <td><?=$prestamo->getTitulo()?></td>
           <td><?=$prestamo->getUsuario()?></td>
@@ -98,13 +102,18 @@
 
     if($_REQUEST['operacion']=='fuera'){
       foreach ($data['fueraPlazo'] as $prestamo) {
+            $fechaPrestamo=$prestamo->getFechaPrestamo();
+            $fechaDevo=$prestamo->getFechaDevolucion();
+  
+      $dateUno= strftime("%d de %B del %Y", strtotime($fechaPrestamo));
+      $dateDos= strftime("%d de %B del %Y", strtotime($fechaDevo));
       
       
        ?>
       <tr>
           <td><?=$prestamo->getId()?></td>
-          <td><?=$prestamo->getFechaPrestamo()?></td>
-          <td><?=$prestamo->getFechaDevolucion()?></td>
+          <td><?=$dateUno?></td>
+          <td><?=$dateDos?></td>
           <td><?=$prestamo->getId_Libro()?></td>
           <td><?=$prestamo->getTitulo()?></td>
           <td><?=$prestamo->getUsuario()?></td>
@@ -150,7 +159,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Entrar</button>
+        <button id="entrar" type="button" class="btn btn-primary">Entrar</button>
       </div>
     </div>
   </div>

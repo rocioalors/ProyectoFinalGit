@@ -11,6 +11,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="../View/JS/funcionesdos.js"></script>
 
+   <!--DATATABLES-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
+
    <!-- Los iconos tipo Solid de Fontawesome-->
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
@@ -92,7 +96,7 @@
   <br><br>
 
   <div class="table-responsive">
-  <table class="table table-bordered">
+  <table id="example"   data-page-length='10' class="table table-bordered">
     <thead class="table-info text-white">
       <tr>
         <th>Fecha Compra</th>

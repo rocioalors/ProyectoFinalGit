@@ -25,6 +25,7 @@
             <a href="../Controller/verUsuarios.php" class="nav-item nav-link">Usuarios</a>
             <a href="../Controller/adminVerPrestamos.php" class="nav-item nav-link">Prestamos</a>
             <a href="../Controller/adminVerAdministradores.php" class="nav-item nav-link">Administradores</a>
+             <a href="../Controller/adminLecturaEmail.php" class="nav-item nav-link">Emails</a>
             <a href="#" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModalCenter">Ventas</a>
         </div>
         <div class="navbar-nav ml-auto">
@@ -51,7 +52,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="ventas(document.getElementById('contraseña').value)">Entrar</button>
+        <button  id="entrar" type="button" class="btn btn-primary">Entrar</button>
       </div>
     </div>
   </div>
@@ -61,32 +62,32 @@
 
 
   <!--Código Formulario-->
-<form action="../Controller/<?=$destino?>" enctype="multipart/form-data" method="POST">
+<form id="form" action="../Controller/<?=$destino?>" enctype="multipart/form-data" method="POST">
 <div class="container"> 
   <h1 class="titulo">Formulario</h1>
   <div class="form-group">
 
  <input type="hidden" name="id" value="<?=$id?>">
-  <label for="usr">Nombre:</label>
+  <label class="texto" for="usr">Nombre:</label>
   <input type="text" class="form-control" id="nombre" name="nombre" value="<?=$nombre?>" required>
 
-  <label for="usr">DNI:</label>
+  <label class="texto" for="usr">DNI:</label>
   <input type="text" class="form-control" id="dni" name="dni" value="<?=$dni?>" required>
 
-  <label for="usr">Correo:</label>
+  <label class="texto" for="usr">Correo:</label>
   <input type="text" class="form-control" id="correo" name="correo" value="<?=$correo?>" required>
 
-  <label for="usr">Dirección:</label>
+  <label class="texto" for="usr">Dirección:</label>
   <input type="text" class="form-control" id="direccion" name="direccion" value="<?=$direccion?>" required>
 
-  <label for="usr">Código Postal:</label>
+  <label class="texto" for="usr">Código Postal:</label>
   <input type="text" class="form-control" id="cp" name="cp" value="<?=$cp?>" required>
 
-  <label for="usr">Telefono:</label>
+  <label class="texto" for="usr">Telefono:</label>
   <input type="text" class="form-control" id="telefono" name="telefono" value="<?=$telefono?>" required>
 
 
-  <label for="usr">Contraseña:</label>
+  <label class="texto" for="usr">Contraseña:</label>
   <input type="text" class="form-control" id="contraseña" name="contraseña" value="<?=$contraseña?>" required>
 
   <br><br>

@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include "boostrap.php";
+
 $destino="grabaLibro.php";
 $titulo="";
 $autor="";
@@ -9,5 +9,7 @@ $precio="";
 $cantidadalquiler="";
 $cantidadvender="";
 $genero="";
+
+include '../View/boostrap.php';
 include "../View/formularioAdminNuevoLibro.php";
  ?>
