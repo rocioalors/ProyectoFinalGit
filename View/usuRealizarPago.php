@@ -11,6 +11,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+  <!--Libreria para los delimitadores de la tarjeta-->
+   <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+
   <script src="../View/JS/funcionesdos.js"></script>
 
    <!-- Los iconos tipo Solid de Fontawesome-->
@@ -113,14 +117,15 @@
              <div class="form-group">
                 <img src="../View/img/visa.jpg" width="50" height="50">
                 <label for="inputApellido" class="control-label">Nº Cuenta</label>
-                <input type="text" class="form-control" name="tarjeta" minlength="16"  maxlength="16" required="">  
+                <input type="text"  id="input-element" class="form-control" name="tarjeta" minlength="16"  maxlength="19" required="">  
             </div>
 
             <div class="form-group">
                 <label for="inputApellido" class="control-label">CVV</label>
-                 <input type="text" class="form-control" name="cvv" minlength="3"  maxlength="3" required="">
+                 <input type="number" id="cvv" class="form-control" name="cvv" min="100"  max="999" required="">
                 
             </div>
+            
             <input class="btn btn-danger" type="submit" name="pago" value="Realizar Pago">
 
         </form>
@@ -136,6 +141,16 @@
 
 
  </div>
+ <script type="text/javascript">
+  var cleave = new Cleave('#input-element', {
+    creditCard: true,
+    onCreditCardTypeChanged: function (type) {
+        // update UI ...
+    }
+});
+
+ 
+ </script>
 
  <!-- Footer -->
   <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
