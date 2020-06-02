@@ -46,12 +46,12 @@
             <input type="text" class="form-control required" id="cp" name="cp"  value="">
 
             <label class="lavel" for="usr">Telefono:</label>
-            <input type="text" class="form-control required" id="telefono" name="telefono" value="">
+            <input type="text" class="form-control required" id="telefono" name="telefono" value="" onkeyup="comprobarPatronTelefono()">
             <div id="noTelefono"></div>
 
 
             <label class="lavel" for="usr">Contraseña:</label>
-            <input type="text" class="form-control required" id="contraseña" name="contraseña" value="" minlength="3">
+            <input type="password" class="form-control required" id="contraseña" name="contraseña" value="" onkeyup="comprobarPatronContraseña()">
             <div id="noContraseña"></div>
              
              <!--div que recibe la respuesta de ajax cuando el usuario no se ha podido registrar--> 

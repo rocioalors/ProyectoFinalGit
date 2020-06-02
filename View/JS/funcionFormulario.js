@@ -176,5 +176,31 @@ function comprobarPatronEmail(){
     }
     }
 
+    function comprobarPatronTelefono(){
+   var exprTel = /^([0-9]+){9}$/;
+    var Telefono=document.getElementById("telefono").value;
+    //console.log(dni);
+    if(  !exprTel.test(Telefono ) ){
+        $("#noTelefono").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>¡Formato invalido!</strong>Debe contener 9 dígitos</div>');
+        return false;   
+    }else {
+        $("#noTelefono").html('<div class="alert alert-success "><button type="button" class="close" data-dismiss="alert">&times;</button><strong>¡Formato Correto!</strong></div>'); 
+        return true;
+    }
+    }
+
+     function comprobarPatronContraseña(){
+    var exprContraseña=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/;
+    var Contraseña=document.getElementById("contraseña").value;
+    //console.log(dni);
+    if(  !exprContraseña.test(Contraseña ) ){
+        $("#noContraseña").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>¡Formato invalido!</strong>Debe contener 9 dígitos</div>');
+        return false;   
+    }else {
+        $("#noContraseña").html('<div class="alert alert-success "><button type="button" class="close" data-dismiss="alert">&times;</button><strong>¡Formato Correto!</strong></div>'); 
+        return true;
+    }
+    }
+
     
 
