@@ -3,9 +3,7 @@ session_start();
 require_once '../Model/Usuario.php';
 
 
-  if($_REQUEST['nombre']==''||$_REQUEST['dni']==''||$_REQUEST['correo']==''||$_REQUEST['direccion']==''||$_REQUEST['cp']==''||$_REQUEST['telefono']==''|| $_REQUEST['contraseña']==''){
-  	echo '<span style="font-weight:bold;color: red;">Debe rellenar todos los campos</span>';
-  }else{
+ 
   	$total=Usuario::getComprobarDni($_REQUEST['dni']);
     $totalDos=Usuario::getComprobarCorreo($_REQUEST['correo']);
     $totalTres=Usuario::getComprobarUsuario($_REQUEST['nombre']);
@@ -22,6 +20,6 @@ require_once '../Model/Usuario.php';
       $_SESSION['dni']=$usuario->getDni();
   	 		echo '<script>location.href = "principalUsuario.php"</script>';
 		}else{
-			echo '<span style="font-weight:bold;color: red;">Alguno de los datos introducidos son erróneos. Pruebe de nuevo o inicie sesión</span>';
+			echo '<span style="font-weight:bold;color: red;">Alguno de los datos introducidos ya existe en nuestra base de datos. Pruebe de nuevo o inicie sesión</span>';
 		}
-    }
+    

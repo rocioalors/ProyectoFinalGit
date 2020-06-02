@@ -4,14 +4,14 @@
 <head>
 	<title>Formulario Registro</title>
  <link rel="stylesheet" type="text/css" href="../View/css/estiloFormularioRegistro.css">
- <script src="../View/JS/funciones.js"></script>
+ <script src="../View/JS/funcionFormulario.js"></script>
 </head>
 <body>
 
   
  <div class="container">
 
-     <form  id="formularioRegistro" class="col-12 col-md-9" method="POST" action="return false" onsubmit="return false">
+     <form  id="formularioRegistro" class="col-12 col-md-9" method="POST">
      
       <h1 class="nombre">The Corner of Dreams</h1>
 
@@ -21,48 +21,56 @@
            
             
             <label class="lavel" for="usr">Usuario:</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" value="" onBlur="comprobarUsuario()" required>
+            <input type="text" class="form-control required" id="nombre" name="nombre" value="" onBlur="comprobarUsuario()" required>
 
   	        <span id="estadousuario"></span> 
             <p><img src="../View/img/LoaderIcon.gif" id="loaderIcon" style="display:none" /></p>
 
             <label class="lavel" for="usr">DNI:</label>
-            <input type="text"  class="form-control" id="dni" name="dni" value="" onBlur="comprobarDni()" required="Por favor introduce el DNI">
-            
+            <input type="text"  class="form-control required" id="dni" name="dni" value="" onBlur="comprobarDni()" onkeyup="comprobarPatronDni()">
+            <div id="noDni"></div>
             <span id="estadoDni"></span> 
   	        <p><img src="../View/img/LoaderIcon.gif" id="loaderIconDni" style="display:none" /></p>
 
             <label class="lavel" for="usr">Correo:</label>
-            <input type="email" class="form-control" id="correo" name="correo" value="" required onBlur="comprobarEmail()">
+            <input type="email" class="form-control required" id="correo" name="correo" value=""  onBlur="comprobarEmail()" onkeyup="comprobarPatronEmail()" >
+            <div id="noEmail"></div>
  	 
             <span id="estadoemail"></span> 
    	        <p><img src="../View/img/LoaderIcon.gif" id="loaderIconEmail" style="display:none" /></p>
 
             <label class="lavel" for="usr">Dirección:</label>
-            <input type="text" class="form-control" id="direccion" name="direccion" value="" required>
+            <input type="text" class="form-control required" id="direccion" name="direccion" value="">
 
              <label class="lavel" for="usr">Codigo Postal:</label>
-            <input type="text" class="form-control" id="cp" name="cp" value="" required>
+            <input type="text" class="form-control required" id="cp" name="cp"  value="">
 
             <label class="lavel" for="usr">Telefono:</label>
-            <input type="text" class="form-control" id="telefono" name="telefono" value="" required>
+            <input type="text" class="form-control required" id="telefono" name="telefono" value="">
+            <div id="noTelefono"></div>
 
 
             <label class="lavel" for="usr">Contraseña:</label>
-            <input type="text" class="form-control" id="contraseña" name="contraseña" value="" required>
+            <input type="text" class="form-control required" id="contraseña" name="contraseña" value="" minlength="3">
+            <div id="noContraseña"></div>
              
              <!--div que recibe la respuesta de ajax cuando el usuario no se ha podido registrar--> 
+             <br>
               <div id="noregistro"></div>
             <br>
              
-             <!--Botón que se direige la funcion ValidarRegistro dentro del archivo funciones.js-->
-            <button id="registrarme" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Registrarme </button>
+            <button type="submit" class="btn btn-primary" id="registrarme" onclick="envioAjax('grabarNuevoUsuarioRegistro.php','formularioRegistro','post','.resultado')"><i class="fas fa-sign-in-alt"></i> Registrarme</button>
+            <!--<button id="registrarme" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Registrarme </button>-->
   
             <a href="../Controller/index.php">Volver a Inicio</a>
+
         </div>
+
+
+
+</form>
 
 </div>
 
-</form>
 </body>
 </html>

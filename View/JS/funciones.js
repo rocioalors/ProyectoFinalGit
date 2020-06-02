@@ -11,8 +11,11 @@ function confirmar ( mensaje ) {
         return confirm( mensaje );
 }
 
-//Comprueba si el usuario esta iniciando session correctamente o no
+
+//Funcion para validar el registro de nuevos usuarios
 $(document).ready(function(){
+
+//Comprueba si el usuario esta iniciando session correctamente o no
    $("#formularioInicio").on("click", function() {
     $.ajax({
         url: "../Controller/compruebaLogin.php",
@@ -24,66 +27,9 @@ $(document).ready(function(){
     });
 
   });
- });
-
-
-function comprobarUsuario() {
-    $("#loaderIcon").show();
-    jQuery.ajax({
-    url: "../Controller/compruebaRegistro.php",
-    data:'nombre='+$("#nombre").val(),
-    type: "POST",
-    success:function(data){
-        $("#estadousuario").html(data);
-        $("#loaderIcon").hide();
-    },
-    error:function (){}
-    });
-}
-function comprobarEmail() {
-    $("#loaderIconEmail").show();
-    jQuery.ajax({
-    url: "../Controller/compruebaRegistro.php",
-    data:'correo='+$("#correo").val(),
-    type: "POST",
-    success:function(data){
-        $("#estadoemail").html(data);
-        $("#loaderIconEmail").hide();
-    },
-    error:function (){}
-    });
-}
-
-function comprobarDni() {
-    $("#loaderIconDni").show();
-    jQuery.ajax({
-    url: "../Controller/compruebaRegistro.php",
-    data:'dni='+$("#dni").val(),
-    type: "POST",
-    success:function(data){
-        $("#estadoDni").html(data);
-        $("#loaderIconDni").hide();
-    },
-    error:function (){}
-    });
-}
-
-//Funcion para validar el registro de nuevos usuarios
-$(document).ready(function(){
-   $("#registrarme").on("click", function() {
-             $.ajax({
-                url: "../Controller/grabarNuevoUsuarioRegistro.php",
-                type: "POST",
-                data: $("#formularioRegistro").serialize(),
-                success: function(resp){
-                $('#noregistro').html(resp)
-                }       
-            });
-    });
-});
-        
+   
 //Funcion para entrar en las ventas --Pide clave de acceso
-$(document).ready(function(){
+
    $("#entrar").on("click", function() {
  
             $.ajax({
@@ -95,9 +41,9 @@ $(document).ready(function(){
                 }       
             });
    });
- });
+
 //datatable.
-$(document).ready(function() {
+
 $('#example').DataTable({
   "columnDefs": [{
    "targets": 0
@@ -120,10 +66,8 @@ $('#example').DataTable({
    },
   }
  });
-});
 
 //datatable prestamos
-$(document).ready(function() {
 $('#prestamos').DataTable({
   "columnDefs": [{
    "targets": 0
@@ -146,10 +90,10 @@ $('#prestamos').DataTable({
    },
   }
  });
-});
+
 
 //datatable administradores
-$(document).ready(function() {
+
 $('#administradores').DataTable({
   "columnDefs": [{
    "targets": 0

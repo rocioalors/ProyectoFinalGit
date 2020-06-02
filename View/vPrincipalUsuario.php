@@ -165,7 +165,7 @@
             <img class="rounded-circle" src="../View/img/contacto.png" alt="Generic placeholder image" width="140" height="140">
             <h2>Contáctanos</h2>
             <p class="titulos">Estaremos encantados de resolverte cualquier duda. Nos pondremos en contacto lo antes posible</p>
-            <a class="btn btn-primary" href="../Controller/usuarioPrestamos.php" role="button">Contacta »</a>
+            <a class="btn btn-primary" href="../Controller/usuFormularioContacto.php" role="button">Contacta »</a>
           </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
 

@@ -106,7 +106,7 @@
         <form  method="post" action="../Controller/finCompra.php">
             <div class="form-group">
                 <label for="inputUserName" class="control-label">Introduce tu nombre</label>
-                <input type="text" class="form-control" id="nombre" required="">
+                <input type="text" class="form-control required" id="nombre">
             </div>
 
             <div class="form-group">
@@ -117,7 +117,7 @@
              <div class="form-group">
                 <img src="../View/img/visa.jpg" width="50" height="50">
                 <label for="inputApellido" class="control-label">Nº Cuenta</label>
-                <input type="text"  id="input-element" class="form-control" name="tarjeta" minlength="16"  maxlength="19" required="">  
+                <input type="text"  id="input-element" class="form-control" name="tarjeta"  maxlength="19" required="">  
             </div>
 
             <div class="form-group">

@@ -20,6 +20,8 @@
 
 	<link rel="stylesheet" type="text/css" href="../View/css/estiloAyudaAmin.css">
 	<script src="../View/JS/funcionesAyudaAdmin.js"></script>
+  <script src="../View/JS/funciones.js"></script>
+
 	
 
 </head>
@@ -48,6 +50,32 @@
         </div>
     </div>
 </nav> 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Esta información es confidencial</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="info" id="info"></div>
+       <form>
+          <div class="form-group" id="contrasena-group">
+              <input type="password" class="form-control" placeholder="Contraseña" name="contraseña" id="contraseña" required/>
+              </div>
+       </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button  id="entrar" type="button" class="btn btn-primary">Entrar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container">
 	<h1 class="tituloInfoGeneral">Página de Ayuda</h1>

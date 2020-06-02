@@ -34,7 +34,7 @@
                 <form id="inicio" class="col-12" method="POST" action="return false" onsubmit="return false">
                     <div id="resultado"></div>
                     <div class="form-group" id="user-group">
-                        <input type="text" class="form-control" placeholder="Introduce tu DNI" name="user" id="user" required/>
+                        <input type="text" class="form-control" placeholder="Introduce tu DNI" name="user" pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra" id="user" required/>
                     </div>
                     <div class="form-group" id="contrasena-group">
                         <input type="password" class="form-control" placeholder="Contraseña" name="pass" id="pass" required/>
