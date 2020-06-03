@@ -13,23 +13,27 @@ if(isset($_REQUEST['user']) && isset($_REQUEST['pass'])){
 				if($total>0){
 					$usuario=Usuario::getUsuarioByDni($_SESSION['dni']);
 					$_SESSION['user']=$usuario->getNombre();
-	 				echo '<script>location.href = "principalUsuario.php"</script>';
+					echo '0';
+	 				
 	//Compruebo entonces si es administrador
 				}else{
 					$total=Administrador::getComprobar($_SESSION['dni'],$_SESSION['pass']);
 						if($total>0){
                         $usuario=Administrador::getAdministradorByDni($_SESSION['dni']);
 						$_SESSION['user']=$usuario->getUsuario();
-	 					echo '<script>location.href = "principalAdmin.php"</script>';
+						echo '1';
+	 					
 	 //Si no se ha encontrado registro de usuario y contraseña muestro mensaje de error
 
 	 					}else{
-	 						echo '<span style="font-weight:bold;color: red;">Usuario o contraseña incorrecto</span>';
+	 						echo '2';
+	 						
 	 					}
 				}
 	//Si no se recibe algún dato muestro mensaje de error			
 		}else{
-  	echo '<span style="font-weight:bold;color: red;">Usuario o contraseña incorrecto</span>';
+			echo '2';
+  	
   }
 
 

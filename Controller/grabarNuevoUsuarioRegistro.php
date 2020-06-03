@@ -18,8 +18,10 @@ require_once '../Model/Usuario.php';
       $usuario=Usuario::getUsuarioByDni($_REQUEST['dni']);
       $_SESSION['user']=$usuario->getNombre();
       $_SESSION['dni']=$usuario->getDni();
-  	 		echo '<script>location.href = "principalUsuario.php"</script>';
+        echo '1';
+  	 		
 		}else{
-			echo '<span style="font-weight:bold;color: red;">Alguno de los datos introducidos ya existe en nuestra base de datos. Pruebe de nuevo o inicie sesión</span>';
+      echo '0';
+			
 		}
     

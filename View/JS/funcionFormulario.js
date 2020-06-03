@@ -47,9 +47,10 @@ function comprobarDni() {
 
 
  function validarForm(idForm,) {
-    var exprTel = /^([0-9]+){9}$/;
+    var exprTel = /^[\d]{3}[-]*([\d]{2}[-]*){2}[\d]{2}$/;
+    var exprCp = /^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/;
     var exprEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    var exprDni=/[0-9]{8}[A-Za-z]{1}/;
+    var exprDni=/\d{8}[a-z A-Z]$/;
     var exprContraseña=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/;
     //Validamos que ningún campo este vacio
     if( $(idForm + " input[id='nombre']").val() == "" )
@@ -111,6 +112,12 @@ function comprobarDni() {
         $("#noEmail").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>¡Formato invalido!</strong></div>');
         return false;
     }
+
+     //Comprobamos si existe input de tipo tel con la clase 'require y validamos su formato
+    else if( $(idForm + " input[id='cp'].required").length && !exprCp.test($(idForm + " input[id='cp'].required").val()) ){
+        $("#noCp").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>¡Formato invalido!</strong>Tiene que contener 5 dígitos</div>');
+        return false;
+    }
     //Comprobamos si existe input de tipo tel con la clase 'require y validamos su formato
     else if( $(idForm + " input[id='telefono'].required").length && !exprTel.test($(idForm + " input[id='telefono'].required").val()) ){
         $("#noTelefono").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>¡Formato invalido!</strong>Tiene que contener 9 dígitos</div>');
@@ -143,7 +150,11 @@ function envioAjax(url,idForm,method,capa) {
             },
             success: function(data){
                 if(data) {
-                 $('#noregistro').html(data)   
+                    if(data=='1'){
+                      window.location.href = "principalUsuario.php";
+                 }else if(data==0) {
+                  $('#noregistro').html('<span style="font-weight:bold;color: red;">Alguno de los datos introducidos ya existe en nuestra base de datos. Pruebe de nuevo o inicie sesión</span>');
+                 }
                 }
             }
         });
@@ -151,7 +162,7 @@ function envioAjax(url,idForm,method,capa) {
 }
 
 function comprobarPatronDni(){
-    var exprDni=/[0-9]{8}[A-Za-z]{1}/;
+    var exprDni= /\d{8}[a-z A-Z]$/;
     var DNI=document.getElementById("dni").value;
     //console.log(dni);
     if(  !exprDni.test(DNI ) ){
@@ -177,7 +188,7 @@ function comprobarPatronEmail(){
     }
 
     function comprobarPatronTelefono(){
-   var exprTel = /^([0-9]+){9}$/;
+   var exprTel = /^[\d]{3}[-]*([\d]{2}[-]*){2}[\d]{2}$/;
     var Telefono=document.getElementById("telefono").value;
     //console.log(dni);
     if(  !exprTel.test(Telefono ) ){
@@ -194,13 +205,25 @@ function comprobarPatronEmail(){
     var Contraseña=document.getElementById("contraseña").value;
     //console.log(dni);
     if(  !exprContraseña.test(Contraseña ) ){
-        $("#noContraseña").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>¡Formato invalido!</strong>Debe contener 9 dígitos</div>');
+        $("#noContraseña").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>¡Formato invalido!</strong>Debe Debe contener una mayúscula, una minuscula y al menos un número</div>');
         return false;   
     }else {
         $("#noContraseña").html('<div class="alert alert-success "><button type="button" class="close" data-dismiss="alert">&times;</button><strong>¡Formato Correto!</strong></div>'); 
         return true;
     }
     }
-
+   
+      function comprobarPatronCp(){
+   var exprCp = /^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/;
+    var cp=document.getElementById("cp").value;
+    //console.log(dni);
+    if(  !exprCp.test(cp ) ){
+        $("#noCp").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>¡Formato invalido!</strong>Debe contener 5 dígitos</div>');
+        return false;   
+    }else {
+        $("#noCp").html('<div class="alert alert-success "><button type="button" class="close" data-dismiss="alert">&times;</button><strong>¡Formato Correto!</strong></div>'); 
+        return true;
+    }
+    }
     
 

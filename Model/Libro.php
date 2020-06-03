@@ -221,19 +221,7 @@ class  Libro{
 
     }
 
-    /*public static function aleatorio(){
-        $conexion=proyectoBD::connectDB();
-        $data['libro']=Libro::getLibro();
-        $array=[];
-        //Guardo todos los id
-            foreach ($data['libro'] as $libros) {
-                 $array[]=$libros->getId();
-            }
-        //$seleccion = array_rand($array,3);
-        $id=rand($array);
-
-        return $id;
-    }*/
+ 
    
 
 }

@@ -43,7 +43,8 @@
             <input type="text" class="form-control required" id="direccion" name="direccion" value="">
 
              <label class="lavel" for="usr">Codigo Postal:</label>
-            <input type="text" class="form-control required" id="cp" name="cp"  value="">
+            <input type="text" class="form-control required" id="cp" name="cp"  value="" onkeyup="comprobarPatronCp()">
+             <div id="noCp"></div>
 
             <label class="lavel" for="usr">Telefono:</label>
             <input type="text" class="form-control required" id="telefono" name="telefono" value="" onkeyup="comprobarPatronTelefono()">

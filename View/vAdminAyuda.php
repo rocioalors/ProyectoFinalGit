@@ -78,7 +78,7 @@
 </div>
 
 <div class="container">
-	<h1 class="tituloInfoGeneral">Página de Ayuda</h1>
+	<h1 class="tituloInfoGeneral">¿Necesitas Ayuda?</h1>
     <div class="botones">
 	 <button class="accordion text-light">¿Cómo visualizar, añadir, modificar o eliminar datos?</button>
 		<div class="panel">

@@ -22,7 +22,16 @@ $(document).ready(function(){
         type: "POST",
         data: $("#inicio").serialize(), 
         success: function(resp){
-        $('#resultado').html(resp)
+          if(resp){
+            if(resp=='0'){
+             window.location.href = "principalUsuario.php";
+            }else if(resp==1){
+              window.location.href = "principalAdmin.php";
+            }else if(resp==2){
+              $('#resultado').html('<span style="font-weight:bold;color: red;">Usuario o contraseña incorrecto</span>');
+
+          }
+         }
         }       
     });
 
@@ -37,7 +46,14 @@ $(document).ready(function(){
                 type: "POST",
                 data: "contraseña="+$("#contraseña").val(),
                 success: function(resp){
-                $('#info').html(resp)
+                  if(resp){
+                    if(resp=='0'){
+                         $('#info').html('<span style="font-weight:bold;color: red;">Contraseña incorrecta. Acceso denegado</span>');
+                    }else if(resp=='1'){
+                          window.location.href = "adminVerVentas.php";
+                    }
+                  }
+                
                 }       
             });
    });

@@ -73,23 +73,23 @@
   <input type="text" class="form-control" id="nombre" name="nombre" value="<?=$nombre?>" required>
 
   <label class="texto" for="usr">DNI:</label>
-  <input type="text" class="form-control" id="dni" name="dni" value="<?=$dni?>" required>
+  <input type="text" class="form-control" id="dni" name="dni" value="<?=$dni?>" pattern="\d{8}[a-z A-Z]$"required>
 
   <label class="texto" for="usr">Correo:</label>
-  <input type="text" class="form-control" id="correo" name="correo" value="<?=$correo?>" required>
+  <input type="email" class="form-control" id="correo" name="correo" value="<?=$correo?>"  required>
 
   <label class="texto" for="usr">Dirección:</label>
   <input type="text" class="form-control" id="direccion" name="direccion" value="<?=$direccion?>" required>
 
   <label class="texto" for="usr">Código Postal:</label>
-  <input type="text" class="form-control" id="cp" name="cp" value="<?=$cp?>" required>
+  <input type="text" class="form-control" id="cp" name="cp" value="<?=$cp?>" pattern="^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$" required>
 
   <label class="texto" for="usr">Telefono:</label>
-  <input type="text" class="form-control" id="telefono" name="telefono" value="<?=$telefono?>" required>
+  <input type="text" class="form-control" id="telefono" name="telefono" value="<?=$telefono?>" pattern="^[\d]{3}[-]*([\d]{2}[-]*){2}[\d]{2}$" required>
 
 
   <label class="texto" for="usr">Contraseña:</label>
-  <input type="text" class="form-control" id="contraseña" name="contraseña" value="<?=$contraseña?>" required>
+  <input type="text" class="form-control" id="contraseña" name="contraseña" value="<?=$contraseña?>" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
 
   <br><br>
 
