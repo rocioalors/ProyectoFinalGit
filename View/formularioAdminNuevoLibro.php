@@ -100,6 +100,13 @@
 
  <label class="texto" for="usr">Edición:</label>
   <input type="text" class="form-control" id="edicion" name="edicion" value="" required>
+
+<label class="texto" for="usr">Estado:</label>
+    <select class="form-control" id="estado" name="estado">
+      <option value="Habilitado">Habilitado</option>
+      <option value="Deshabilitado">Deshabilitado</option>
+    </select><br>
+
  
 
  

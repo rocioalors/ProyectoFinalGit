@@ -90,7 +90,8 @@
 
  <!--INFORMACION-->
    <h2 class="titulo">¿Necesitas Ayuda?</h2>
-   <h3 class="texto">Te mostramos las preguntas más frecuentes:</h3>
+   <a class="btn btn-warning" href="usuAyuda.php?file=ManualAyudaUsuario.pdf">Descargar Manual de Ayuda</a><br>
+   <br><h3 class="texto">Te mostramos las preguntas más frecuentes:</h3>
 
 <div class="tab">
   <button class="tablinks text-light" onmouseover="openCity(event, 'comprar')"><i class="fas fa-shopping-basket"></i> ¿Cómo Comprar online?</button>
@@ -153,7 +154,8 @@
 
 </div>
 
-<div class="clearfix"></div>	
+
+
 
 <br><br>
 </div>

@@ -78,7 +78,9 @@
 </div>
 
 <div class="container">
-	<h1 class="tituloInfoGeneral">¿Necesitas Ayuda?</h1>
+	<h1 class="tituloInfoGeneral">¿Necesitas Ayuda?</h1><br>
+  <a class="btn btn-warning" href="usuAyuda.php?file=ManualAyudaAdministrador.pdf">Descargar Manual de Ayuda</a><br><br>
+  <h6 class="tituloInfoGeneral">Cuestiones más frecuentes</h6>
     <div class="botones">
 	 <button class="accordion text-light">¿Cómo visualizar, añadir, modificar o eliminar datos?</button>
 		<div class="panel">

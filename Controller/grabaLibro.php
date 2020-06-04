@@ -7,7 +7,7 @@ require_once '../Model/Libro.php';
 
 
   // inserta el libro en la base de datos
-  $libroAux = new Libro("",$_FILES["imagen"]["name"], $_POST['titulo'],$_POST['autor'],$_POST['descripcion'],$_POST['precio'],$_POST['cantAlquiler'],$_POST['cantVender'],$_POST['genero'],$_POST['edicion']);
+  $libroAux = new Libro("",$_FILES["imagen"]["name"], $_POST['titulo'],$_POST['autor'],$_POST['descripcion'],$_POST['precio'],$_POST['cantAlquiler'],$_POST['cantVender'],$_POST['genero'],$_POST['edicion'],$_POST['estado']);
   $libroAux->insert();
   header("Location: verCatalogo.php");
 

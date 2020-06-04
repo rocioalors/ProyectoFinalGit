@@ -101,6 +101,7 @@
           }else{
               $stockTemp=$lista['cantidadvender'];
           }
+          
       ?>
 	 <div class="col-sm-3">
 		  <div class="card card-block">
@@ -139,6 +140,7 @@
 
 <?php
 }
+
  ?>
 </div>	
 

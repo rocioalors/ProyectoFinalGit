@@ -98,12 +98,27 @@
  <label class="texto" for="usr">Edición:</label>
   <input type="text" class="form-control" id="edicion" name="edicion" value="<?=$edicion?>" required>
 
+ <label class="texto" for="usr">Estado:</label>
+    <select class="form-control" id="estado" name="estado">
+      <option value="<?=$estado?>"><?=$estado?></option>
+      <option value="<?=$estadoDos?>"><?=$estadoDos?></option>
+    </select><br>
+
 
   <br><br>
-  <input type="submit" class="btn btn-danger" value="Modicar">
+  <input type="submit" class="btn btn-danger" value="Modificar">
   <a href="../Controller/verCatalogo.php">Volver al listado</a>
 </div>
 
 </div>
+<br>
+<!-- Footer -->
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; The Corner Of Dreams</small>
+    </div>
+  </footer>
+<!-- Footer --> 
+
 </body>
 </html>

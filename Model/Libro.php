@@ -11,9 +11,10 @@ class  Libro{
 	private $cantidadvender;
 	private $genero;
     private $edicion;
+    private $estado;
 
 	
-	function __construct($id=0,$imagen='',$titulo='',$autor='',$descripcion='',$precio=0,$cantidadalquiler=0,$cantidadvender=0,$genero='',$edicion='')
+	function __construct($id=0,$imagen='',$titulo='',$autor='',$descripcion='',$precio=0,$cantidadalquiler=0,$cantidadvender=0,$genero='',$edicion='', $estado='')
 	{
 		$this->id = $id;
         $this->imagen=$imagen;
@@ -25,6 +26,7 @@ class  Libro{
 		$this->cantidadvender=$cantidadvender;
 		$this->genero=$genero;
         $this->edicion=$edicion;
+        $this->estado=$estado;
     }
     public function getId()
     {
@@ -148,10 +150,23 @@ class  Libro{
         return $this;
     }
 
+        public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
+
+        return $this;
+    }
+
+
 	public function insert() {
 		$conexion = proyectoBD::connectDB();
 		
-		$insercion = "INSERT INTO libros (id,imagen,titulo,autor,descripcion,precio,cantidadalquiler,cantidadvender,genero,edicion) VALUES ('$this->id','$this->imagen','$this->titulo','$this->autor','$this->descripcion','$this->precio','$this->cantidadalquiler','$this->cantidadvender','$this->genero','$this->edicion')";
+		$insercion = "INSERT INTO libros (id,imagen,titulo,autor,descripcion,precio,cantidadalquiler,cantidadvender,genero,edicion,estado) VALUES ('$this->id','$this->imagen','$this->titulo','$this->autor','$this->descripcion','$this->precio','$this->cantidadalquiler','$this->cantidadvender','$this->genero','$this->edicion','$this->estado')";
         //echo $insercion;
 		$conexion->exec($insercion);
 
@@ -167,7 +182,7 @@ class  Libro{
 
 	public function update(){
 		$conexion=proyectoBD::connectDB();
-	 $actualiza="UPDATE libros SET titulo=\"".$this->titulo."\",autor=\"".$this->autor."\",descripcion=\"".$this->descripcion."\",precio=\"".$this->precio."\",cantidadalquiler=\"".$this->cantidadalquiler."\",cantidadvender=\"".$this->cantidadvender."\",genero=\"".$this->genero."\",edicion=\"".$this->edicion."\"WHERE id=\"".$this->id."\"";
+	 $actualiza="UPDATE libros SET titulo=\"".$this->titulo."\",autor=\"".$this->autor."\",descripcion=\"".$this->descripcion."\",precio=\"".$this->precio."\",cantidadalquiler=\"".$this->cantidadalquiler."\",cantidadvender=\"".$this->cantidadvender."\",genero=\"".$this->genero."\",edicion=\"".$this->edicion."\",estado=\"".$this->estado."\"WHERE id=\"".$this->id."\"";
 		//echo $actualiza;
 		$conexion->exec($actualiza);
 	}
@@ -183,7 +198,7 @@ class  Libro{
 		$libros = [];
 		
 		while ($registro = $consulta->fetchObject()) {
-			$libros[] = new Libro($registro->id,$registro->imagen, $registro->titulo,$registro->autor,$registro->descripcion,$registro->precio,$registro->cantidadalquiler,$registro->cantidadvender,$registro->genero,$registro->edicion);
+			$libros[] = new Libro($registro->id,$registro->imagen, $registro->titulo,$registro->autor,$registro->descripcion,$registro->precio,$registro->cantidadalquiler,$registro->cantidadvender,$registro->genero,$registro->edicion,$registro->estado);
 		}
 
 		return $libros;
@@ -194,7 +209,7 @@ class  Libro{
 		$seleccion = "SELECT * FROM libros WHERE id=\"".$id."\"";
 		$consulta = $conexion->query($seleccion);
 		$registro = $consulta->fetchObject();
-		$libro = new Libro($registro->id,$registro->imagen, $registro->titulo,$registro->autor,$registro->descripcion,$registro->precio,$registro->cantidadalquiler,$registro->cantidadvender,$registro->genero,$registro->edicion);
+		$libro = new Libro($registro->id,$registro->imagen, $registro->titulo,$registro->autor,$registro->descripcion,$registro->precio,$registro->cantidadalquiler,$registro->cantidadvender,$registro->genero,$registro->edicion,$registro->estado);
 		return $libro;
 	}
 
@@ -216,6 +231,22 @@ class  Libro{
     public static function comprar($id,$cantidad){
         $conexion=proyectoBD::connectDB();
         $actualiza="UPDATE libros SET cantidadvender=cantidadvender-$cantidad WHERE id=\"".$id."\"";
+        //echo $actualiza;
+        $conexion->exec($actualiza);
+
+    }
+
+     public static function habilitar($id){
+        $conexion=proyectoBD::connectDB();
+        $actualiza="UPDATE libros SET estado='Habilitado' WHERE id=\"".$id."\"";
+        //echo $actualiza;
+        $conexion->exec($actualiza);
+
+    }
+
+     public static function Deshabilitar($id){
+        $conexion=proyectoBD::connectDB();
+        $actualiza="UPDATE libros SET estado='Deshabilitado' WHERE id=\"".$id."\"";
         //echo $actualiza;
         $conexion->exec($actualiza);
 

@@ -38,7 +38,7 @@
           </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../Controller/usuarioVerPerfil.php">Mi Perfíl</a>
+            <a class="nav-link" href="../Controller/usuarioVerPerfil.php">Mi Perfil</a>
          </li>
 
           <li class="nav-item">
@@ -91,6 +91,7 @@
           }else{
               $stockTemp=$lista->getCantidadvender();
           }
+          if($lista->getEstado()!='Deshabilitado'){
       ?>
 	 <div class="col-sm-3">
 		  <div class="card card-block">
@@ -100,7 +101,7 @@
    					      <h6 class="card-title text-center"><?= $lista->getAutor()?></h6>
     				      <h6 class="text-center">Género: <?=$lista->getGenero()?></h6>
     				      <h6 class="text-center"><?=$lista->getPrecio()?> €</h6>
-                  <h6 class="text-center"> Temporal: <?= $stockTemp?> </h6>
+                  <!--<h6 class="text-center"> Temporal: <?= $stockTemp?> </h6>-->
                   <p class="bg-info text-center text-white" data-toggle="tooltip" title="<?=$lista->getDescripcion()?>">Ver sipnosis</p><br>
 <!--if que comprueba la diasponibilidad de libros en alquiler si ya no hay no se muestra el botón de alquilar-->                  
                     <?php 
@@ -128,6 +129,7 @@
 	 </div>
 
 <?php
+}
 }
  ?>
 </div>	

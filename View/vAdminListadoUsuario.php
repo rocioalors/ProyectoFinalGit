@@ -56,7 +56,6 @@
           <th>Codigo Postal</th>
           <th>TELEFONO</th>
           <th>Modificar</th>
-          <th>Eliminar</th>
       </tr>
     </thead>
     <tbody id="myTable">
@@ -75,9 +74,6 @@
           <td><?=$usuario->getTelefono()?></td>
           <!--Boton modificar-->
           <td><a href="../Controller/adminModificaUsuario.php?id=<?=$usuario->getId()?>&nombre=<?=$usuario->getNombre()?>&dni=<?=$usuario->getDni()?>&correo=<?=$usuario->getCorreo()?>&direccion=<?=$usuario->getDireccion()?>&cp=<?=$usuario->getCp()?>&telefono=<?=$usuario->getTelefono()?>&contraseña=<?=$usuario->getContraseña()?>"><button type="button" class="btn btn-success"><i class="far fa-edit"></i></button></a></td>
-
-          <!--Boton Eliminar lleva la funcion confirmar del archivo funciones js-->
-          <td><a href="../Controller/adminBorraUsuario.php?id=<?=$usuario->getId()?>&nombre=<?=$usuario->getNombre()?>"><button type="button" onclick="return confirmar('¿Está seguro que desea eliminar el registro?')" class="btn btn-danger" id="eliminar"><i class="fas fa-trash-alt"></i></button></a></td>
 
       </tr>
     <?php 
