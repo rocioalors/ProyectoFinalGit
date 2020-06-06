@@ -251,7 +251,23 @@ class  Libro{
         $conexion->exec($actualiza);
 
     }
+    
+    public static function novedades(){
+        $conexion = proyectoBD::connectDB();
+        
+        $seleccion = "SELECT * FROM libros WHERE estado != 'Deshabilitado'ORDER BY id DESC LIMIT 4";
+        
+        $consulta = $conexion->query($seleccion);
+        
+        $libros = [];
+        
+        while ($registro = $consulta->fetchObject()) {
+            $libros[] = new Libro($registro->id,$registro->imagen, $registro->titulo,$registro->autor,$registro->descripcion,$registro->precio,$registro->cantidadalquiler,$registro->cantidadvender,$registro->genero,$registro->edicion,$registro->estado);
+        }
 
+        return $libros;
+    
+    }
  
    
 

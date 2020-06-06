@@ -19,7 +19,7 @@
 <body>
 
 	<!--Codigo NAV-->
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top fixed-top">
 
   <!--Botón para comprimir en ventana pequeña-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
@@ -164,11 +164,47 @@
 
 
 <!-- Footer -->
-  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
-    <div class="container text-center">
+    <footer id="myFooter" class="py-4 bg-dark text-white-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <img src="../View/img/Logo.png">
+                </div>
+                <div class="col-sm-2">
+                    <h5>Empezar</h5>
+                    <ul>
+                        <li><a href="../Controller/usuarioVerCatalago.php">Catálogo Completo</a></li>
+                        <li><a href="../Controller/usuarioVerMasVendidos.php">Novedades y más vendidos</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Sobre Nosotros</h5>
+                    <ul>
+                        <li><a href="../Controller/principalUsuario.php">Conócenos</a></li>
+                        <li><a href="../Controller/usuFormularioContacto.php">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Soporte<e/h5>
+                    <ul>
+                        <li><a href="../Controller/usuAyuda.php">Ayuda</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <div class="social-networks">
+                      <h5>Redes Sociales</h5>
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></i></a>
+                        <a href="#" class="Instagram"><i class="fab fa-instagram"></i></i></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="container text-center">
       <small>Copyright &copy; The Corner Of Dreams</small>
     </div>
-  </footer>
+    </footer>
 <!-- Footer --> 
 </body>
 </html>

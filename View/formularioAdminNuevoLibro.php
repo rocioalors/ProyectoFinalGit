@@ -107,17 +107,23 @@
       <option value="Deshabilitado">Deshabilitado</option>
     </select><br>
 
- 
-
- 
-
   <br><br>
 
   <input type="submit" class="btn btn-danger" value="GRABAR">
   <a href="../Controller/verCatalogo.php">Volver al listado</a>
 </div>
-
+</form>
 </div>
+
+
+<!-- Footer -->
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; The Corner Of Dreams</small>
+    </div>
+  </footer>
+<!-- Footer --> 
+
 
 
 

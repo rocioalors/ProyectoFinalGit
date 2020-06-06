@@ -37,7 +37,7 @@
                         <input type="text" class="form-control" placeholder="Introduce tu DNI" name="user" pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra" id="user" required/>
                     </div>
                     <div class="form-group" id="contrasena-group">
-                        <input type="password" class="form-control" placeholder="Contraseña" name="pass" id="pass" required/>
+                        <input type="password" class="form-control" placeholder="Contraseña" name="pass" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Debe contener una mayúscula, una minúscula y al menos un número" id="pass"  required/>
                     </div>
 
                     <p class="nombre"><input type="checkbox" onclick="verContraseña()"> <i class="fas fa-eye"></i> Mostrar Contraseña</p>
