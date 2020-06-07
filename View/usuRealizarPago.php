@@ -74,7 +74,7 @@
 
 <!--Comienzo del contenido de la cesta-->
 <div class="container">
-  <br><br>
+  <br><br><br>
   <h1 class="tituloInfoGeneral">Resumen de la Venta</h1>
 
       <br><br>

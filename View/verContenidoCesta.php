@@ -69,8 +69,8 @@
 
 <!--Comienzo del contenido de la cesta-->
 <div class="container">
-  <br><br>
-  <h1 class="tituloInfoGeneral">Gastos de envios GRATIS por compras superiores a 19 €</h1>
+  
+  <h1 class="tituloInfoGeneral" id="frase">Gastos de envios GRATIS por compras superiores a 19 €</h1>
 <!--Compruebo que la cesta no está vacia-->
     <?php 
     if($_SESSION['subtotal']==0){

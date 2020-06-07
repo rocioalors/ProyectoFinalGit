@@ -65,6 +65,7 @@
    		</div>
 </nav>
 
+
 <div class="d-flex" id="wrapper">
 
   <!-- Sidebar -->
@@ -81,7 +82,7 @@
 
 
   
-  
+
  <div class="container" id="principal">
   <!--Botón para mostrar o ocultar el sidebar-->
   <br>

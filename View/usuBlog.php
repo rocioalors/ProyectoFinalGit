@@ -85,6 +85,7 @@
       <h3 class="titulo">Frases Célebres</h3>
       <div class="fakeimg"><img src="../View/img/escritura.jpg"></div>
       <p class="texto">El misterio de la vida no es un problema a resolver, sino una realidad a experimentar (Duna, Frank Herbert)</p>
+
       
 </div>
 
@@ -103,7 +104,7 @@
 			?>
   <div class="card bg-warning text-light">
     <div class="card-body">
-      <p class="usuario"><?=$key->getNombre().' '.$date?>
+      <p class="usuario"><?=$key->getNombre().' '.$date?></p>
       <p><?=$key->getComentario()?></p>
     </div>
   </div>
@@ -125,7 +126,7 @@
     ?>
     <hr><br><br>
 	  <form action="#" method="post" class="contact-form">
-            <h4 class="titulo">DEJANOS TU COMENTARIO</h4>
+            <h4 class="titulo">DÉJANOS TU COMENTARIO</h4>
                       <p class ="titulo2">¿As leído alguno de nuestros libros? Tu comentario puede resultar útil para otros lectores.</p>
                                        
                           <div class="form-group">
@@ -143,6 +144,7 @@
 	</div>
 	</div>
 </div>
+
 
 
 
@@ -189,6 +191,5 @@
     </div>
     </footer>
 <!-- Footer --> 
-
 </body>
 </html>
