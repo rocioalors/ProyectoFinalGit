@@ -1,6 +1,9 @@
 <?php 
 session_start();
 //echo $_GET['file'];
+if(isset($_SESSION['usuario'])){
+    if($_SESSION['usuario']=='usuario'){
+
 if(isset($_REQUEST['file'])){
 if(!empty($_GET['file'])){
     $fileName = basename($_GET['file']);
@@ -20,6 +23,9 @@ if(!empty($_GET['file'])){
 }
 }
 include '../View/vUsuAyuda.php';
+}else{
+     header('Location: index.php');
+}
 
-
+}
  ?>

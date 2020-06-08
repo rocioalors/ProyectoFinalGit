@@ -3,6 +3,9 @@ session_start();
 require_once'../Model/Usuario.php';
 require_once '../Model/Libro.php';
 require_once '../Model/Prestamo.php';
+if(isset($_SESSION['usuario'])){
+	if($_SESSION['usuario']=='administrador'){
+
 //Para ver el total de usuarios registrados
 $usuario=Usuario::getUsuario();
 $usuarios=sizeof($usuario);
@@ -22,7 +25,11 @@ if(!isset($_COOKIE['contador'])){
 	setcookie('contador',0,time()+365*24*60*60);
 }
 
-include '../View/boostrap.php';
+
 include '../View/vPrincipalAdmin.php';
+}else{
+	 header('Location: index.php');
+}
+}
 
  ?>

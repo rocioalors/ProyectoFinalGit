@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(isset($_SESSION['usuario'])){
+	if($_SESSION['usuario']=='administrador'){
+
 require_once('../Model/Prestamo.php');
 
 date_default_timezone_set('Europe/Madrid');
@@ -22,7 +25,12 @@ if(isset($_REQUEST['operacion'])){
 }
  $data['prestamo']=Prestamo::getPrestamos();
 
- include '../View/boostrap.php';
+ 
  
  include '../View/vAdminVerPrestamos.php';
+}else{
+	 header('Location: index.php');
+}
+
+}
  ?>

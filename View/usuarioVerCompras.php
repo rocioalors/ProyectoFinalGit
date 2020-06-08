@@ -109,7 +109,7 @@
     </thead>
     <tbody>
     <?php 
-     foreach ($compras as $key) {
+     foreach ($data['compras'] as $key) {
       $fecha=$key->getFechacompra();
   
         $date= strftime("%d de %B del %Y", strtotime($fecha));

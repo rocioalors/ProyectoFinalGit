@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(isset($_SESSION['usuario'])){
+    if($_SESSION['usuario']=='administrador'){
+
 
 if(isset($_REQUEST['file'])){
 //Codigo para descargarnos el pdf del Manual de ayuda.
@@ -21,8 +24,10 @@ if(!empty($_GET['file'])){
 }
 }
 
-
-
 include '../View/vAdminAyuda.php';
+}else{
+     header('Location: index.php');
+}
+}
 
  ?>

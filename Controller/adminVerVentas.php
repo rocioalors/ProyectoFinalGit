@@ -1,9 +1,15 @@
 <?php 
 session_start();
 
-if($_SESSION['acceso']!='ok'){
- header('Location:index.php');
-}else{
+
+
+if(isset($_SESSION['usuario'])){
+	if($_SESSION['usuario']=='administrador'){
+		if(!isset($_SESSION['acceso'])){
+			header('Location: index.php');
+		}else if($_SESSION['acceso']=='ok'){
+	
+
 date_default_timezone_set('Europe/Madrid');
 // Unix
 setlocale(LC_TIME, 'es_ES.UTF-8');
@@ -27,8 +33,13 @@ if(isset($_REQUEST['operacion'])){
       }
     
 }
-include'../View/boostrap.php';
-include'../View/adminGestionVentas.php';
 
+include'../View/adminGestionVentas.php';
+}else{
+	header('Location: index.php');
 }
- ?>
+
+}else{
+	header('Location: index.php');
+}
+}

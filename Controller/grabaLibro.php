@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(isset($_SESSION['usuario'])){
+	if($_SESSION['usuario']=='administrador'){
+
 require_once '../Model/Libro.php';
 
 // sube la imagen al servidor
@@ -10,5 +13,8 @@ require_once '../Model/Libro.php';
   $libroAux = new Libro("",$_FILES["imagen"]["name"], $_POST['titulo'],$_POST['autor'],$_POST['descripcion'],$_POST['precio'],$_POST['cantAlquiler'],$_POST['cantVender'],$_POST['genero'],$_POST['edicion'],$_POST['estado']);
   $libroAux->insert();
   header("Location: verCatalogo.php");
-
+}else{
+	 header('Location: index.php');
+}
+}
  ?>

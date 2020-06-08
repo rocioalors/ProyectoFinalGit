@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(isset($_SESSION['usuario'])){
+    if($_SESSION['usuario']=='usuario'){
+
 require_once '../Model/Libro.php';
 if (isset($_REQUEST['id'])) {
     $libro = $_REQUEST['id'];
@@ -12,5 +15,7 @@ if (isset($_REQUEST['id'])) {
     }
     $_SESSION['cantidad']++;
     $_SESSION['subtotal'] += $libroaux->getPrecio();
-    
-    
+  }else{
+     header('Location: index.php');
+  }  
+}

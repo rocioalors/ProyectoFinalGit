@@ -2,10 +2,24 @@
 <html>
 <head>
 	<title></title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<!--JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+ 
+ <!-- Los iconos tipo Solid de Fontawesome-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 	
-	 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
-   <link rel="stylesheet" type="text/css" href="../View/css/estiloFormulario.css">
-   <script src="../View/JS/funciones.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../View/css/estiloFormulario.css">
+<script src="../View/JS/funciones.js"></script>
    
 </head>
 <body>
@@ -73,7 +87,7 @@
   <input type="text" class="form-control" id="nombre" name="nombre" value="<?=$nombre?>" required>
 
   <label class="texto" for="usr">DNI:</label>
-  <input type="text" class="form-control" id="dni" name="dni" value="<?=$dni?>" pattern="\d{8}[a-z A-Z]$"required>
+  <input type="text" class="form-control" id="dni" name="dni" value="<?=$dni?>" pattern="\d{8}[a-z A-Z]$" title="Tiene que tener 8 dígitos y una letra" required>
 
   <label class="texto" for="usr">Correo:</label>
   <input type="email" class="form-control" id="correo" name="correo" value="<?=$correo?>"  required>
@@ -82,14 +96,14 @@
   <input type="text" class="form-control" id="direccion" name="direccion" value="<?=$direccion?>" required>
 
   <label class="texto" for="usr">Código Postal:</label>
-  <input type="text" class="form-control" id="cp" name="cp" value="<?=$cp?>" pattern="^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$" required>
+  <input type="text" class="form-control" id="cp" name="cp" value="<?=$cp?>" pattern="^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$" title="Tiene que tener 5 dígitos" required>
 
   <label class="texto" for="usr">Telefono:</label>
-  <input type="text" class="form-control" id="telefono" name="telefono" value="<?=$telefono?>" pattern="^[\d]{3}[-]*([\d]{2}[-]*){2}[\d]{2}$" required>
+  <input type="text" class="form-control" id="telefono" name="telefono" value="<?=$telefono?>" pattern="^[\d]{3}[-]*([\d]{2}[-]*){2}[\d]{2}$" title="Tiene que tener 9 dígitos" required>
 
 
   <label class="texto" for="usr">Contraseña:</label>
-  <input type="text" class="form-control" id="contraseña" name="contraseña" value="<?=$contraseña?>" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
+  <input type="text" class="form-control" id="contraseña" name="contraseña" value="<?=$contraseña?>" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Tiene que contener una mayúscula, una minúcula y al menos un número" required>
 
   <br><br>
 

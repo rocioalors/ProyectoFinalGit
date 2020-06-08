@@ -1,5 +1,7 @@
 <?php 
 session_start();
+if(isset($_SESSION['usuario'])){
+	if($_SESSION['usuario']=='administrador'){
 
 
 $destino='actualizararticulo.php';
@@ -21,7 +23,11 @@ if(isset($_REQUEST['estado'])){
 	}
 }
 
-include '../View/boostrap.php';
+
 include '../View/formularioAdminModificarLibro.php';
 
+}else{
+	 header('Location: index.php');
+}
+}
  ?>

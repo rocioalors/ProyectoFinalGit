@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(isset($_SESSION['usuario'])){
+	if($_SESSION['usuario']=='usuario'){
+
 require_once'../Model/Prestamo.php';
 require_once'../Model/Libro.php';
 date_default_timezone_set('Europe/Madrid');
@@ -42,6 +45,10 @@ setlocale(LC_TIME, 'spanish');
 					 echo 'Préstamo realizado correctamente. Puede consultar sus préstamos activos en Mi Pefil';
 			}
 	}
+}
+}else{
+	 header('Location: index.php');
+}
 }
 
  ?>

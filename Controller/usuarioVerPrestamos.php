@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(isset($_SESSION['usuario'])){
+	if($_SESSION['usuario']=='usuario'){
+
 require_once '../Model/Usuario.php';
 require_once '../Model/Prestamo.php';
 require_once '../Model/Venta.php';
@@ -15,5 +18,9 @@ $data['prestamos']=Prestamo::getPrestamoByUsuario($_SESSION['user']);
 
 
 include '../View/usuarioVerPrestamos.php';
+   }else{
+   	 header('Location: index.php');
+   }
+}
 
  ?>

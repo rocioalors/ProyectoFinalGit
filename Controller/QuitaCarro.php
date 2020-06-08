@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION['usuario'])){
+    if($_SESSION['usuario']=='usuario'){
+
 require_once '../Model/Libro.php';
 
 if (isset($_GET['quitapro'])) {
@@ -19,3 +22,7 @@ if (isset($_GET['quitapro'])) {
  
 }
 header('Location:verContenidoCesta.php');
+}else{
+     header('Location: index.php');
+ }
+ }

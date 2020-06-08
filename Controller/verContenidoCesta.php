@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION['usuario'])){
+	if($_SESSION['usuario']=='usuario'){
+
 require_once '../Model/Libro.php';
 require_once '../Model/Detalle_Venta.php';
 //Sugerencia de los tres libros más vendidos
@@ -12,5 +15,8 @@ if($_SESSION['subtotal']<=19){
 
 
 include '../View/verContenidoCesta.php';
+}else{
+	 header('Location: index.php');
+}
 
-
+}

@@ -1,6 +1,9 @@
 <?php   
-   session_start();
-   require_once '../Model/Usuario.php';
+session_start();
+if(isset($_SESSION['usuario'])){
+   if($_SESSION['usuario']=='usuario'){
+
+require_once '../Model/Usuario.php';
 
 if($_REQUEST['contraseñaActual']=='' || $_REQUEST['nuevaContraseña']==''||$_REQUEST['repetirContraseña']==''){
 	
@@ -19,4 +22,9 @@ if($_REQUEST['contraseñaActual']=='' || $_REQUEST['nuevaContraseña']==''||$_RE
    	echo '<span style="font-weight:bold;color: red;">Contraseña actual es incorrecta</span>';
    }
  }
+}else{
+    header('Location: index.php');
+}
+}
+
 ?>

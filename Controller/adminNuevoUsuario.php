@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(isset($_SESSION['usuario'])){
+	if($_SESSION['usuario']=='administrador'){
+
 
 $destino="adminGrabaUsuario.php";
 $nombre="";
@@ -10,6 +13,9 @@ $telefono="";
 $cp='';
 $contraseña="";
 
-include '../View/boostrap.php';
 include "../View/formularioAdminNuevoUsuario.php";
+}else{
+	 header('Location: index.php');
+}
+}
  ?>

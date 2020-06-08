@@ -114,8 +114,8 @@
       <td><?= $usuario->getCorreo(); ?> </td>
       <form action="../Controller/usuarioCambiarDatos.php" method="POST">
         <td><input type="text" name="direccion" value="<?= $usuario->getDireccion(); ?>"></td>
-        <td><input type="text" name="cp" value="<?= $usuario->getCp(); ?>"></td>
-        <td><input type="text" name="telefono" value="<?= $usuario->getTelefono(); ?>"></td>
+        <td><input type="text" name="cp" value="<?= $usuario->getCp(); ?>" pattern="^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$" title="Tiene que tener 5 dígitos"></td>
+        <td><input type="text" name="telefono" value="<?= $usuario->getTelefono(); ?>" pattern="^[\d]{3}[-]*([\d]{2}[-]*){2}[\d]{2}$" title="Tiene que tener 9 dígitos"></td>
 <!--Le pasamos de manera oculta los datos que no se pueden modificar-->
         <input type="hidden" name="id" value="<?=$usuario->getId()?>">
         <input type="hidden" name="nombre" value="<?=$usuario->getNombre()?>">
@@ -143,13 +143,14 @@
   </thead>
   <tbody>
     <tr>
+      <div id="noContraseña"></div>
       <form id="formulario">
         <input type="hidden" name="dni" value="<?=$usuario->getDni()?>">
         <td><input type="password" name="contraseñaActual" placeholder="Contraseña actual" required=""></td>
 
-        <td><input type="password" name="nuevaContraseña" placeholder="Nueva Contraseña" required=""></td>
+        <td><input type="password" name="nuevaContraseña" placeholder="Nueva Contraseña" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" id="nueva" title="Tiene que contener una mayúscula, una minúcula y al menos un número" required=""></td>
 
-        <td><input type="password" name="repetirContraseña" placeholder="Confirmar Contraseña" required=""></td>
+        <td><input type="password" name="repetirContraseña" placeholder="Confirmar Contraseña" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Tiene que contener una mayúscula, una minúcula y al menos un número" required=""></td>
         <td><input type="button" class="btn btn-success" id="cambio" value="Modificar" /></td>
 
       </form>

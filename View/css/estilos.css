@@ -42,3 +42,12 @@ body{
 #meses{
 	margin-bottom: 86px;
 }
+#sticky-foote{
+  bottom: 0;
+  position: relative;
+  width: 100%
+ 
+}
+.container {
+  margin-bottom: 70px;
+}

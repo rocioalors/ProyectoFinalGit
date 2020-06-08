@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(isset($_SESSION['usuario'])){
+	if($_SESSION['usuario']=='usuario'){
+
 require_once ('../Model/Libro.php');
 require_once ('../Model/Venta.php');
 require_once ('../Model/Detalle_Venta.php');
@@ -31,10 +34,12 @@ $_SESSION['subtotal']=0;
 $_SESSION['envio']=0;
 
 //Volvemos al detalle de la venta
-header('Location:usuarioVerPerfil.php')
+header('Location:usuarioVerPerfil.php');
+}else{
+	 header('Location: index.php');
+}
 
-
-
+}
 
 
  ?>

@@ -2,8 +2,22 @@
 <html>
 <head>
 	<title></title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<!--JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+ 
+ <!-- Los iconos tipo Solid de Fontawesome-->
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+ <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 	
-	 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../View/css/estiloFormulario.css"> 
   <script  src="../View/JS/funciones.js"></script>
    
@@ -77,16 +91,16 @@
       <input type="text" class="form-control" id="usuario" name="usuario" value="<?=$usuario?>" required>
 
     <label class="texto" for="usr">Contraseña:</label>
-      <input type="text" class="form-control" id="contraseña" name="contraseña" value="<?=$contraseña?>" required>
+      <input type="text" class="form-control" id="contraseña" name="contraseña" value="<?=$contraseña?>" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
 
     <label class="texto" for="usr">DNI:</label>
-      <input type="text" class="form-control" id="dni" name="dni" value="<?=$dni?>" required>
+      <input type="text" class="form-control" id="dni" name="dni" value="<?=$dni?>" pattern="\d{8}[a-z A-Z]$" required>
 
     <label class="texto" for="usr">Email:</label>
-      <input type="text" class="form-control" id="email2" name="email" value="<?=$email?>" required>
+      <input type="email" class="form-control" id="email2" name="email" value="<?=$email?>" required>
 
     <label class="texto" for="usr">Telefono:</label>
-      <input type="text" class="form-control" id="telefono" name="telefono" value="<?=$telefono?>" required>
+      <input type="text" class="form-control" id="telefono" name="telefono" value="<?=$telefono?>" pattern="^[\d]{3}[-]*([\d]{2}[-]*){2}[\d]{2}$" required>
 
     <br><br>
       <input type="submit" class="btn btn-danger" value="GRABAR">

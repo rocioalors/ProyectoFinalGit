@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(isset($_SESSION['usuario'])){
+	if($_SESSION['usuario']=='administrador'){
+
 require_once '../Model/Usuario.php';
 
  
@@ -8,8 +11,9 @@ require_once '../Model/Usuario.php';
  $usuAux=Usuario::getUsuarioByNombre($_REQUEST['usuario']);
 
 
- include '../View/boostrap.php';
-
  include '../View/adminVerContacto.php';
-
- ?>
+}else{
+ header('Location: index.php');
+ }
+}
+?>

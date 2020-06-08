@@ -1,5 +1,8 @@
 <?php  
 session_start();
+if(isset($_SESSION['usuario'])){
+	if($_SESSION['usuario']=='usuario'){
+
 require_once '../Model/Venta.php';
 require_once '../Model/Detalle_Venta.php';
 require_once '../Model/Usuario.php';
@@ -26,3 +29,7 @@ $IVA= round($_REQUEST['total']*0.04,2);
 
 
 include '../View/usuarioVerDetalleCompra.php';
+}else{
+	 header('Location: index.php');
+}
+}

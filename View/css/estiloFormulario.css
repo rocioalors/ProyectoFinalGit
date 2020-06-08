@@ -48,4 +48,12 @@ body{
 
 }
 
-
+#sticky-foote{
+  bottom: 0;
+  position: relative;
+  width: 100%
+ 
+}
+.container {
+  margin-bottom: 70px;
+}

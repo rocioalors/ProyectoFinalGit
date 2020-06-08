@@ -1,6 +1,7 @@
 <?php 
 session_start();
-
+if(isset($_SESSION['usuario'])){
+	if($_SESSION['usuario']=='administrador'){
 
 $destino="adminActualizarUsuario.php";
 $nombre=$_REQUEST['nombre'];
@@ -12,6 +13,11 @@ $cp=$_REQUEST['cp'];
 $telefono=$_REQUEST['telefono'];
 $contraseña=$_REQUEST['contraseña'];
 
-include'../View/boostrap.php';
+
 include "../View/formularioAdminNuevoUsuario.php";
+}else{
+	 header('Location: index.php');
+}
+}
+
  ?>

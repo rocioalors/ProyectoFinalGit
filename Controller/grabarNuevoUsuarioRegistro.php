@@ -18,6 +18,7 @@ require_once '../Model/Usuario.php';
       $usuario=Usuario::getUsuarioByDni($_REQUEST['dni']);
       $_SESSION['user']=$usuario->getNombre();
       $_SESSION['dni']=$usuario->getDni();
+      $_SESSION['usuario']='usuario';
         echo '1';
   	 		
 		}else{

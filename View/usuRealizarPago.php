@@ -117,7 +117,7 @@
              <div class="form-group">
                 <img src="../View/img/visa.jpg" width="50" height="50">
                 <label for="inputApellido" class="control-label">Nº Cuenta</label>
-                <input type="text"  id="input-element" class="form-control" name="tarjeta"  maxlength="19" required="">  
+                <input type="text"  id="input-element" class="form-control" name="tarjeta"  required="">  
             </div>
 
             <div class="form-group">

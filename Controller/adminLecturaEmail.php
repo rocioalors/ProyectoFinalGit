@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(isset($_SESSION['usuario'])){
+  if($_SESSION['usuario']=='administrador'){
+
 //Creamos el array de los email
 
 if(!isset($_SESSION['emails'])){
@@ -91,5 +94,8 @@ if(isset($_REQUEST['borrar'])){
 }
 }
 include '../View/vAdminLecturaEmail.php';
-
+}else{
+   header('Location: index.php');
+}
+}
  ?>

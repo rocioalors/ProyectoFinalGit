@@ -1,8 +1,9 @@
 <?php 
 session_start();
-
-
+if(isset($_SESSION['usuario'])){
+	if($_SESSION['usuario']=='usuario'){
 	//Establecemos la fecha
+
 $fecha="#".date("d-m-Y")."#";
 
 
@@ -34,5 +35,9 @@ if(isset($_REQUEST['enviar'])){
 
 	}
 }
-include '../View/vUsuFormularioContacto.php'
+include '../View/vUsuFormularioContacto.php';
+}else{
+	 header('Location: index.php');
+}
+}
  ?>
