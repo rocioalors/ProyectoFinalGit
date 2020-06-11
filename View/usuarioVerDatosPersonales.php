@@ -86,7 +86,7 @@
   
  <div class="container" id="principal">
   <!--Botón para mostrar o ocultar el sidebar-->
-  <br><br><br>
+  
    <button class="btn btn-primary" id="menu-toggle">Mostrar/Ocultar Opciones</button>
   <br><br>
 

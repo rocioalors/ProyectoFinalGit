@@ -151,10 +151,14 @@ margin:auto;
   margin-bottom: 30px;
 
 }
-#principal{
-  margin-bottom: 60px;
+#menu-toggle{
+  margin-top:  120px;
+  margin-bottom: 20px;
 }
 
+.tab{
+  margin-bottom: 30px;
+}
 
 
   
