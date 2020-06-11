@@ -157,7 +157,7 @@
 
 <!--Sugerencias de libros más venididos-->
 <br><br>
-<h1 class="masVendidos">Los Más Vendidos de esta semana</h1>
+<h1 class="masVendidos">Los Más Vendidos de la Semana</h1>
 <br><br>
 <div class="row">
     <?php
@@ -215,7 +215,7 @@
 
  </div>
 </div>
-
+<br><br><br>
  <!-- Footer -->
      <footer id="myFooter" class="py-4 bg-dark text-white-50">
         <div class="container">

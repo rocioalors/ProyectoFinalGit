@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title></title>
-     <meta charset="utf-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -66,30 +66,30 @@
    </div>
 </nav>
 	
-	<div class="container">
+	<div class="container" id="principal">
  <div class="row">
-<div class="col-sm-4">
+<div class="col-md-4 ">
 	  <h2 class="titulo">Eventos</h2>
 	  <h4 class="titulo2">Firma de libro Javier Castillo 19/06/20 19:00</h4>
 	 
-	  <img src="../View/img/javierCastillo.jpg" width="90%" >
+	  <img src="../View/img/javierCastillo.jpg" id="imagen">
 
 	  <p class="texto">Javier Castillo firmará su último libro La chica de la nieve.</p>
 
 	  <h4 class="titulo2">Concurso de escritura 29/06/20 19:00</h4>
 	 
-	  <img src="../View/img/concurso.jpg" width="90%" >
+	  <img src="../View/img/concurso.jpg" id="imagen">
 
 	  <p class="texto">GANA HASTA 150€...Puedes inscribirte hasta el 15/06/2020.</p>
 
       <h3 class="titulo">Frases Célebres</h3>
-      <div class="fakeimg"><img src="../View/img/escritura.jpg"></div>
+      <div class="fakeimg"><img src="../View/img/escritura.jpg" id="imagen"></div>
       <p class="texto">El misterio de la vida no es un problema a resolver, sino una realidad a experimentar (Duna, Frank Herbert)</p>
 
       
 </div>
 
- <div class="col-sm-8">
+ <div class="col-md-8">
 	<!--MUESTRO LOS COMENTARIOS SI EXISTEN-->
 	<img  class="central" src="../View/img/opinion.jpg" width="100%" height="20%">
 	<?php if($registros>0){?>
@@ -134,23 +134,19 @@
                           </div>
 
                           
-                          <button type="submit" name="enviar" class="btn btn-warning">Comentar</button>
+                          <button type="submit" id="EnviarComentario" name="enviar" class="btn btn-warning">Comentar</button>
                            
                       </form>
-
-	   	
-
-	   </form>
+     
 	</div>
 	</div>
 </div>
 
 
 
-
 <!-- Footer -->
     <footer id="myFooter" class="py-4 bg-dark text-white-50">
-        <div class="container">
+        <div class="container" id="footer">
             <div class="row">
                 <div class="col-sm-3">
                     <img src="../View/img/Logo.png">

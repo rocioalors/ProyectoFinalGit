@@ -110,7 +110,7 @@ $(document).ready(function(){
 
 //Funcion movimiento pagina de ayuda
 //Funcion para que al pasar el raton aparezca el contenido en la pag de ayuda
-function openCity(evt, cityName) {
+function openTexto(evt, cityName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {

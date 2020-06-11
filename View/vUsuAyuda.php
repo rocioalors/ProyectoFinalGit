@@ -4,8 +4,10 @@
 	<title></title>
 
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="../View/css/estiloUsuarioPerfil.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--Estilo propio-->
+  <link rel="stylesheet" type="text/css" href="../View/css/estiloUsuarioPerfil.css">
+  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -85,7 +87,7 @@
 
  <div class="container" id="principal">
   <!--Botón para mostrar o ocultar el sidebar-->
-  <br>
+  <br><br><br>
    <button class="btn btn-primary" id="menu-toggle">Mostrar/Ocultar Opciones</button>
   <br><br>
 
@@ -95,10 +97,10 @@
    <br><h3 class="texto">Te mostramos las preguntas más frecuentes:</h3>
 
 <div class="tab">
-  <button class="tablinks text-light" onmouseover="openCity(event, 'comprar')"><i class="fas fa-shopping-basket"></i> ¿Cómo Comprar online?</button>
-  <button class="tablinks text-light" onmouseover="openCity(event, 'Prestamos')"><i class="far fa-calendar-check"></i> Préstamos</button>
-  <button class="tablinks text-light" onmouseover="openCity(event, 'envio')"><i class="fas fa-shipping-fast"></i> Envíos y devoluciones</button>
-  <button class="tablinks text-light" onmouseover="openCity(event, 'dudas')"><i class="fas fa-question"></i> ¿Aún con dudas?</button>
+  <button class="tablinks" onmouseover="openTexto(event, 'comprar')"><i class="fas fa-shopping-basket"></i> ¿Cómo Comprar online?</button>
+  <button class="tablinks" onmouseover="openTexto(event, 'Prestamos')"><i class="far fa-calendar-check"></i> Préstamos</button>
+  <button class="tablinks" onmouseover="openTexto(event, 'envio')"><i class="fas fa-shipping-fast"></i> Envíos y devoluciones</button>
+  <button class="tablinks" onmouseover="openTexto(event, 'dudas')"><i class="fas fa-question"></i> ¿Aún con dudas?</button>
 </div>
 
 <div id="comprar" class="tabcontent">
@@ -158,7 +160,7 @@
 
 
 
-<br><br>
+
 </div>
 
 </div>
