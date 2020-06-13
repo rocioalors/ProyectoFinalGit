@@ -10,7 +10,7 @@ $contraseña=$_REQUEST['contraseña'];
 $email=$_REQUEST['email'];
 $telefono=$_REQUEST['telefono'];
 
-include '../View/formularioAdminNuevoAdministrador.php';
+include '../View/formularioAdminModificaAdministrador.php';
 }else{
  header('Location: index.php');
 }

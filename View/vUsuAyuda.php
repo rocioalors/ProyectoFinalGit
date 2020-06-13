@@ -43,7 +43,7 @@
             </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="../Controller/usuarioVerCatalago.php">Todo el catálogo</a>
-            <a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Los más vendidos</a>
+            <a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Novedades y más vendidos</a>
           </div>
         </li>
         <li class="nav-item">

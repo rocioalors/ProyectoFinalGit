@@ -3,17 +3,19 @@
  <head>
  	<title></title>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="../View/css/estiloFormulario.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <!--Estilo Personal-->
+   <link rel="stylesheet" type="text/css" href="../View/css/estiloFormulario.css">
+  <!--Funciones Propias-->
   <script src="../View/JS/funciones.js"></script>
 
    <!-- Los iconos tipo Solid de Fontawesome-->
- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
- <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
    <!--DATATABLES-->
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>

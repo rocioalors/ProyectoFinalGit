@@ -97,3 +97,18 @@ body{
 .container {
   margin-bottom: 70px;
 }
+#formDescuento{
+  max-width: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.texto{
+  color:#aba104;
+  font-weight: bold;
+}
+.textoDos{
+  font-weight: bold;
+  color: #9a0606;
+  text-align: center;
+}

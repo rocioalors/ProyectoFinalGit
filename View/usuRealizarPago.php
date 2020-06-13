@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-
-    <!--Estilo Personal-->
-  <link rel="stylesheet" type="text/css" href="../View/css/realizarPago.css">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -13,13 +10,16 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
   <!--Libreria para los delimitadores de la tarjeta-->
-   <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+  <!--Estilo Personal-->
+  <link rel="stylesheet" type="text/css" href="../View/css/realizarPago.css">
+  <!--Funciones propias-->
   <script src="../View/JS/funcionesdos.js"></script>
 
    <!-- Los iconos tipo Solid de Fontawesome-->
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
 </head>
 <body>
   <!--Codigo del nav-->
@@ -45,7 +45,7 @@
             </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="../Controller/usuarioVerCatalago.php">Todo el catálogo</a>
-            <a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Los más vendidos</a>
+            <a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Novedades y más vendidos</a>
           </div>
         </li>
         <li class="nav-item">
@@ -87,8 +87,20 @@
   
     <p class="texto">Gastos de Envío: <?=$_SESSION['envio'] ?> € </p>
 
-    <p class="texto">Total con IVA: <?=$_SESSION['total']=$_SESSION['subtotal']+$_SESSION['envio']; ?> € </p>
-         
+    <?php
+ 
+    ?>
+    <p class="texto">Total con IVA: <?=$_SESSION['total']?> € </p>
+    <h5 class="tituloInfoGeneral">¿Tienes algún cupón descuento?</h5>
+    <div class="d-flex justify-content-center align-items-center container ">
+    
+       <form action="#" method="post" id="formDescuento">
+        <div class="form-group">
+          <input type="text" class="form-control" name="descuento" value=""><br>
+          <input type="submit" class="btn btn-danger" value="Aplicar">
+         </div>
+       </form>    
+      </div>
            
   <a  class="btn btn-info" href="../Controller/usuarioVerCatalago.php">Seguir Comprando</a>
 

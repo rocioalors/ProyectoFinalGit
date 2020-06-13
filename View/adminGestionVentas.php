@@ -5,7 +5,6 @@
 
 <!--JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -16,12 +15,14 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
 <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
+<!--Estilo personalizado-->
 <link rel="stylesheet" href="../View/css/estilos.css">
    <!--DATATABLES-->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
    <!--script necesario para ver la gráfica-->
 <script src="../View/JS/chart.min.js"></script>
+<!--Funciones-->
 <script src="../View/JS/funciones.js"></script>
 	<title>Gestion de ventas</title>
 </head>
@@ -56,8 +57,8 @@
     <div class="form-group">
     <label class="texto">Seleccione el tipo de dato</label>
     <select class="form-control" id="operacion" name="operacion">
-      <option value="gmensual">Grafico mensual</option>
-      <option value="meses">Agrupar por meses</option>
+      <option value="gmensual">Graficos e información general</option>
+      <option value="meses">Agrupar ventas por meses</option>
       <option value="todas">Todas las ventas</option>
     </select><br>
      <input type="submit" class="btn btn-info" name="consultar" value="Consultar"><br>
@@ -74,8 +75,8 @@
   			if($_REQUEST['operacion']=='todas'){
             if($datos!=null){
      ?>
-  			<h4 class="titulo">El total de ventas anual es <?=$total?>€</h4>
-  			<br><p class="texto">Buscar datos</p>
+   
+  		
   				  	
             <div>
   				    <table id="example"   data-page-length='10'class="table table-bordered">
@@ -86,6 +87,7 @@
         					     <th>Usuario</th>
         					     <th>Total</th>
         					     <th>Ver detalle</th>
+                       <th>Descargar Fra.</th>
     			     <tbody id="myTable">
     	<?php
         foreach ($datos as $key) {
@@ -100,7 +102,7 @@
         					     <td><?= $key->usuario?></td>
         					     <td><?= $key->total?></td>
         					     <td>
-                      <!--Utilizo estos datos para generar el pdf de la factura-->
+                      <!--para ver el detalle-->
                           <form action="../Controller/detalle_venta.php" method="post">
                               <input type="hidden" name="usuario" value="<?=$key->usuario?>">
                               <input type="hidden" name="id" value="<?=$key->id?>">
@@ -109,6 +111,16 @@
                               <input type="submit" class="btn btn-success" name="enviar" value="Ver Venta">
                           </form>
                       </td>
+                      <!--Para descargar el pdf-->
+                       <td><form action="../Controller/generarpdf.php" method="post">
+                              <input type="hidden" name="usuario" value="<?=$key->usuario?>">
+                              <input type="hidden" name="id_venta" value="<?=$key->id?>">
+                              <input type="hidden" name="fecha" value="<?=$key->fechaCompra?>">
+                              <input type="hidden" name="total" value="<?=$key->total?>">
+                              <input type="submit" class="btn btn-info" name="enviar" value="Generar PDF">
+                            </form>
+                       </td>
+
      					      </tr>
  	 	
   		    <?php } 
@@ -141,9 +153,14 @@
     			<tbody id="myTable">
     			<?php
 
-    			foreach ($datos as $key) {?>
+    			foreach ($datos as $key) {
+           //Traducir el nombre del mes al español
+            $fecha=$key->mes;
+            $mes= strftime("%B", strtotime($fecha));
+
+            ?>
       					<tr>
-        					<td><?= $key->mes?></td>
+        					<td><?= $mes?></td>
         					<!--bcdiv redondeo con dos decimales-->
         					<td><?= bcdiv($key->total_mes,1,2)?></td>
                   <td><a href="../Controller/venta_mes.php?mes=<?=$key->mes?>"><button type="button" class="btn btn-success">Ver Ventas</button></a></td>
@@ -163,25 +180,31 @@
           if($datos==Null){?>
             <h1>Lo siento, actualmente no existe ventas</h1>
              
-        <?php }else{?>  
-         <h1 class="titulo">Grafica de Ventas por Meses</h1>
-<div class="chart-container" style="position: relative; height:40vh; width:40vw">
-    <canvas id="chart1"></canvas>
-</div>
+        <?php }else{?> 
+<div class="row">
+  <div class="col-md-6">
+         <h1 class="titulo">Gráfica de Ventas por Meses</h1>
+             <div class="chart-container">
+                 <canvas id="chart1"></canvas>
+             </div>
 
 <script>
 var ctx = document.getElementById("chart1");
 var datos = {
         labels: [ 
-        <?php foreach($datos as $d):?>
-        "<?php echo $d->mes?>", 
+        <?php foreach($datos as $d):
+          //Traduce el nombre del mes al español
+           $fecha=$d->mes;
+          $mes= strftime("%B", strtotime($fecha));
+          ?>
+        "<?php echo $mes?>", 
         <?php endforeach; ?>
         ],
         datasets: [{
             label: '$ Ventas',
             data: [
         <?php foreach($datos as $d):?>
-        <?php echo $d->total_mes;?>, 
+        <?php echo round($d->total_mes);?>, 
         <?php endforeach; ?>
             ],
             backgroundColor: "#3898db",
@@ -205,7 +228,85 @@ var chart1 = new Chart(ctx, {
 
 });
 </script>
-<br><br>
+</div>
+<div class="col-md-6">
+<h1 class="titulo">Gráfica Trimestral</h1>
+  <div class="chart-container">
+      <canvas id="grafico"></canvas>
+  </div>
+<script>
+var ctx = document.getElementById("grafico");
+var datos = {
+        labels: [ 
+        <?php foreach($trimestre as $d):?>
+        "<?php echo $d['trimestre']?>", 
+        <?php endforeach; ?>
+        ],
+        datasets: [{
+            label: '$ Ventas por trimestre',
+            data: [
+        <?php foreach($trimestre as $d):?>
+        <?php echo round($d['total']);?>, 
+        <?php endforeach; ?>
+            ],
+            backgroundColor: "#3898db",
+            borderColor: "#9b59b6",
+            borderWidth: 2
+        }]
+    };
+var options = {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    };
+var chart1 = new Chart(ctx, {
+    type: 'bar', /* valores: line, bar,doughnut,pie*/
+    data: datos,
+    options: options
+
+});
+</script>
+</div>
+
+</div>
+  <!--Div en el que muestro información de las ventas-->
+  <h1 class="titulo">Infomación General Sobre Ventas</h1>
+    <div class="card-deck" id="datos">
+        <div class="card ">
+          <div class="card-header bg-primary text-white">TOTAL ANUAL DE INGRESOS</div>
+          <div class="card-body text-white bg-info">
+              <p class="card-text" id="totales"><?=$total?> €</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header bg-primary text-white">PROMEDIO DE COMPRA</div>
+          <div class="card-body text-white bg-info">
+             <p class="card-text" id="totales"><?=$datoUno?> €</p>
+          </div>
+        </div>
+         <div class="card">
+          <div class="card-header bg-primary text-white">USUARIO QUE MÁS HA COMPRADO</div>
+          <div class="card-body text-white bg-info">
+            <p class="card-text" id="totales"> <?=$masCompra[0]['usuario']?>, <?=round($masCompra[0]['total'])?> € </p>
+         </div>
+        </div>
+        <div class="card">
+          <div class="card-header bg-primary text-white">LIBROS MÁS VENDIDOS </div>
+          <div class="card-body text-white bg-info">
+           <?php foreach ($ventaAux as $key) {?>
+            <p class="card-text" id="libro"><?=$key['titulo']?>, <?=$key['cantidad']?> Uds</p>
+           <?php
+         }?>
+            
+         </div>
+        </div>
+       
+</div>
+
 <?php
         }//fin del else operaciones igual a gmensual(grafico)
       }//fin del if operacion igual a gmensual

@@ -51,3 +51,16 @@ body{
 .container {
   margin-bottom: 70px;
 }
+#datos{
+	margin-bottom: 30px;
+
+}
+
+#totales{
+  font-size: 25px;
+  text-align: center;
+}
+
+.card-header{
+  text-align: center;
+}

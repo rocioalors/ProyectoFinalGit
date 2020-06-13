@@ -1,3 +1,4 @@
+//Permite ver la contraseña introducida en el formulario de inicio de sesion
 function verContraseña() {
   var x = document.getElementById("pass");
   if (x.type === "password") {
@@ -7,13 +8,15 @@ function verContraseña() {
   }
 }
 
+//Función que se utiliza para el cierre de sesion y para confirmar el borrado de algunos datos
 function confirmar ( mensaje ) {
         return confirm( mensaje );
 }
 
 
-//Funcion para validar el registro de nuevos usuarios
+
 $(document).ready(function(){
+//Funcion para validar el registro de nuevos usuarios
 
 //Comprueba si el usuario esta iniciando session correctamente o no
    $("#formularioInicio").on("click", function() {
@@ -37,7 +40,7 @@ $(document).ready(function(){
 
   });
    
-//Funcion para entrar en las ventas --Pide clave de acceso
+//Funcion para entrar en el apartado de ventas del lado del administrador --Pide clave de acceso
 
    $("#entrar").on("click", function() {
  

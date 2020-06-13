@@ -15,8 +15,8 @@
   <!--El estilo-->
   <link rel="stylesheet" type="text/css" href="../View/css/estiloPrincipalUsuario.css">
   <!--Para los iconos-->
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
- <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
 </head>
 <body>
@@ -44,7 +44,7 @@
             </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="../Controller/usuarioVerCatalago.php">Todo el catálogo</a>
-            <a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Los más vendidos</a>
+            <a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Novedades y más vendidos</a>
           </div>
         </li>
         <li class="nav-item">

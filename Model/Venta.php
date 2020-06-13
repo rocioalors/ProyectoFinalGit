@@ -122,7 +122,7 @@ class Venta{
 //Calcula el total por meses
     public static function meses(){
         $conexion = proyectoBD::connectDB();
-        $seleccion="SELECT MONTH(fechacompra) Mes, SUM(total) total_mes FROM venta GROUP BY Mes";
+        $seleccion="SELECT MONTHNAME(fechacompra) Mes, SUM(total) total_mes FROM venta GROUP BY Mes ORDER BY MONTH(fechacompra)";
         $consulta=$conexion->query($seleccion);
          while ($registro = $consulta->fetchObject()) {
             $objeto =array("mes"=>$registro->Mes,"total_mes"=>$registro->total_mes);
@@ -138,7 +138,7 @@ class Venta{
  //Ver todas las compras de un mes determinado
     public static function mesDeterminado($mes){
         $conexion = proyectoBD::connectDB();
-        $seleccion="SELECT * FROM venta WHERE MONTH(fechacompra)='$mes'";
+        $seleccion="SELECT * FROM venta WHERE MONTHNAME(fechacompra)='$mes'";
         $consulta = $conexion->query($seleccion);
         $ventas = [];
         
@@ -163,5 +163,60 @@ class Venta{
         return $ventas;
      
     }
+
+     public static function promedio(){
+        $conexion = proyectoBD::connectDB();
+        $seleccion="SELECT AVG(total) AS promedio FROM venta";
+        $consulta = $conexion->query($seleccion);
+         while ($registro = $consulta->fetchObject()) {
+            $objeto =$registro->promedio;
+
+        }
+
+      return $objeto;
+     
+    }
+
+    public static function totalIngresos(){
+        $conexion = proyectoBD::connectDB();
+        $seleccion="SELECT SUM(total) AS total FROM venta";
+        $consulta = $conexion->query($seleccion);
+         while ($registro = $consulta->fetchObject()) {
+            $objeto =$registro->total;
+
+        }
+
+      return $objeto;
+     
+    }
+
+     public static function usuarioQueMasCompra(){
+        $conexion = proyectoBD::connectDB();
+        $seleccion="SELECT usuario, sum(total) as total FROM venta GROUP by usuario ORDER BY total DESC LIMIT 1";
+        $consulta = $conexion->query($seleccion);
+         while ($registro = $consulta->fetchObject()) {
+              $objeto =array("usuario"=>$registro->usuario,"total"=>$registro->total);
+
+           $total[]=$objeto;
+        }
+        
+        return $total; 
+     
+    } 
+
+      public static function ventasTrimestrales(){
+        $conexion = proyectoBD::connectDB();
+        $seleccion="SELECT quarter(fechacompra) AS trimestre, sum(total) AS total FROM venta GROUP BY quarter(fechacompra)";
+        $consulta = $conexion->query($seleccion);
+        
+        while ($registro = $consulta->fetchObject()) {
+            $objeto = array("trimestre"=>$registro->trimestre,"total"=>$registro->total);
+            $ventas[]=$objeto;
+        }
+
+        return $ventas;
+     
+    }
+
 
 }

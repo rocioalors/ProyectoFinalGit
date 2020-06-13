@@ -17,9 +17,11 @@
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 	
-	 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
-   <link rel="stylesheet" type="text/css" href="../View/css/estiloFormulario.css">
-   <script  src="../View/JS/funciones.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+<!--Estilo Personalizado-->
+<link rel="stylesheet" type="text/css" href="../View/css/estiloFormulario.css">
+<!--Funciones-->
+<script  src="../View/JS/funciones.js"></script>
    
  
 </head>

@@ -43,6 +43,7 @@ body {
   #wrapper.toggled #sidebar-wrapper {
     margin-left: -15rem;
   }
+
 }
 
 .tituloInfoGeneral{
@@ -92,7 +93,7 @@ margin:auto;
   border: 1px solid #ccc;
   background-color: #ffcc00;
   width: 30%;
-  height: 400px;
+  height: 575px;
 }
 
 /* Style the buttons inside the tab */
@@ -126,8 +127,9 @@ margin:auto;
   border: 1px solid #ccc;
   width: 70%;
   border-left: none;
-  height: 400px;
+  height: 575px;
   display: none;
+  margin-bottom: 200px;
 }
 
 /* Clear floats after the tab */

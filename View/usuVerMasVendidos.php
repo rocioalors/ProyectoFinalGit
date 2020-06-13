@@ -5,16 +5,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="../View/css/estiloMasVendidosUsuario.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
    <!-- Los iconos tipo Solid de Fontawesome-->
- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
- <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
- <script src="../View/JS/funcionesdos.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <!--Estilo Personal-->
+   <link rel="stylesheet" type="text/css" href="../View/css/estiloMasVendidosUsuario.css">
+  <!--Funciones-->
+  <script src="../View/JS/funcionesdos.js"></script>
+
 </head>
 <body>
 
@@ -42,7 +45,7 @@
       			</a>
       		  <div class="dropdown-menu">
         		  <a class="dropdown-item" href="../Controller/usuarioVerCatalago.php">Todo el catálogo</a>
-       			  <a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Los más vendidos</a>
+       			  <a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Novedades y más vendidos</a>
       		  </div>
     		</li>
     		<li class="nav-item">
@@ -77,6 +80,14 @@
 <br>
 <div class="container">
 	<p class="hastang">#TheCornerOfDreams</p>
+    <?php
+    if(isset($_COOKIE['descuento'])){?>
+     <div class="alert alert-danger alert-dismissible">
+        <strong>Aprovecha Nuestras Ofertas!</strong> Descuento del <?=$_COOKIE['descuento']?>%  introduce el código <?=$_COOKIE['token']?> al finalizar tu compra.
+    </div>
+<?php
+    }
+    ?>
 	<br><br>
   <h2 class="titulo">Novedades</h2>
   <br><br>

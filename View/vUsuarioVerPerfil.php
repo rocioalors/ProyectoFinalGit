@@ -2,16 +2,20 @@
 <html>
 <head>
 	<title></title>
-   <link rel="stylesheet" type="text/css" href="../View/css/estiloUsuarioPerfil.css">
+   
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <!--Estilo Personalizado-->
+  <link rel="stylesheet" type="text/css" href="../View/css/estiloUsuarioPerfil.css">
+  <!--Funciones propias-->
   <script src="../View/JS/funcionesdos.js"></script>
     <!-- Los iconos tipo Solid de Fontawesome-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
   <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
 </head>
 <body>
 	<!--Codigo del nav-->
@@ -37,7 +41,7 @@
             </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="../Controller/usuarioVerCatalago.php">Todo el catálogo</a>
-            <a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Los más vendidos</a>
+            <a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Novedades y más vendidos</a>
           </div>
         </li>
         <li class="nav-item">

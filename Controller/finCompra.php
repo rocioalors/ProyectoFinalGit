@@ -7,6 +7,7 @@ require_once ('../Model/Libro.php');
 require_once ('../Model/Venta.php');
 require_once ('../Model/Detalle_Venta.php');
 
+
 //Creo un objeto libro();
 $librito=new Libro();
 //Establezco la Fecha Actual

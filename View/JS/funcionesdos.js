@@ -1,5 +1,5 @@
 
-//Función par devolver préstamo
+//Función par devolver préstamo desde el lado del usuario
 function borrarPrestamo(id,id_libro){
  	
  	if (confirm('¿Confirma que desea devolver el ejemplar?')) {
@@ -15,7 +15,7 @@ function borrarPrestamo(id,id_libro){
 	}
 }
 
-//Función que avisa al usuario de que si el préstamo se ha realizado con éxito o no
+//Función que avisa al usuario de si el préstamo se realizo con éxito o no. Hay 3 estados posibles
  function realizarPrestamo(id,titulo){
     $.ajax({
 	        url: "../Controller/usuarioPrestamos.php",
@@ -29,7 +29,7 @@ function borrarPrestamo(id,id_libro){
   
 }
 
-//Funcion para meter libros en el carrito
+//Funcion para meter libros en el carrito desde las diferentes paginas de la aplicacion 
  function meteCarro(id){
     $.ajax({
 	        url: "../Controller/miCarrito.php",
@@ -42,7 +42,7 @@ function borrarPrestamo(id,id_libro){
 	 });
   
 }
-//FUNCION PARA CONFIRMAR QUE DESEA CERRAR SESION
+//Funcion para cerrar session desde el lado del usuarios
  function cerrarSesion(){
  	if (confirm('¿Está seguro que desea cerrar sesion? Los productos de la cesta se perderan')) {
    		 $.ajax({

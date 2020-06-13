@@ -14,8 +14,9 @@
  <!-- Los iconos tipo Solid de Fontawesome-->
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-
+ <!--Estilo Personalizado-->
  <link rel="stylesheet" href="../View/css/cards-gallery.css">
+ <!--Nuestras funciones-->
  <script src="../View//JS/funciones.js"></script>
 </head>
 
@@ -79,7 +80,33 @@
         </div>
 
         <hr>
-
+        <?php if(!isset($descuento)){?>
+          <h6 class="tituloInfoGeneral">No se ha establecido ningún descuento. Utiliza el siguiente formulario para hacerlo</h6>
+          <?php
+        } else{?>
+          <h6 class="texto">Descuento activo semanal del <?=$descuento?>%, token establecido: <?=$token?></h6><br>
+          <h6 class="textoDos">Introduce nuevos datos para cambiarlo.</h6><br>
+        <?php }
+        ?>
+        <form action="#" method="post" id="formDescuento">
+          <div class="form-group">
+            <label class="texto">Seleccione el % de descuento</label>
+            <select class="form-control" id="descuento" name="descuento" required="">
+              <option value="15">15%</option>
+              <option value="20">20%</option>
+              <option value="30">30%</option>
+             </select><br>
+             <label class="texto">Token</label><br>
+            <input type="text" class="form-control" name ="token" required><br>
+              <input type="submit" class="btn btn-info" value="Activar Descuento">
+            </div>
+        </form>  
+        <!--Formulario para borrar Cookie descuento-->
+        <form action="#" method="post" id="formDescuento">
+          <input type="hidden" name="borraCookies" value="si">
+          <input type="submit" class="btn btn-danger" value="Borrar Descuento">
+        </form> 
+        <hr>
         <h2 class="tituloInfoGeneral">Gestionar Datos</h2>
          
           <div class="row">

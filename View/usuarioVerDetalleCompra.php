@@ -3,12 +3,14 @@
 <head>
   <title></title>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="../View/css/estiloUsuarioPerfil.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <!--Estilo Personalizaso-->
+  <link rel="stylesheet" type="text/css" href="../View/css/estiloUsuarioPerfil.css">
+  <!--Nuestras funciones-->
   <script src="../View/JS/funcionesdos.js"></script>
 
    <!-- Los iconos tipo Solid de Fontawesome-->
@@ -41,7 +43,7 @@
             </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="../Controller/usuarioVerCatalago.php">Todo el catálogo</a>
-            <a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Los más vendidos</a>
+            <a class="dropdown-item" href="../Controller/usuarioVerMasVendidos.php">Novedades y más vendidos</a>
           </div>
         </li>
         <li class="nav-item">
@@ -146,7 +148,7 @@
     </tbody>
 
   </table>
-
+</div>
   <div class="row">
     <div class="col-sm-9"></div>
     <div class="col-sm">IVA</div>
@@ -169,12 +171,13 @@
 
 
 <br><br><br> 
-</div>  
 
+
+
+</div>
 
 </div>
 
-</div>
 </div>
 <!-- Footer -->
     <footer id="myFooter" class="py-4 bg-dark text-white-50">

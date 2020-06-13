@@ -17,8 +17,9 @@
  	<!-- Los iconos tipo Solid de Fontawesome-->
  	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
  	<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-
+  <!--Estilo Personal-->
 	<link rel="stylesheet" type="text/css" href="../View/css/estiloAyudaAmin.css">
+  <!--Funciones propias-->
 	<script src="../View/JS/funcionesAyudaAdmin.js"></script>
   <script src="../View/JS/funciones.js"></script>
 

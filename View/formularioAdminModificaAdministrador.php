@@ -18,10 +18,11 @@
 <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 	
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
-<!--Estilo Personalizado-->
-<link rel="stylesheet" type="text/css" href="../View/css/estiloFormulario.css">
+
+<!--Estilo Personalizaso-->
+<link rel="stylesheet" type="text/css" href="../View/css/estiloFormulario.css"> 
 <!--Funciones-->
-<script src="../View/JS/funciones.js"></script>
+<script  src="../View/JS/funciones.js"></script>
    
 </head>
 <body>
@@ -49,7 +50,9 @@
           <td><a href="../Controller/cerrarSesion.php"><button type="button" class="btn btn-warning">Cerrar sesion</button></a></td>
         </div>
     </div>
-    <!-- Modal -->
+</nav>
+
+<!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -69,55 +72,45 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button  id="entrar" type="button" class="btn btn-primary">Entrar</button>
+        <button id="entrar" type="button" class="btn btn-primary">Entrar</button>
       </div>
     </div>
   </div>
 </div>
-</nav>
 
 
 
   <!--Código Formulario-->
-<form id="form" action="../Controller/<?=$destino?>" enctype="multipart/form-data" method="POST">
-<div class="container"> 
   <h1 class="titulo">Formulario</h1>
+ <div class="container">
+
+     
+<form id="form" action="../Controller/<?=$destino?>"  method="POST">
+
+  
   <div class="form-group">
 
- <input type="hidden" name="id" value="<?=$id?>">
-  <label class="texto" for="usr">Nombre:</label>
-  <input type="text" class="form-control" id="nombre" name="nombre" value="<?=$nombre?>" required>
+    <label class="texto" for="usr">Usuario:</label>
+      <input type="text" class="form-control" id="usuario" name="usuario" value="<?=$usuario?>" required>
 
-  <label class="texto" for="usr">DNI:</label>
-  <input type="text" class="form-control" id="dni" name="dni" value="<?=$dni?>" pattern="\d{8}[a-z A-Z]$" title="Tiene que tener 8 dígitos y una letra" required>
+    <label class="texto" for="usr">Contraseña:</label>
+      <input type="text" class="form-control" id="contraseña" name="contraseña" value="<?=$contraseña?>" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
 
-  <label class="texto" for="usr">Correo:</label>
-  <input type="email" class="form-control" id="correo" name="correo" value="<?=$correo?>"  required>
+  
+    <input type="hidden" class="form-control" id="dni" name="dni" value="<?=$dni?>"required>
 
-  <label class="texto" for="usr">Dirección:</label>
-  <input type="text" class="form-control" id="direccion" name="direccion" value="<?=$direccion?>" required>
+    <label class="texto" for="usr">Email:</label>
+      <input type="email" class="form-control" id="email2" name="email" value="<?=$email?>" required>
 
-  <label class="texto" for="usr">Código Postal:</label>
-  <input type="text" class="form-control" id="cp" name="cp" value="<?=$cp?>" pattern="^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$" title="Tiene que tener 5 dígitos" required>
+    <label class="texto" for="usr">Telefono:</label>
+      <input type="text" class="form-control" id="telefono" name="telefono" value="<?=$telefono?>" pattern="^[\d]{3}[-]*([\d]{2}[-]*){2}[\d]{2}$" required>
 
-  <label class="texto" for="usr">Telefono:</label>
-  <input type="text" class="form-control" id="telefono" name="telefono" value="<?=$telefono?>" pattern="^[\d]{3}[-]*([\d]{2}[-]*){2}[\d]{2}$" title="Tiene que tener 9 dígitos" required>
-
-
-  <label class="texto" for="usr">Contraseña:</label>
-  <input type="text" class="form-control" id="contraseña" name="contraseña" value="<?=$contraseña?>" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Tiene que contener una mayúscula, una minúcula y al menos un número" required>
-
-  <br><br>
-
-  <input type="submit"  class="btn btn-danger" value="GRABAR">
-  <a href="../Controller/verUsuarios.php">Volver al listado</a>
-</div>
-</form>
+    <br><br>
+      <input type="submit" class="btn btn-danger" value="GRABAR">
+    <a href="../Controller/adminVerAdministradores.php">Volver al listado</a>
 </div>
 
-
-
-
+</div>
   <!-- Footer -->
   <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
     <div class="container text-center">
@@ -127,5 +120,4 @@
 <!-- Footer -->
 
 </body>
-
 </html>

@@ -6,7 +6,6 @@
 
 <!--JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -17,11 +16,13 @@
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
   <!--DATATABLES-->
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
-  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
+<!--Estilo Personalizado-->
+<link rel="stylesheet" href="../View/css/estilos.css">
+<!--Funciones-->
+<script src="../View/JS/funciones.js"></script>
 
-  <link rel="stylesheet" href="../View/css/estilos.css">
-  <script src="../View/JS/funciones.js"></script>
 </head>
 <body>
 <!--Código barra de navegación-->
@@ -63,6 +64,7 @@
         <th>Usuario</th>
         <th>Total</th>
         <th>Ver detalle</th>
+        <th>Descargar Fra.</th>
       </tr>
     </thead>
     <tbody id="myTable">
@@ -79,6 +81,15 @@
         <td><?=$key->getUsuario()?></td>
         <td><?=$key->getTotal()?></td>
         <td><a href="../Controller/detalle_venta.php?id=<?=$key->getId()?>&total=<?=$key->getTotal()?>&usuario=<?=$key->getUsuario()?>&fecha=<?=$key->getFechaCompra()?>"><button type="button" class="btn btn-success">Ver venta</button></a></td>
+         <!--Utilizo estos datos para generar el pdf de la factura-->
+      <td><form action="../Controller/generarpdf.php" method="post">
+        <input type="hidden" name="usuario" value="<?=$key->getUsuario()?>">
+        <input type="hidden" name="id_venta" value="<?=$key->getId()?>">
+        <input type="hidden" name="fecha" value="<?=$key->getfechaCompra()?>">
+        <input type="hidden" name="total" value="<?=$key->getTotal()?>">
+        <input type="submit" class="btn btn-info" name="enviar" value="Generar PDF">
+      </form>
+       </td>
       </tr>
       
     <?php } ?>

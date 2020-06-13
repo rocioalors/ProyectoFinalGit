@@ -16,7 +16,6 @@ setlocale(LC_TIME, 'es_ES.UTF-8');
 // En windows
 setlocale(LC_TIME, 'spanish');
 
-$total=0;
 
 require_once'../Model/Venta.php';
 require_once'../Model/Detalle_Venta.php';
@@ -26,13 +25,25 @@ if(isset($_REQUEST['operacion'])){
 	
   		$consulta=file_get_contents("http://localhost/ProyectoFinalGit/controller/adminConsultas.php?datos=$_GET[operacion]");
   		$datos=json_decode($consulta);
-  		if($_REQUEST['operacion']=='todas'){
-  			foreach ($datos as $key) {
-				$total+=$key->total;
-  		}
       }
     
-}
+
+//Ver promedio anual
+$promedio =Venta::promedio();
+$datoUno=round($promedio);
+
+//Usuario que mas ha gastado y cantidad gastada
+$masCompra=Venta::usuarioQueMasCompra();
+
+//Total ingresos anuales
+$ingresos=Venta::totalIngresos();
+$total=round($ingresos);
+
+//Tres libros más vendidos
+$ventaAux=Detalle_Venta::tresLibrosMasVendidos();
+
+//Ver grafica trimestral
+$trimestre=Venta::ventasTrimestrales();
 
 include'../View/adminGestionVentas.php';
 }else{
