@@ -80,29 +80,29 @@
 
 <div class="container">
 	<h1 class="tituloInfoGeneral">¿Necesitas Ayuda?</h1><br>
-  <a class="btn btn-warning" href="usuAyuda.php?file=ManualAyudaAdministrador.pdf">Descargar Manual de Ayuda</a><br><br>
+  <a class="btn btn-warning" href="adminAyuda.php?file=ManualAyudaAdministrador.pdf">Descargar Manual de Ayuda</a><br><br>
   <h6 class="tituloInfoGeneral">Cuestiones más frecuentes</h6>
     <div class="botones">
 	 <button class="accordion text-light">¿Cómo visualizar, añadir, modificar o eliminar datos?</button>
 		<div class="panel">
   			<h5>Visualizar datos</h5>
-  			<p>Haz click en el menú de navegación en los datos que quieras visualizar (libros, usuarios, préstamos, administradores, email o ventas) o bien accede desde el panel de control de inicio haciendo click en la imagen de los datos que desees visualizar.</p>
+  			<p>Haz clic en el menú de navegación en los datos que quieras visualizar (libros, usuarios, préstamos, administradores, email o ventas) o bien accede desde el panel de control de inicio haciendo clic en la imagen de los datos que desees visualizar.</p>
   			<p>Una vez dentro de la pestaña elegida, podrás visualizar una tabla con todos los datos seleccionados, pudiendo realizar busquedas e incluso ordenación de datos.</p>
 
   			<h6>Caso Especial - Préstamos</h6>
   			<p>En el caso de los préstamos, deberás seleccionar los datos a visualizar (Todos los préstamos o préstamos fuera de plazo).</p>
-  			<p>Una vez seleccionado los datos puedes cancelar el préstamo  realizando click sobre el botón Cancelar o visualizar los datos de contacto del usuario que ha realizado el préstamo haciendo click sobre el botón Contactar.</p>
+  			<p>Una vez seleccionado los datos puedes cancelar el préstamo  realizando clic sobre el botón Cancelar o visualizar los datos de contacto del usuario que ha realizado el préstamo haciendo clic sobre el botón Contactar.</p>
 
   			<h5>Añadir Datos</h5>
-  			<p>Una vez dentro de la pestaña de los datos que queremos añadir, hacemos click sobre el boton añadir que se encuentra en la parte superior de la tabla de datos.</p>
-  			<p>Se abre una nueva ventana con un formulario. Debes rellenar todos los datos y hacer click en botón Grabar.</p>
+  			<p>Una vez dentro de la pestaña de los datos que queremos añadir, hacemos clicksobre el boton añadir que se encuentra en la parte superior de la tabla de datos.</p>
+  			<p>Se abre una nueva ventana con un formulario. Debes rellenar todos los datos y hacer clic en botón Grabar.</p>
 
   			<h5>Modificar Datos</h5>
-  			<p>Una vez dentro de la pestaña de los datos que queremos añadir, hacemos click sobre el boton <i class="far fa-edit"></i>.</p>
-  			<p>Se abre una nueva ventana con un formulario con los datos actuales, cambia los datos que deseas y haz click sobre el botón Grabar.</p>
+  			<p>Una vez dentro de la pestaña de los datos que queremos añadir, hacemos clic sobre el boton <i class="far fa-edit"></i>.</p>
+  			<p>Se abre una nueva ventana con un formulario con los datos actuales, cambia los datos que deseas y haz clic sobre el botón Grabar.</p>
 
   			<h5>Eliminar Datos</h5>
-  			<p>Una vez dentro de la pestaña de los datos que queremos añadir, hacemos click sobre el boton <i class="fas fa-trash-alt"></i>.</p>
+  			<p>Una vez dentro de la pestaña de los datos que queremos añadir, hacemos clic sobre el boton <i class="fas fa-trash-alt"></i>.</p>
   			<p>Se nos preguntará si estamos seguros de eliminar el registro, si es así pulsaremos aceptar. Si pulsamos sobre cancelar no se producirá ningún cambio.</p>
 
   			<h5>Ventas</h5>
@@ -113,10 +113,10 @@
 	<button class="accordion text-light">Visualizar y eliminar Emails recibidos</button>
 		<div class="panel">
 			<h5>Visualizar Emails</h5>
-  			<p>Para visualizarlos sólo es necesario seleccionar la fecha de la que queremos ver los Emails y hacemos click sobre el botón Consultar. Una vez seleccionada se nos mostrará en una tabla todos los emails recibidos ese día.</p>
+  			<p>Para visualizarlos sólo es necesario seleccionar la fecha de la que queremos ver los Emails y hacemos clic sobre el botón Consultar. Una vez seleccionada se nos mostrará en una tabla todos los emails recibidos ese día.</p>
 
   			<h5>Eliminar Emails</h5>
-  			<p>Justo después de la tabla con la información de los emails recibidos, visualizamos un párrafo que nos muestras el número de lineas que tiene el archivo que contiene los emails. Se recomienda borrarlo cada cierto tiempo haciendo click sobre el botón Borrar Emails.</p>
+  			<p>Justo después de la tabla con la información de los emails recibidos, visualizamos un párrafo que nos muestras el número de lineas que tiene el archivo que contiene los emails. Se recomienda borrarlo cada cierto tiempo haciendo clic sobre el botón Borrar Emails.</p>
 		</div>
 
 	<button class="accordion text-light">Consultar Ventas</button>

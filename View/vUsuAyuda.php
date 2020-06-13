@@ -113,7 +113,7 @@
 
   <p>3. Para tramitar tu compra selecciona finalizar compra y rellena los datos necesarios para tramitarla (Nombre, apellidos, nº de cuenta y CVV).</p>
 
-  <P>4. Lo tienes todo? ¡Ahora ya puedes confirmar tu pedido y disfrutar en muy poco tiempo de tu compra!</P>
+  <P>4.¿Lo tienes todo? ¡Ahora ya puedes confirmar tu pedido y disfrutar en muy poco tiempo de tu compra!</P>
 
 </div>
 
@@ -123,7 +123,7 @@
 
   <p>1. Deslizate por nuestro catálogo o bien escribe el título de tu libro en el buscador. ¡Seguro que encuentras lo que buscas!</p> 
 
-  <p>2. Has encontrado lo que quieres? Selecciona el botón prestar y añade tu libro a tus préstamos. Ya puedes pasar a recogerlo en nuestro establecimiento.(Recuerda que sólo puedes tener dos préstamos activos y que no se puede prestar un mismo libro dos veces).</p>
+  <p>2. ¿Has encontrado lo que quieres? Selecciona el botón prestar y añade tu libro a tus préstamos. Ya puedes pasar a recogerlo en nuestro establecimiento.(Recuerda que sólo puedes tener dos préstamos activos y que no se puede prestar un mismo libro dos veces).</p>
 
   <p>3. Para consultar tus préstamos activos, solo debes entrar en la pestaña Perfil->Préstamos...¡No te olvides de devolverlos a tiempo!</p>
 </div>
