@@ -46,7 +46,7 @@
           </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../Controller/usuarioVerPerfil.php">Mi Perfíl</a>
+            <a class="nav-link" href="../Controller/usuarioVerPerfil.php">Mi Perfil</a>
          </li>
 
          <li class="nav-item">
@@ -96,7 +96,7 @@
      <h1 class="titulo">Comentarios de Nuestros Lectores</h1>
 	
     <?php
-		foreach ($comentarios as $key) {
+		foreach ($data['comentarios'] as $key) {
         $fecha=$key->getFecha();
   
         $date= strftime("%d de %B del %Y", strtotime($fecha));

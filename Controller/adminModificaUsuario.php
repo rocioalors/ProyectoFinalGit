@@ -14,7 +14,7 @@ $telefono=$_REQUEST['telefono'];
 $contraseña=$_REQUEST['contraseña'];
 
 
-include "../View/formularioAdminNuevoUsuario.php";
+include "../View/formularioAdminModificaUsuario.php";
 }else{
 	 header('Location: index.php');
 }

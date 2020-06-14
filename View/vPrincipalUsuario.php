@@ -48,7 +48,7 @@
           </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../Controller/usuarioVerPerfil.php">Mi Perfíl</a>
+            <a class="nav-link" href="../Controller/usuarioVerPerfil.php">Mi Perfil</a>
          </li>
 
          <li class="nav-item">
@@ -89,7 +89,6 @@
             <h1 class="tcs ">Bienvenido a The Corner Of Dreams</h1>
             <h3 class="tcs ">Apaga la TV y Enciende un Libro</h3>
               <h2 class="tc2 "><?=$_SESSION['user']?></h2>
-              <p><a class="btn btn-lg btn-danger" href="../Controller/usuarioVerCatalago.php" target="_blank" role="button">Ver Catálogo</a></p>
           </div>
         </div>
     </div>
@@ -101,7 +100,7 @@
           <div class="container">
             <div class="carousel-caption text-left">
               <h1 class="tc3 ">Miles de aventuras te esperan...</h1>
-              <p><a class="btn btn-lg btn-danger" href="../Controller/usuarioVerCatalago.php" target="_blank" role="button">Ver Catálogo</a></p>
+              
           </div>
         </div>
     </div>

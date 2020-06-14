@@ -79,7 +79,7 @@
 </div>
 
 <br><br>
-<a href="../Controller/adminVerVentas.php">Volver</a>
+<a href="../Controller/adminVerVentas.php">Volver a buscar</a>
 </div>
 <br><br>
   <!-- Footer -->

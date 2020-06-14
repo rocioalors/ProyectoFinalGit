@@ -268,6 +268,14 @@ class  Libro{
         return $libros;
     
     }
+    public static function getComprobar($titulo,$autor,$edicion) {
+        $conexion = proyectoBD::connectDB();
+        $seleccion = "SELECT * FROM libros WHERE titulo='$titulo 'AND autor='$autor'";
+        //echo $seleccion;
+        $consulta = $conexion->query($seleccion);
+        $total=$consulta->rowCount();
+        return $total ;
+    }
  
    
 

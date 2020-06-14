@@ -15,7 +15,7 @@ setlocale(LC_TIME, 'spanish');
 
 
 $ventaMes=Venta::mesDeterminado($_REQUEST['mes']);
-
+$mes= strftime("%B", strtotime($_REQUEST['mes']));
 
 
 include '../View/vista_venta_mes.php';

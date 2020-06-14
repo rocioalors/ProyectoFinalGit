@@ -23,7 +23,7 @@ if(isset($_REQUEST['operacion'])){
     }
 
 }
- $data['prestamo']=Prestamo::getPrestamos();
+ //$data['prestamo']=Prestamo::getPrestamos();
 
  
  

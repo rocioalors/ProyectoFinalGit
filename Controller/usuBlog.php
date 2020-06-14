@@ -14,8 +14,8 @@ if(isset($_REQUEST['enviar'])){
 	$ComentarioAux->insert();
 
 }
-$comentarios=Comentarios::getComentarios();
-$registros=sizeof($comentarios);
+$data['comentarios']=Comentarios::getComentarios();
+$registros=sizeof($data['comentarios']);
 
 
 include '../View/usuBlog.php';

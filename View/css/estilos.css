@@ -64,3 +64,11 @@ body{
 .card-header{
   text-align: center;
 }
+#advertencia{
+ display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    border-radius: 25px; 
+    width: 30%;
+}

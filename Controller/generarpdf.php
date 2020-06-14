@@ -12,7 +12,7 @@ setlocale(LC_TIME, 'es_ES.UTF-8');
 setlocale(LC_TIME, 'spanish');
 
   
-        $date= strftime("%d de %B del %Y", strtotime($_REQUEST['fecha']));
+$date= strftime("%d de %B del %Y", strtotime($_REQUEST['fecha']));
 
 $ventas=Detalle_Venta::detalleVenta($_REQUEST['id_venta']);
 $usuario=Usuario::getUsuarioByNombre($_REQUEST['usuario']);

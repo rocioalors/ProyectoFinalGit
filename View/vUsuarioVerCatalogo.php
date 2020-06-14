@@ -80,7 +80,7 @@
   <h1 class="display-4">Viaja por el mundo a través de la lectura</h1>
   <p class="lead">Este año sabemos que viajar está más complicado que nunca, pero una vez más la literatura nos rescata del hastío y la rutina.</p>
   <p id="oferta">Consulta tus préstamos y compras a través de tu perfíl.</p>
-  <a class="btn btn-info btn-lg" href="../Controller/usuarioVerPerfil.php" role="button">Ver Perfíl</a>
+  <a class="btn btn-info btn-lg" href="../Controller/usuarioVerPerfil.php" role="button">Ver Perfil</a>
 </div>
 
 <!--Contenido de la página-->
