@@ -9,7 +9,7 @@ $_SESSION['contador']=0;
    	if(isset($_COOKIE['token'])){
    	if($_SESSION['contador']==0){
       if($_REQUEST['descuento']==$_COOKIE['token']){
-        $_SESSION['total']=$_SESSION['subtotal']-($_SESSION['subtotal']*($_COOKIE['descuento']/100))+$_SESSION['envio'];
+        $_SESSION['total']=round($_SESSION['subtotal']-($_SESSION['subtotal']*($_COOKIE['descuento']/100))+$_SESSION['envio'],2);
         $_SESSION['contador']=1;
       }
   }
